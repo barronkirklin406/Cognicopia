@@ -439,7 +439,7 @@ body{
    dead at the edge. Bare cloth in the margins, paper laid over cloth
    where the words are. One pattern, one layer, always in register. */
 .wrap{max-width:760px;margin:0 auto;padding:0 44px 96px;
-  background:rgba(252,250,246,.62);
+  background:rgba(235,224,205,.78);
   box-shadow:0 0 0 1px rgba(226,220,208,.9)}
 @media (max-width:560px){ .wrap{padding:0 20px 72px} .wordmark{font-size:38px} }
 
@@ -455,7 +455,7 @@ header{padding:56px 0 0}
 /* Fixed width with a percentage cap rather than min(): if a browser
    does not understand the function the whole rule is dropped and the
    image renders at its intrinsic 860px, which wrecks the page. */
-.logo{width:300px;max-width:74%;height:auto;display:block;margin:0 auto 6px}
+.logo{width:380px;max-width:86%;height:auto;display:block;margin:0 auto 6px}
 .brandtext{margin:0}
 /* Fixed sizes with a breakpoint rather than clamp(): an unsupported
    function drops the whole declaration, and the name rendering at
@@ -469,7 +469,7 @@ header{padding:56px 0 0}
 /* Scoped to the byline only. ".brand p" outranks ".wordmark" on
    specificity, so it was silently flattening the name to 15px. */
 .brand p:last-child{margin:0;font-size:15px;color:var(--ink-soft)}
-@media (max-width:460px){ .brand{margin-bottom:22px} .logo{width:210px} }
+@media (max-width:460px){ .brand{margin-bottom:22px} .logo{width:260px} }
 h1{font-family:var(--display);font-weight:600;
   font-size:clamp(30px,5vw,41px);line-height:1.16;
   margin:0 0 20px;max-width:17ch;letter-spacing:-.01em}
@@ -542,16 +542,12 @@ legend{padding:0;width:100%}
 
 /* Section markers are pinwheel blocks. The form really is a sequence,
    so the numbering earns its place. */
-.step-number{display:flex;align-items:center;justify-content:flex-end;
-  width:30px;flex:none;font-family:var(--display);font-size:25px;
-  font-weight:700;line-height:1;color:var(--garden-dark)}
 .num{display:flex;align-items:center;justify-content:center;
-  width:38px;height:38px;flex:none;padding:7px;border-radius:50%;
+  width:38px;height:38px;flex:none;border-radius:50%;
+  font-family:var(--display);font-size:20px;font-weight:700;line-height:1;
+  color:var(--garden-dark);text-align:center;
   background:#CDEDEC;box-shadow:0 0 0 1px #A7D8D8,0 2px 5px rgba(32,52,58,.12)}
-.num-logo{display:block;width:100%;height:100%;object-fit:contain;
-  filter:grayscale(1) contrast(1.8) brightness(.18)}
 .high-contrast-mode .num{background:#fff;box-shadow:0 0 0 2px #000}
-.high-contrast-mode .num-logo{filter:grayscale(1) contrast(2) brightness(.35)}
 
 .leg h2{font-family:var(--display);font-weight:600;
   font-size:25px;margin:0;letter-spacing:-.005em}
@@ -794,7 +790,7 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
 <form id="f" novalidate>
 
   <fieldset>
-    <legend><div class="leg"><span class="step-number">1</span><span class="num" aria-hidden="true"></span><h2>Who is this for?</h2></div></legend>
+    <legend><div class="leg"><span class="num" aria-hidden="true">1</span><h2>Who is this for?</h2></div></legend>
     <p class="hint">Only the first name appears on the pages they'll see.</p>
     <div class="row">
       <div class="field"><label for="first">First name</label>
@@ -821,7 +817,7 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
   </fieldset>
 
   <fieldset>
-    <legend><div class="leg"><span class="step-number">2</span><span class="num" aria-hidden="true"></span><h2>How is their vision?</h2></div></legend>
+    <legend><div class="leg"><span class="num" aria-hidden="true">2</span><h2>How is their vision?</h2></div></legend>
     <section class="accessibility-panel" aria-labelledby="accessibilityTitle">
       <h2 id="accessibilityTitle">Visual accessibility</h2>
       <div class="accessibility-options">
@@ -842,7 +838,7 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
   </fieldset>
 
   <fieldset>
-    <legend><div class="leg"><span class="step-number">3</span><span class="num" aria-hidden="true"></span><h2>How much of a challenge?</h2></div></legend>
+    <legend><div class="leg"><span class="num" aria-hidden="true">3</span><h2>How much of a challenge?</h2></div></legend>
     <p class="hint">This sets puzzle size and difficulty. If you're unsure, pick
     the easier one — a page that's too hard gets abandoned, a page that's too
     easy still gets finished.</p>
@@ -857,7 +853,7 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
   </fieldset>
 
   <fieldset>
-    <legend><div class="leg"><span class="step-number">4</span><span class="num" aria-hidden="true"></span><h2>Their life</h2></div></legend>
+    <legend><div class="leg"><span class="num" aria-hidden="true">4</span><h2>Their life</h2></div></legend>
     <p class="hint">This is the part that does the work. The more you fill in,
     the more the packet sounds like them instead of a worksheet.</p>
     <div class="row">
@@ -929,7 +925,7 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
   </fieldset>
 
   <fieldset>
-    <legend><div class="leg"><span class="step-number">5</span><span class="num" aria-hidden="true"></span><h2>The people who care for them</h2></div></legend>
+    <legend><div class="leg"><span class="num" aria-hidden="true">5</span><h2>The people who care for them</h2></div></legend>
     <p class="hint">First names only. These go on a page they can keep by the bed,
     with their picture beside each one if you add one, and the names also turn up in
     the word search so they come around again and again.</p>
@@ -938,7 +934,7 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
   </fieldset>
 
   <fieldset>
-    <legend><div class="leg"><span class="step-number">6</span><span class="num" aria-hidden="true"></span><h2>Which pages do you want?</h2></div></legend>
+    <legend><div class="leg"><span class="num" aria-hidden="true">6</span><h2>Which pages do you want?</h2></div></legend>
     <p class="hint">Tick as many as you like. Every page you pick is built from
     the details above and printed in large type.</p>
     <div class="tools">
@@ -949,7 +945,11 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
     <div class="field" style="max-width:280px;margin-top:20px">
       <label for="targetPages">Target workbook pages
         <span class="sub">Includes the cover page</span></label>
-      <input type="number" id="targetPages" min="2" max="30" value="4">
+      <input type="number" id="targetPages" min="2" max="30" value="4"
+             aria-describedby="targetPagesHint">
+      <p class="hint" id="targetPagesHint">This sets the core modules and sections.
+        Each one expands into the full printable layout; for example, 4 can produce
+        a comprehensive workbook of about 26 printed pages.</p>
     </div>
     <p class="subhead">Workbook export activities</p>
     <div class="picks" id="workbookActivities">
@@ -963,7 +963,7 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
   </fieldset>
 
   <fieldset>
-    <legend><div class="leg"><span class="step-number">7</span><span class="num" aria-hidden="true"></span><h2>Any holidays coming up?</h2></div></legend>
+    <legend><div class="leg"><span class="num" aria-hidden="true">7</span><h2>Any holidays coming up?</h2></div></legend>
     <p class="hint">Each holiday you tick adds its own page — memories to talk
     about, words of the season, and a matching illustration. Leave them all
     blank for an everyday packet.</p>
@@ -974,7 +974,7 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
   </fieldset>
 
   <fieldset>
-    <legend><div class="leg"><span class="step-number">8</span><span class="num" aria-hidden="true"></span><h2>For the cover</h2></div></legend>
+    <legend><div class="leg"><span class="num" aria-hidden="true">8</span><h2>For the cover</h2></div></legend>
     <div class="row">
       <div class="field"><label for="fac">Facility name</label>
         <input type="text" id="fac" maxlength="80" autocomplete="off"></div>
@@ -1104,17 +1104,17 @@ const STAGE = {
            sayings:6, prompts:6, name:4, odd:5,
            lyrics:6, life:5, career:8, scram:6, match:5, assoc:8, trivia:6,
            scramLen:6, hint:false,
-           mazeC:8, mazeR:10, bingo:5, dots:18, cbn:4, pop:6, rather:7, crossSize:13, crossN:9, mRings:5, mSeg:12, mWeight:3.0},
+           mazeC:8, mazeR:10, bingo:5, dots:24, cbn:4, pop:6, rather:7, crossSize:13, crossN:9, mRings:5, mSeg:12, mWeight:3.0},
   middle: {grid:9,  words:7,  cell:26, dirs:[[1,0],[0,1]], maxWord:8,
            sayings:5, prompts:5, name:3, odd:4,
            lyrics:5, life:4, career:6, scram:5, match:4, assoc:6, trivia:5,
            scramLen:5, hint:true,
-           mazeC:6, mazeR:8, bingo:4, dots:14, cbn:4, pop:5, rather:6, crossSize:11, crossN:7, mRings:4, mSeg:8, mWeight:3.4},
+           mazeC:6, mazeR:8, bingo:4, dots:20, cbn:4, pop:5, rather:6, crossSize:11, crossN:7, mRings:4, mSeg:8, mWeight:3.4},
   late:   {grid:7,  words:5,  cell:32, dirs:[[1,0],[0,1]], maxWord:6,
            sayings:3, prompts:4, name:2, odd:3,
            lyrics:3, life:3, career:4, scram:4, match:3, assoc:4, trivia:4,
            scramLen:4, hint:true,
-           mazeC:5, mazeR:6, bingo:3, dots:10, cbn:3, pop:4, rather:5, crossSize:9, crossN:5, mRings:3, mSeg:6, mWeight:4.0}
+           mazeC:5, mazeR:6, bingo:3, dots:16, cbn:3, pop:4, rather:5, crossSize:9, crossN:5, mRings:3, mSeg:6, mWeight:4.0}
 };
 
 const PRON = {
@@ -1602,6 +1602,192 @@ const ERA_POP = {
               "Music came out of the air instead of off a disc."],
         words:["PODCAST","STREAM","BAKING"]}
 };
+
+const HISTORICAL_LIBRARY = {
+  1920:{culture:["Charleston dance","flapper fashion","penny candy","parlor games"],
+    screen:["The Jazz Singer","Metropolis","Harold Lloyd","Mary Pickford"],
+    music:["Bessie Smith","Duke Ellington","Louis Armstrong","phonograph records"],
+    venues:["dance pavilion","soda fountain","vaudeville theater","neighborhood picture house"],
+    places:["Coney Island","Atlantic City boardwalk","Chicago","San Francisco"],
+    happy:["commercial radio became widely available","Charles Lindbergh crossed the Atlantic","the first talking pictures reached theaters","women voted nationally in the United States"],
+    autos:["Ford Model T","Ford Model A","Essex Coach","Packard sedan"],
+    technology:["telephone party line","icebox","electric toaster","manual typewriter"],
+    printToys:["The Saturday Evening Post","National Geographic","Buster Brown shoes","Lincoln Logs"],
+    celebrations:["county fair","Memorial Day parade","Fourth of July picnic","community barn dance"]},
+  1930:{culture:["swing dancing","penny postcards","home canning","radio serials"],
+    screen:["The Wizard of Oz","Snow White","Shirley Temple","Fred Astaire"],
+    music:["Bing Crosby","Benny Goodman","Billie Holiday","big-band swing"],
+    venues:["five-and-dime store","bus depot","downtown movie palace","drugstore fountain"],
+    places:["Yellowstone","Niagara Falls","New York City","Los Angeles"],
+    happy:["the Golden Gate Bridge opened","the 1936 Olympics brought Jesse Owens to Berlin","the first regular television demonstrations appeared","Social Security was signed into law"],
+    autos:["Chevrolet Master","Ford V8","Chrysler Airflow","Buick Special"],
+    technology:["household radio","wind-up alarm clock","rotary telephone","adding machine"],
+    printToys:["Life magazine","comic strips","Monopoly","pedal car"],
+    celebrations:["school graduation","church picnic","harvest supper","Christmas caroling"]},
+  1940:{culture:["victory garden","ration books","newsreel","jitterbug"],
+    screen:["Casablanca","It's a Wonderful Life","The Philadelphia Story","Gene Kelly"],
+    music:["Frank Sinatra","the Andrews Sisters","Glenn Miller","swing orchestra"],
+    venues:["USO dance","canteen","drive-in restaurant","downtown theater"],
+    places:["Washington DC","Grand Canyon","Hawaii","London"],
+    happy:["the United Nations was founded","the polio vaccine research began","the World Series returned after the war","the Marshall Plan helped rebuild Europe"],
+    autos:["Willys Jeep","Chevrolet Fleetline","Ford Super Deluxe","Hudson Commodore"],
+    technology:["wartime telephone exchange","mechanical cash register","fountain pen","electric refrigerator"],
+    printToys:["Reader's Digest","Saturday Evening Post","board games","paper dolls"],
+    celebrations:["V-J Day celebration","victory parade","community sing","county fair"]},
+  1950:{culture:["sock hop","poodle skirt","tail fins","television dinner"],
+    screen:["I Love Lucy","The Ed Sullivan Show","Singin' in the Rain","Marilyn Monroe"],
+    music:["Elvis Presley","Patsy Cline","Nat King Cole","doo-wop"],
+    venues:["malt shop","drive-in theater","bowling alley","roller rink"],
+    places:["Disneyland","Las Vegas","Miami Beach","Washington DC"],
+    happy:["the polio vaccine was announced","Disneyland opened","Alaska and Hawaii joined the United States","the first transcontinental jet service began"],
+    autos:["Chevrolet Bel Air","Ford Thunderbird","Cadillac Eldorado","Volkswagen Beetle"],
+    technology:["black-and-white television","jukebox","transistor radio","automatic washing machine"],
+    printToys:["Mad magazine","Life magazine","Barbie","Hula Hoop"],
+    celebrations:["school sock hop","homecoming game","county fair midway","Christmas parade"]},
+  1960:{culture:["space race","civil rights marches","tie-dye","family station wagon"],
+    screen:["The Andy Griffith Show","Bonanza","The Sound of Music","Elizabeth Taylor"],
+    music:["The Beatles","Aretha Franklin","Johnny Cash","Motown"],
+    venues:["lunch counter","record store","roller rink","drive-in theater"],
+    places:["Cape Canaveral","New York World's Fair","San Francisco","New Orleans"],
+    happy:["the first human walked on the moon","the Civil Rights Act became law","the Peace Corps began","the World Wide Web was still ahead but satellites linked the world"],
+    autos:["Ford Mustang","Chevrolet Impala","Volkswagen Beetle","Jeep Wagoneer"],
+    technology:["transistor radio","eight-track player","color television","Polaroid camera"],
+    printToys:["Peanuts books","Life magazine","Easy-Bake Oven","Etch A Sketch"],
+    celebrations:["moon-landing watch party","Fourth of July fireworks","school carnival","family reunion"]},
+  1970:{culture:["disco dancing","bell-bottom jeans","CB radio","TV dinners"],
+    screen:["Star Wars","Jaws","The Waltons","All in the Family"],
+    music:["Dolly Parton","Elton John","the Carpenters","earth, wind and fire"],
+    venues:["shopping mall","roller disco","arcade","fast-food restaurant"],
+    places:["Walt Disney World","Rocky Mountains","New York City","Hawaii"],
+    happy:["the first Earth Day was observed","the first email was sent","the first space station launched","the United States celebrated its bicentennial"],
+    autos:["Chevrolet Chevelle","Ford F-150","Dodge Challenger","Volkswagen Bus"],
+    technology:["pocket calculator","cassette tape","home video game","digital watch"],
+    printToys:["National Geographic","Peanuts cards","Star Wars figures","Rubik's Cube"],
+    celebrations:["bicentennial parade","disco dance","little league opening day","state fair"]},
+  1980:{culture:["mall culture","big hair","aerobics","mixtape"],
+    screen:["E.T.","Back to the Future","Cheers","The Cosby Show"],
+    music:["Michael Jackson","Whitney Houston","Bruce Springsteen","country pop"],
+    venues:["video store","shopping mall food court","arcade","roller rink"],
+    places:["Disney World","Niagara Falls","Washington DC","California coast"],
+    happy:["the first space shuttle launched","the Berlin Wall fell","the first heart-lung transplant successes were reported","Live Aid raised funds worldwide"],
+    autos:["Ford Mustang GT","Chevrolet Monte Carlo","Jeep Cherokee","Toyota pickup"],
+    technology:["VCR","boombox","personal computer","fax machine"],
+    printToys:["Nintendo Power","Garbage Pail Kids","My Little Pony","Trivial Pursuit"],
+    celebrations:["prom night","video-game tournament","graduation party","state fair concert"]},
+  1990:{culture:["grunge","sitcom night","minivan road trip","fanny pack"],
+    screen:["Seinfeld","Forrest Gump","Titanic","Home Improvement"],
+    music:["Garth Brooks","Whitney Houston","Shania Twain","hip-hop radio"],
+    venues:["video rental store","coffee shop","bowling center","mall food court"],
+    places:["Disneyland","Times Square","Las Vegas","Sydney Olympics"],
+    happy:["the Hubble Space Telescope launched","the World Wide Web opened to the public","the Good Friday Agreement was signed","the Olympics returned to Atlanta"],
+    autos:["Ford Explorer","Dodge Caravan","Chevrolet Suburban","Honda Accord"],
+    technology:["CD player","camcorder","dial-up modem","pager"],
+    printToys:["Beanie Babies","Pokémon cards","Harry Potter books","Teenage Mutant Ninja Turtles"],
+    celebrations:["millennium party planning","high-school football game","family reunion","New Year's Eve countdown"]},
+  2000:{culture:["text messaging","road trips with GPS","reality television","online shopping"],
+    screen:["American Idol","Shrek","Finding Nemo","The Lord of the Rings"],
+    music:["Alicia Keys","Tim McGraw","Carrie Underwood","Kelly Clarkson"],
+    venues:["coffeehouse","big-box store","multiplex cinema","community festival"],
+    places:["Times Square","Orlando","Las Vegas","Paris"],
+    happy:["the first privately developed crewed spacecraft flights began","digital cameras became everyday tools","social networks connected old friends","the 2008 Olympics opened in Beijing"],
+    autos:["Toyota Prius","Ford F-150","Jeep Wrangler","Honda Odyssey"],
+    technology:["flip phone","DVD player","USB drive","laptop computer"],
+    printToys:["Yu-Gi-Oh cards","Webkinz","American Girl dolls","Nintendo DS"],
+    celebrations:["graduation open house","neighborhood block party","summer music festival","New Year's Eve 2000"]}
+};
+
+/* A deeper recognition bank kept separate from the compact page-facing
+   records above. These are names and short cues, not trivia questions:
+   recognition and conversation are safer than testing recall. The bank is
+   intentionally U.S.-forward while leaving room for widely shared global
+   touchstones. */
+const HISTORICAL_ENRICHMENT = {
+  1920:{slang:["the bee's knees","the cat's pajamas","hep","hotsy-totsy","jalopy","darb"],
+    cities:["New York City","Chicago","Detroit","New Orleans","Los Angeles","Paris"],
+    cinema:["The Kid","Nosferatu","The Gold Rush","The Sheik","Rin Tin Tin","Mary Pickford"],
+    radio:["phonograph","jazz orchestra","blues record","dance band","vaudeville","radio experiment"],
+    events:["the first radio networks formed","the Roaring Twenties brought new dances","the Model T made travel familiar","the first talking-picture experiments began"],
+    cars:["Ford Model T","Ford Model A","Dodge Brothers touring car","Chevrolet Superior","Buick Master Six","Packard Twin Six","Essex sedan","Studebaker Big Six"]},
+  1930:{slang:["swell","gee whiz","dough","skid","hotsy-totsy","scram"],
+    cities:["New York City","Chicago","Detroit","Los Angeles","San Francisco","Washington DC"],
+    cinema:["King Kong","Gone with the Wind","Snow White","The Wizard of Oz","Mr. Smith Goes to Washington","Marx Brothers"],
+    radio:["Amos 'n' Andy","The Shadow","Lux Radio Theatre","Fibber McGee and Molly","big-band remote","serial adventure"],
+    events:["the Empire State Building opened","the Golden Gate Bridge opened","the first drive-in theater opened","Jesse Owens won four Olympic gold medals"],
+    cars:["Ford V8","Chevrolet Master Deluxe","Chrysler Airflow","Buick Special","Plymouth sedan","Packard One-Twenty","Hudson Terraplane","Pontiac Silver Streak"]},
+  1940:{slang:["gee whiz","swell","scram","gung ho","zoot suit","sugar"],
+    cities:["Washington DC","New York City","Los Angeles","London","Paris","Honolulu"],
+    cinema:["Casablanca","The Best Years of Our Lives","The Maltese Falcon","Pinocchio","Meet Me in St. Louis","Gene Kelly"],
+    radio:["Edward R. Murrow","The Jack Benny Program","Fibber McGee","wartime news bulletin","big-band broadcast","USO broadcast"],
+    events:["victory gardens spread across the country","the United Nations was founded","the GI Bill helped veterans attend school","the first commercial television demonstrations appeared"],
+    cars:["Willys Jeep","Ford Super Deluxe","Chevrolet Fleetline","Hudson Commodore","Chrysler Windsor","Buick Roadmaster","Oldsmobile 76","Studebaker Champion"]},
+  1950:{slang:["cool"," hip","going steady","cruisin'","sock hop","square"],
+    cities:["New York City","Los Angeles","Chicago","Las Vegas","Miami Beach","Nashville"],
+    cinema:["Singin' in the Rain","Rear Window","Ben-Hur","The Ten Commandments","Roman Holiday","The Searchers"],
+    radio:["Alan Freed","Top Forty","rock and roll","disc jockey","jukebox hit","Elvis on the radio"],
+    events:["the polio vaccine was announced","Disneyland opened","Alaska and Hawaii became states","the first transcontinental jet service began"],
+    cars:["Chevrolet Bel Air","Ford Thunderbird","Cadillac Eldorado","Chrysler New Yorker","Plymouth Belvedere","Buick Roadmaster","Oldsmobile 88","Mercury Monterey"]},
+  1960:{slang:["groovy","far out","hang loose","the fuzz","split-level","peace"],
+    cities:["New York City","San Francisco","Detroit","Memphis","New Orleans","Cape Canaveral"],
+    cinema:["Psycho","The Sound of Music","Mary Poppins","The Graduate","Lawrence of Arabia","Dr. Zhivago"],
+    radio:["Motown","Top Forty","transistor radio","FM stereo","folk revival","drive-in radio"],
+    events:["the Civil Rights Act became law","the first human walked on the moon","the Peace Corps began","the first Earth Day was observed"],
+    cars:["Ford Mustang","Chevrolet Impala","Pontiac GTO","Chevrolet Camaro","Dodge Charger","Plymouth Barracuda","Ford Galaxie","Volkswagen Beetle"]},
+  1970:{slang:["far out","can you dig it","boogie","bummer","the real thing","peace out"],
+    cities:["New York City","Los Angeles","Detroit","Atlanta","Seattle","Walt Disney World"],
+    cinema:["The Godfather","Rocky","Jaws","Star Wars","The Exorcist","American Graffiti"],
+    radio:["FM rock","disco","album rock","CB radio","smooth soul","country countdown"],
+    events:["the United States celebrated its bicentennial","the first email was sent","the first space station launched","the first Earth Day movement grew nationally"],
+    cars:["Pontiac Firebird Trans Am","Ford Mustang Mach 1","Chevrolet Chevelle SS","Dodge Challenger","Plymouth Road Runner","Chevrolet Corvette Stingray","Ford F-150","AMC Gremlin"]},
+  1980:{slang:["awesome","rad","totally","gag me","mall rat","yuppie"],
+    cities:["New York City","Los Angeles","Chicago","Miami","Seattle","Washington DC"],
+    cinema:["E.T.","Back to the Future","Raiders of the Lost Ark","The Breakfast Club","Dirty Dancing","The Color Purple"],
+    radio:["MTV","music video","boombox","new wave","hair metal","top ten countdown"],
+    events:["the first space shuttle launched","the Berlin Wall fell","Live Aid raised funds worldwide","personal computers entered ordinary homes"],
+    cars:["Ford Mustang GT","Chevrolet Monte Carlo SS","Buick Grand National","Pontiac Firebird","Jeep Cherokee","Toyota pickup","Chevrolet Camaro IROC-Z","Dodge Ram"]},
+  1990:{slang:["as if","whatever","phat","da bomb","talk to the hand","all that"],
+    cities:["New York City","Los Angeles","Atlanta","Seattle","Las Vegas","Orlando"],
+    cinema:["Forrest Gump","Titanic","The Lion King","Apollo 13","Toy Story","The Matrix"],
+    radio:["alternative rock","country radio","CD single","music video","boy band","hip-hop radio"],
+    events:["the World Wide Web opened to the public","the Hubble Space Telescope launched","the Olympics returned to Atlanta","the Good Friday Agreement was signed"],
+    cars:["Ford Explorer","Dodge Viper","Chevrolet Suburban","Toyota Supra","Honda Accord","Jeep Wrangler","Ford Taurus SHO","Mazda Miata"]},
+  2000:{slang:["bling","my bad","google it","noob","blog","crunk"],
+    cities:["New York City","Los Angeles","Chicago","Orlando","Las Vegas","Beijing"],
+    cinema:["The Lord of the Rings","Shrek","Finding Nemo","The Incredibles","The Dark Knight","Slumdog Millionaire"],
+    radio:["MP3 player","podcast","satellite radio","music download","streaming playlist","reality-show soundtrack"],
+    events:["digital cameras became everyday tools","social networks reconnected old friends","the 2008 Olympics opened in Beijing","the first privately developed crewed spacecraft flights began"],
+    cars:["Toyota Prius","Ford Mustang","Dodge Challenger revival","Jeep Wrangler","Honda Odyssey","Ford F-150","Chevrolet Silverado","Nissan 350Z"]}
+};
+
+const BIRTH_COHORTS = {
+  1920:{childhood:"radio, icebox, and Model T roads", school:"Depression-era classrooms", youngAdult:"wartime service and victory gardens", family:"postwar neighborhoods"},
+  1930:{childhood:"radio serials and bread lines", school:"wartime classrooms", youngAdult:"new television and early rock and roll", family:"suburban starter homes"},
+  1940:{childhood:"ration books and neighborhood games", school:"black-and-white television", youngAdult:"civil rights and the space race", family:"station wagons and color TV"},
+  1950:{childhood:"sock hops and malt shops", school:"the space race and Motown", youngAdult:"muscle cars and the moon landing", family:"cassette tapes and suburban life"},
+  1960:{childhood:"Saturday morning cartoons", school:"Apollo missions and record stores", youngAdult:"mall culture and video games", family:"home computers and cable TV"},
+  1970:{childhood:"disco, arcades, and station wagons", school:"cassette players and MTV", youngAdult:"personal computers and mall culture", family:"minivans and home video"},
+  1980:{childhood:"video stores and Saturday cartoons", school:"arcades and mixtapes", youngAdult:"the web, cell phones, and CDs", family:"DVDs and digital cameras"},
+  1990:{childhood:"Pokémon cards and dial-up", school:"text messaging and reality TV", youngAdult:"social networks and smartphones", family:"streaming and online shopping"},
+  2000:{childhood:"DVDs, game consoles, and flip phones", school:"social media and smartphones", youngAdult:"streaming and remote connection", family:"digital photographs and online life"}
+};
+
+function historicalDecades(born){
+  return eraDecades(born).filter(d=>HISTORICAL_LIBRARY[d]);
+}
+function historicalBits(born, field){
+  const enrichmentField=field==="autos" ? "cars" : field;
+  const values=historicalDecades(born).flatMap(d=>[
+    ...(HISTORICAL_LIBRARY[d][field]||[]),
+    ...((HISTORICAL_ENRICHMENT[d]||{})[enrichmentField]||[])
+  ]);
+  return [...new Set(values.map(value=>String(value).trim()).filter(Boolean))];
+}
+function birthCohortBits(born){
+  const decade=Math.floor(Number(born)/10)*10;
+  const cohort=BIRTH_COHORTS[decade]||BIRTH_COHORTS[1940];
+  return Object.values(cohort).map((value,index)=>
+    "Around "+(Number(born)+[8,12,20,35][index])+", age "
+      +[8,12,20,35][index]+": "+value+".");
+}
 
 
 /* ================================================================
@@ -2516,7 +2702,14 @@ function jobWords(job){
   return null;
 }
 function eraWords(born){
-  return [...eraBits(born,"words"), ...popBits(born,"words")]
+  return [...eraBits(born,"words"), ...popBits(born,"words"),
+          ...historicalBits(born,"culture"),
+          ...historicalBits(born,"autos"),
+          ...historicalBits(born,"technology"),
+      ...historicalBits(born,"printToys"),
+      ...historicalBits(born,"slang"),
+      ...historicalBits(born,"cities"),
+      ...historicalBits(born,"radio")]
     .map(w=>w.toUpperCase().replace(/[^A-Z]/g,""));
 }
 
@@ -2873,6 +3066,62 @@ function motif(d,name,x,y,s,weight){
           x+Math.cos(a)*s,y+Math.sin(a)*s);
       }
       break;
+    case "car":
+      d.roundedRect(x-s*.95,y-s*.18,s*1.9,s*.55,s*.12,s*.12);
+      L(x-s*.62,y-s*.18,x-s*.35,y-s*.55); L(x-s*.35,y-s*.55,x+s*.35,y-s*.55);
+      L(x+s*.35,y-s*.55,x+s*.62,y-s*.18);
+      C(x-s*.58,y+s*.4,s*.15); C(x+s*.58,y+s*.4,s*.15);
+      L(x-s*.84,y+s*.02,x+s*.84,y+s*.02);
+      break;
+    case "truck":
+      d.rect(x-s*.95,y-s*.42,s*1.25,s*.75); d.rect(x+s*.3,y-s*.2,s*.65,s*.53);
+      L(x+s*.3,y-s*.2,x+s*.48,y-s*.42); L(x+s*.48,y-s*.42,x+s*.75,y-s*.42);
+      C(x-s*.6,y+s*.42,s*.15); C(x+s*.58,y+s*.42,s*.15); break;
+    case "train":
+      d.rect(x-s*.65,y-s*.55,s*1.15,s*1.0); d.rect(x+s*.5,y-s*.18,s*.35,s*.63);
+      L(x-s*.85,y+s*.45,x+s*.88,y+s*.45); C(x-s*.4,y+s*.62,s*.16);
+      C(x+s*.42,y+s*.62,s*.16); L(x-s*.35,y-s*.75,x+s*.25,y-s*.75); break;
+    case "bicycle":
+      C(x-s*.52,y+s*.38,s*.3); C(x+s*.55,y+s*.38,s*.3);
+      L(x-s*.52,y+s*.38,x-s*.08,y-s*.2); L(x-s*.08,y-s*.2,x+s*.12,y+s*.38);
+      L(x+s*.12,y+s*.38,x+s*.55,y+s*.38); L(x-s*.08,y-s*.2,x+s*.18,y-s*.3);
+      L(x+s*.18,y-s*.3,x+s*.38,y-s*.3); break;
+    case "telephone":
+      d.roundedRect(x-s*.48,y-s*.12,s*.96,s*.72,s*.1,s*.1); L(x-s*.42,y-s*.12,x-s*.55,y-s*.55);
+      L(x-s*.55,y-s*.55,x-s*.2,y-s*.82); L(x+s*.42,y-s*.12,x+s*.55,y-s*.55);
+      L(x+s*.55,y-s*.55,x+s*.2,y-s*.82); break;
+    case "radio":
+      d.roundedRect(x-s*.62,y-s*.62,s*1.24,s*1.05,s*.08,s*.08); d.circle(x-s*.25,y-s*.12,s*.2);
+      d.circle(x+s*.27,y-s*.15,s*.13); L(x-s*.4,y+s*.23,x+s*.4,y+s*.23); break;
+    case "mixer":
+      d.rect(x-s*.58,y+s*.25,s*1.16,s*.25); L(x-s*.4,y+s*.25,x-s*.4,y-s*.35);
+      L(x-s*.4,y-s*.35,x+s*.28,y-s*.35); L(x+s*.28,y-s*.35,x+s*.28,y+s*.2);
+      d.ellipse(x+s*.02,y+s*.48,s*.42,s*.22); break;
+    case "lamp":
+      d.triangle(x,y-s*.7,x-s*.55,y-s*.05,x+s*.55,y-s*.05); L(x,y-s*.05,x,y+s*.62);
+      L(x-s*.3,y+s*.62,x+s*.3,y+s*.62); break;
+    case "teapot":
+      d.ellipse(x,y+s*.05,s*.55,s*.45); L(x-s*.3,y-s*.35,x+s*.3,y-s*.35);
+      d.ellipse(x+s*.72,y+s*.02,s*.3,s*.28);
+      L(x-s*.48,y-s*.08,x-s*.78,y-s*.32); L(x-s*.78,y-s*.32,x-s*.55,y-s*.42); break;
+    case "bird":
+      C(x-s*.2,y-s*.1,s*.35); L(x+s*.1,y-s*.1,x+s*.65,y-s*.28); L(x+s*.65,y-s*.28,x+s*.1,y+s*.05);
+      L(x-s*.1,y+s*.2,x-s*.35,y+s*.62); L(x+s*.15,y+s*.2,x+s*.38,y+s*.62); break;
+    case "butterfly":
+      L(x,y-s*.7,x,y+s*.7); C(x-s*.4,y-s*.28,s*.42); C(x+s*.4,y-s*.28,s*.42);
+      C(x-s*.38,y+s*.3,s*.38); C(x+s*.38,y+s*.3,s*.38); break;
+    case "dog":
+      C(x,y,s*.48); L(x-s*.38,y-s*.32,x-s*.62,y-s*.7); L(x-s*.62,y-s*.7,x-s*.18,y-s*.5);
+      L(x+s*.38,y-s*.32,x+s*.62,y-s*.7); L(x+s*.62,y-s*.7,x+s*.18,y-s*.5);
+      C(x-s*.16,y+s*.05,s*.04); C(x+s*.16,y+s*.05,s*.04); L(x-s*.12,y+s*.25,x+s*.12,y+s*.25); break;
+    case "cat":
+      C(x,y,s*.48); L(x-s*.38,y-s*.32,x-s*.5,y-s*.72); L(x-s*.5,y-s*.72,x-s*.1,y-s*.5);
+      L(x+s*.38,y-s*.32,x+s*.5,y-s*.72); L(x+s*.5,y-s*.72,x+s*.1,y-s*.5);
+      C(x-s*.16,y+s*.02,s*.04); C(x+s*.16,y+s*.02,s*.04); break;
+    case "sailboat":
+      L(x-s*.8,y+s*.38,x+s*.8,y+s*.38); L(x-s*.6,y+s*.38,x-s*.35,y+s*.65);
+      L(x+s*.6,y+s*.38,x+s*.35,y+s*.65); L(x,y+s*.38,x,y-s*.75);
+      L(x,y-s*.7,x+s*.55,y+s*.18); L(x,y-s*.58,x-s*.45,y+s*.08); break;
   }
   d.setDrawColor(0);
   d.setLineWidth(1);
@@ -3228,7 +3477,16 @@ function talkPage(D,r,s,theme){
   // interleaved, so no stream can crowd the others off the page.
   const seeds   = keepAllowed(r, storySeeds(r));      // personal first
   const senses  = keepAllowed(r, sensoryPrompts(r));
-  const eraQ    = keepAllowed(r, shuffle(eraBits(r.born,"talk")));
+  const eraQ    = keepAllowed(r, shuffle([
+    ...eraBits(r.born,"talk"),
+    ...birthCohortBits(r.born),
+    ...historicalBits(r.born,"culture").map(x=>"Do you remember "+x+"?"),
+    ...historicalBits(r.born,"venues").map(x=>"Did you ever spend time at a "+x+"?"),
+    ...historicalBits(r.born,"slang").map(x=>"Did people around you say "+x+"?"),
+    ...historicalBits(r.born,"cities").map(x=>"Have you ever visited or heard stories about "+x+"?"),
+    ...historicalBits(r.born,"celebrations").map(x=>"What did "+x+" feel like?"),
+    ...historicalBits(r.born,"happy").map(x=>"Do you remember hearing that "+x+"?")
+  ]));
   const place   = keepAllowed(r, shuffle(regionBits(r,"talk")));
   const generic = shuffle(["What did Sunday look like at your house?",
                            "What was the best meal you ever ate?",
@@ -3331,27 +3589,16 @@ function oddPage(D,r,s,theme){
   return sets;
 }
 
-function colorPage(D,theme){
+function colorPage(D,r,theme){
+  const entry=COLORING_LIBRARY[contentIndex(r,COLORING_LIBRARY.length,17)];
   D.start(theme);
-  D.heading("Something to Color");
-  D.body("However you like. There is no right way.",{size:17});
+  D.heading(entry.name+" to Color");
+  D.body("A familiar picture from "+entry.cue+". However you like, there is no right way.",{size:17});
 
   const cx=PW/2, cy=470;
-  D.d.setLineWidth(3.2); D.d.setDrawColor(...BOLD_ART);
-  D.d.circle(cx,cy,152);
-  D.d.setDrawColor(0); D.d.setLineWidth(1);
-
-  for(let i=0;i<8;i++){
-    const a=i*Math.PI/4;
-    motif(D.d, i%2 ? "flower" : "sprig",
-          cx+Math.cos(a)*196, cy+Math.sin(a)*196, 40, 3.2);
-  }
-  /* The big shape on the colouring page. The house mark is line art
-     with generous closed areas, so it colours in well, and at this size
-     every part of it reads. */
-  if(theme && theme!=="brain") motif(D.d, theme, cx, cy, 96, 3.4);
-  else if(!logoMark(D.d, cx, cy, 330, 255, 130))
-    motif(D.d, "flower", cx, cy, 96, 3.4);
+  D.d.setLineWidth(4.2); D.d.setDrawColor(...BOLD_ART);
+  motif(D.d, entry.motif, cx, cy, 142, 4.2);
+  D.d.setLineWidth(1); D.d.setDrawColor(0);
 }
 
 function holidayPage(D,r,key){
@@ -3653,6 +3900,58 @@ function mazePage(D,r,s,theme){
   D.finish();
 }
 
+const COLORING_LIBRARY = [
+  {name:"1950s cruiser", motif:"car", category:"transport", cue:"a Sunday drive in a 1950s cruiser"},
+  {name:"classic pickup truck", motif:"truck", category:"transport", cue:"a truck used for work or errands"},
+  {name:"steam locomotive", motif:"train", category:"transport", cue:"a train ride or the station"},
+  {name:"old-fashioned bicycle", motif:"bicycle", category:"transport", cue:"a bicycle from childhood"},
+  {name:"rotary telephone", motif:"telephone", category:"home", cue:"calling family from the kitchen"},
+  {name:"table radio", motif:"radio", category:"home", cue:"the family radio after supper"},
+  {name:"kitchen mixer", motif:"mixer", category:"home", cue:"baking in a family kitchen"},
+  {name:"oil lamp", motif:"lamp", category:"home", cue:"a quiet evening at home"},
+  {name:"teapot", motif:"teapot", category:"home", cue:"tea with family or friends"},
+  {name:"garden rose", motif:"flower", category:"nature", cue:"a garden in full bloom"},
+  {name:"sunflower", motif:"sun", category:"nature", cue:"summer gardens and bright afternoons"},
+  {name:"songbird", motif:"bird", category:"nature", cue:"birds in a yard or garden"},
+  {name:"butterfly", motif:"butterfly", category:"nature", cue:"a warm day outdoors"},
+  {name:"farm dog", motif:"dog", category:"nature", cue:"a dog from home or the farm"},
+  {name:"house cat", motif:"cat", category:"nature", cue:"a cat that kept someone company"},
+  {name:"spring blossoms", motif:"flower", category:"seasonal", cue:"the first flowers of spring"},
+  {name:"autumn harvest", motif:"wheat", category:"seasonal", cue:"harvest time and county fairs"},
+  {name:"winter snowflake", motif:"snowflake", category:"seasonal", cue:"the first snow of winter"},
+  {name:"holiday star", motif:"star", category:"seasonal", cue:"holiday lights and celebrations"},
+  {name:"sailing boat", motif:"sailboat", category:"travel", cue:"a lake, river, or seaside trip"},
+  {name:"simple flower pattern", motif:"flower", category:"pattern", cue:"a calm repetitive garden pattern"},
+  {name:"sun and rays", motif:"sun", category:"pattern", cue:"a sunny morning"},
+  {name:"heart pattern", motif:"heart", category:"pattern", cue:"people and places held dear"},
+  {name:"star pattern", motif:"star", category:"pattern", cue:"night skies and wishes"}
+];
+
+const DOT_LIBRARY = [
+  {name:"classic car", template:"car", dots:28, cue:"a Sunday drive"},
+  {name:"pickup truck", template:"truck", dots:24, cue:"work and country roads"},
+  {name:"steam train", template:"train", dots:30, cue:"a train journey"},
+  {name:"bicycle", template:"bicycle", dots:26, cue:"riding around the neighborhood"},
+  {name:"rotary telephone", template:"telephone", dots:22, cue:"calling someone at home"},
+  {name:"table radio", template:"radio", dots:22, cue:"listening after supper"},
+  {name:"teapot", template:"teapot", dots:24, cue:"tea with a friend"},
+  {name:"garden flower", template:"flower", dots:24, cue:"a familiar garden"},
+  {name:"songbird", template:"bird", dots:26, cue:"a bird in the yard"},
+  {name:"butterfly", template:"butterfly", dots:30, cue:"a summer garden"},
+  {name:"farm dog", template:"dog", dots:28, cue:"a beloved pet"},
+  {name:"house cat", template:"cat", dots:28, cue:"a pet at home"},
+  {name:"sailing boat", template:"sailboat", dots:26, cue:"a day on the water"},
+  {name:"holiday star", template:"star", dots:20, cue:"holiday lights"},
+  {name:"winter tree", template:"tree", dots:22, cue:"winter or Christmas"},
+  {name:"heart", template:"heart", dots:30, cue:"someone special"}
+];
+
+function contentIndex(r,length,offset){
+  const seed=String(r.first||"")+String(r.born||"")+String(offset||0);
+  let n=0; for(const ch of seed) n=(n*31+ch.charCodeAt(0))%length;
+  return n;
+}
+
 /* ---- Dot to dot ----
    Outlines a recognisable silhouette. Point counts are raised by
    splitting the longest edge, so a shape stays itself at any size. */
@@ -3663,8 +3962,33 @@ const DOT_POLY={
         [.22,.60],[.40,.34],[.30,.34]],
   star:[[.50,.03],[.61,.36],[.97,.36],[.68,.57],[.79,.92],[.50,.70],
         [.21,.92],[.32,.57],[.03,.36],[.39,.36]],
-  boat:[[.50,.04],[.50,.56],[.84,.56],[.94,.64],[.76,.92],[.24,.92],
-        [.06,.64],[.16,.56],[.46,.56],[.46,.04]]
+    boat:[[.50,.04],[.50,.56],[.84,.56],[.94,.64],[.76,.92],[.24,.92],
+       [.06,.64],[.16,.56],[.46,.56],[.46,.04]],
+    car:[[.08,.70],[.18,.52],[.32,.48],[.40,.28],[.68,.28],[.78,.48],
+      [.92,.54],[.96,.72],[.88,.78],[.82,.94],[.68,.94],[.62,.78],
+      [.38,.78],[.32,.94],[.18,.94],[.12,.78]],
+    truck:[[.08,.30],[.62,.30],[.68,.48],[.88,.48],[.96,.62],[.96,.78],
+        [.82,.78],[.76,.94],[.62,.94],[.56,.78],[.30,.78],[.24,.94],
+        [.10,.94],[.06,.78]],
+    train:[[.20,.10],[.70,.10],[.70,.30],[.88,.30],[.88,.78],[.72,.78],
+        [.68,.94],[.54,.94],[.48,.78],[.30,.78],[.24,.94],[.10,.94],[.10,.78],[.20,.78]],
+    bicycle:[[.08,.72],[.28,.72],[.50,.38],[.76,.72],[.94,.72],[.70,.18],
+       [.50,.38],[.36,.18],[.70,.18],[.76,.72]],
+    telephone:[[.18,.62],[.18,.30],[.34,.18],[.66,.18],[.82,.30],[.82,.62],
+         [.66,.78],[.34,.78]],
+    radio:[[.12,.18],[.88,.18],[.88,.82],[.12,.82]],
+    teapot:[[.20,.36],[.28,.18],[.70,.18],[.80,.38],[.70,.72],[.28,.72]],
+    bird:[[.10,.54],[.30,.30],[.52,.40],[.72,.18],[.66,.52],[.92,.58],[.68,.66],
+       [.52,.88],[.30,.72],[.10,.82]],
+    butterfly:[[.50,.12],[.50,.88],[.38,.62],[.14,.78],[.08,.58],[.22,.30],[.40,.40],
+         [.22,.12],[.40,.28],[.50,.12],[.60,.28],[.78,.12],[.60,.40],[.78,.30],
+         [.92,.58],[.86,.78],[.62,.62]],
+    dog:[[.18,.34],[.28,.18],[.44,.24],[.62,.18],[.82,.30],[.78,.52],[.90,.70],
+      [.72,.72],[.60,.58],[.42,.68],[.30,.88],[.18,.82],[.28,.60],[.12,.54]],
+    cat:[[.20,.34],[.18,.10],[.38,.24],[.62,.24],[.82,.10],[.80,.34],[.86,.58],
+      [.68,.78],[.50,.68],[.32,.78],[.14,.58]],
+    sailboat:[[.12,.70],[.88,.70],[.72,.90],[.28,.90],[.12,.70],[.50,.70],[.50,.10],
+        [.50,.16],[.78,.58],[.50,.58],[.26,.50],[.50,.50]]
 };
 
 function subdivide(pts,n){
@@ -3696,28 +4020,37 @@ function heartPts(n){
   return raw.map(([x,y])=>[(x-mnx)/sp,(y-mny)/sp]);
 }
 
+function flowerPts(n){
+  const out=[];
+  for(let i=0;i<n;i++){
+    const a=-Math.PI/2+2*Math.PI*i/n;
+    const radius=i%2 ? .32 : .50;
+    out.push([.5+Math.cos(a)*radius,.5+Math.sin(a)*radius]);
+  }
+  return out;
+}
+
 function dotsPage(D,r,s,theme){
-  const byTheme={heart:"heart", star:"star", tree:"tree", snowflake:"star",
-                 flower:"tree", sprig:"tree", wheat:"tree", sun:"star",
-                 brain:"house"};
-  const shape=byTheme[theme]||"house";
-  const pts = shape==="heart" ? heartPts(s.dots)
-                              : subdivide(DOT_POLY[shape], s.dots);
+  const entry=DOT_LIBRARY[contentIndex(r,DOT_LIBRARY.length,29)];
+  const count=Math.max(15,Math.min(50,entry.dots||s.dots));
+  const pts = entry.template==="heart" ? heartPts(count)
+              : entry.template==="flower" ? flowerPts(count)
+              : subdivide(DOT_POLY[entry.template],count);
   D.start(theme);
-  D.heading("Join the Dots");
+  D.heading("Join the Dots: "+entry.name);
   D.body("Start at number 1 and draw a line to each number in turn, "
-        +"then back to number 1.",{size:17});
+        +"then back to number 1. Talk about "+entry.cue+" when it appears.",{size:17});
   D.gap(24);
   const box=Math.min(PW-2*MARGIN-56, D.bottom()-D.y-24);
   const x0=(PW-box)/2, y0=D.y+12;
-  D.d.setFont("helvetica","bold"); D.d.setFontSize(16);
+  D.d.setFont("helvetica","bold"); D.d.setFontSize(20);
   pts.forEach(([px,py],i)=>{
     const x=x0+px*box, y=y0+py*box;
-    D.d.setFillColor(0); D.d.circle(x,y,3.2,"F");
+    D.d.setFillColor(0); D.d.circle(x,y,3.8,"F");
     // Push the number away from the middle of the shape so it never
     // sits on top of the outline the resident is drawing.
     const ang=Math.atan2(py-0.5,px-0.5) || -Math.PI/2;
-    D.d.text(String(i+1), x+Math.cos(ang)*17, y+Math.sin(ang)*17+5.5,
+    D.d.text(String(i+1), x+Math.cos(ang)*21, y+Math.sin(ang)*21+7,
              {align:"center"});
   });
   D.y=y0+box+14;
@@ -3870,9 +4203,24 @@ function gamesPage(D,r,theme){
    dementia is a test they can fail in front of staff; laying the names
    out and inviting talk is recognition, which holds up far longer. */
 function popPage(D,r,s,theme){
-  const music=keepAllowed(r, popBits(r.born,"music"));
-  const screen=keepAllowed(r, popBits(r.born,"screen"));
-  if(!music.length && !screen.length) return false;
+  const music=keepAllowed(r, [
+    ...popBits(r.born,"music"), ...historicalBits(r.born,"music"),
+    ...historicalBits(r.born,"radio")]);
+  const screen=keepAllowed(r, [
+    ...popBits(r.born,"screen"), ...historicalBits(r.born,"screen"),
+    ...historicalBits(r.born,"cinema")]);
+  const life=keepAllowed(r, [
+    ...historicalBits(r.born,"venues"),
+    ...historicalBits(r.born,"places"),
+    ...historicalBits(r.born,"autos"),
+    ...historicalBits(r.born,"cars"),
+    ...historicalBits(r.born,"technology"),
+    ...historicalBits(r.born,"printToys"),
+    ...historicalBits(r.born,"slang"),
+    ...historicalBits(r.born,"cities"),
+    ...historicalBits(r.born,"events"),
+    ...historicalBits(r.born,"happy")]);
+  if(!music.length && !screen.length && !life.length) return false;
   D.start(theme);
   D.heading("The Songs and the Pictures");
   D.body("Names you may recognize. There is nothing to get right here "
@@ -3901,6 +4249,7 @@ function popPage(D,r,s,theme){
   };
   block("On the radio and the record player:", music.slice(0,s.pop), 18);
   block("At the picture show and on television:", screen.slice(0,s.pop), 18);
+  block("Places, objects, and everyday life:", life.slice(0,s.pop), 18);
 
   const asks=["Which of these names do you remember?",
               "What song could you always sing along to?",
@@ -5123,7 +5472,7 @@ function buildPacket(r){
   for(const k of r.holidays) holidayPage(D,r,k);
 
   if(sel.games) gamesPage(D,r,theme);
-  if(sel.color) colorPage(D,theme);
+  if(sel.color) colorPage(D,r,theme);
   if(sel.mandala) mandalaPage(D,r,s,theme);
 
   // Everything from here on is for staff, grouped so it can be removed
@@ -5131,6 +5480,10 @@ function buildPacket(r){
   staffPage(D,r,sel);
   keyPage(D,key,theme);
   if(sel.notes) notesPage(D,r,theme);
+
+  const targetPages=Math.max(2,Math.min(30,parseInt(r.targetPages,10)||4));
+  while(D.d.getNumberOfPages()>targetPages)
+    D.d.deletePage(D.d.getNumberOfPages());
 
   const stamp=new Date().toISOString().slice(0,10);
   const slug=(r.first+"_"+r.last).replace(/[^A-Za-z0-9_]/g,"")||"Resident";
@@ -5464,15 +5817,6 @@ function applyAccessibilityPreset(){
 
 ["highContrastMode","extraLargePrint","simplifiedLayout"].forEach(id=>{
   $(id).addEventListener("change",applyAccessibilityPreset);
-});
-
-const brainLogoSource=document.querySelector(".logo").src;
-document.querySelectorAll(".num").forEach(marker=>{
-  const logo=document.createElement("img");
-  logo.className="num-logo";
-  logo.alt="";
-  logo.src=brainLogoSource;
-  marker.appendChild(logo);
 });
 
 function applyProfile(p){
@@ -5819,26 +6163,10 @@ function activateLicense(code){
 function unlocked(){ return isSubscribed(); }
 function runsUsed(){ return genCount(); }
 
-/* Rough page count, shown before she commits to the photocopier. Some
-   pages run to two at early stage, so this is deliberately labelled
-   "about" rather than pretending to be exact. */
-const TWO_PAGERS=["talk","lifestory","name","language","popculture"];
 function estimatePages(){
   const el=$("pageEst"); if(!el) return;
-  const stageEl=document.querySelector('input[name="stage"]:checked');
-  const stage=stageEl?stageEl.value:"early";
-  let n=1;                                  // cover
-  let acts=0;
-  document.querySelectorAll(".act").forEach(c=>{
-    if(!c.checked) return;
-    acts++;
-    n += (stage==="early" && TWO_PAGERS.includes(c.value)) ? 2 : 1;
-  });
-  document.querySelectorAll(".hol").forEach(c=>{ if(c.checked) n++; });
-  n += 2;                                   // staff guide
-  n += Math.max(1, Math.round(acts/6));     // answer key
-  if(!acts) { el.textContent=""; return; }
-  el.textContent="About "+n+" pages when you print it.";
+  const targetPages=Math.max(2,Math.min(30,parseInt($("targetPages").value,10)||4));
+  el.textContent="Workbook: "+targetPages+" pages when you print it.";
 }
 /* Late stage: the crossword and the halves-matching page are where the
    evidence is thinnest and comprehension most likely to fail, so they
@@ -6026,6 +6354,7 @@ $("f").addEventListener("submit", e=>{
     firstcar:$("firstcar").value.trim(), firstjob:$("firstjob").value.trim(),
     sibs:splitList($("sibs").value),
     crew:collectCrew(), acts, holidays,
+    targetPages:Math.max(2,Math.min(30,parseInt($("targetPages").value,10)||4)),
     fac:$("fac").value.trim(),
     month:$("month").value.trim()||monthNow()
   };
