@@ -745,9 +745,121 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
 }
 .high-contrast-mode .pick input:checked::after,
 .high-contrast-mode .accessibility-option input:checked::after{background:#fff}
+/* --- Tech-Modern SaaS Navbar Styling --- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(27, 67, 50, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 40px;
+  border-bottom: 1px solid rgba(216, 243, 220, 0.15);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.nav-brand a {
+  font-size: 16pt;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-badge {
+  background-color: #52b788;
+  color: #1b4332;
+  font-size: 7.5pt;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links > li > a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 10.5pt;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.nav-links > li > a:hover {
+  color: #d8f3dc;
+}
+.dropdown {
+  position: relative;
+}
+.dropbtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.dropdown-content {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 210px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  top: calc(100% + 14px);
+  left: 0;
+  padding: 6px;
+  border: 1px solid #e2e8f0;
+}
+.dropdown-content a {
+  color: #2d3748;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  font-size: 10pt;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.dropdown-content a:hover {
+  background-color: #f0fdf4;
+  color: #1b4332;
+}
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 </style>
 </head>
 <body>
+  <!-- Tech-Modern SaaS Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <a href="index.html">Cognicopia <span class="nav-badge">App</span></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Resources <span class="chevron">▾</span></a>
+        <div class="dropdown-content">
+          <a href="about.html">About Platform</a>
+          <a href="features.html">Feature Guide</a>
+          <a href="faq.html">Caregiver FAQ</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
 <div class="wrap">
 
 <div class="statusbar">
