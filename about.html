@@ -2,89 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About Cognicopia - Reminiscence Therapy & Memory Care</title>
+    <meta name="description" content="Learn how Cognicopia supports dignified reminiscence activities and meaningful memory care connections.">
     <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: #2d3748;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f4;
-        }
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #1b4332;
-            padding: 15px 30px;
-            color: #ffffff;
-        }
-        .nav-brand a {
-            font-size: 18pt;
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 11pt;
-            font-weight: 500;
-        }
+      *, *::before, *::after { box-sizing: border-box; }
+      :root { --glass-bg: rgba(10, 38, 27, 0.7); --glass-panel: rgba(20, 61, 43, 0.72); --brand: #52b788; --line: rgba(216, 243, 220, 0.18); }
+        body { margin: 0; line-height: 1.6; font-family: "Trebuchet MS", "Segoe UI", sans-serif; color: #e8f5e9; background: #081c15; background-image: radial-gradient(circle at 15% 10%, rgba(82,183,136,.16), transparent 34%), radial-gradient(circle at 90% 80%, rgba(45,106,79,.18), transparent 38%), linear-gradient(135deg,#081c15 0%,#1b4332 48%,#0b241a 100%); }
+        .navbar { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 14px 40px; color: #fff; background: rgba(8,28,21,.82); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+        .nav-brand a, .nav-links a { font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
+        .nav-brand a { color: #fff; font-size: 18pt; font-weight: 700; text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; align-items: center; list-style: none; margin: 0; padding: 0; }
+        .nav-links > li > a { color: #e8f5e9; font-size: 10.5pt; text-decoration: none; }
         .nav-links a:hover { color: #d8f3dc; }
         .dropdown { position: relative; }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #ffffff;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
-            z-index: 100;
-            border-radius: 6px;
-            top: 100%;
-            left: 0;
-            padding: 8px 0;
-        }
-        .dropdown-content a {
-            color: #2d3748;
-            padding: 10px 16px;
-            display: block;
-            font-size: 10.5pt;
-        }
-        .dropdown-content a:hover {
-            background-color: #e9f5ed;
-            color: #1b4332;
-        }
+        .dropdown-content { position: absolute; top: calc(100% + 10px); left: 0; z-index: 100; display: none; min-width: 210px; padding: 6px; background: rgba(20,61,43,.96); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 18px 36px rgba(0,0,0,.32); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
         .dropdown:hover .dropdown-content { display: block; }
-
-        /* Content Layout */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        h1 { color: #1b4332; font-size: 24pt; margin-bottom: 10px; }
-        h2 { color: #2d6a4f; font-size: 16pt; margin-top: 30px; border-bottom: 2px solid #d8f3dc; padding-bottom: 6px; }
-        p { margin-bottom: 15px; font-size: 11pt; }
-        .card {
-            background-color: #ffffff;
-            border: 1px solid #c8d6ce;
-            border-radius: 8px;
-            padding: 25px;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-        }
+        .dropdown-content::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
+        .dropdown-content a { display: block; padding: 10px 14px; color: #e8f5e9; font-size: 10pt; text-decoration: none; border-radius: 6px; }
+        .dropdown-content a:hover { background: rgba(82,183,136,.2); color: #d8f3dc; }
+        .container { width: min(900px, calc(100% - 28px)); margin: 40px auto; padding: 34px 38px 48px; background: var(--glass-bg); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 70px rgba(0,0,0,.28); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+          h1 { color: #d8f3dc; font-size: 24pt; margin: 0 0 8px; }
+          h2 { color: #b7e4c7; border-bottom-color: rgba(82,183,136,.35); }
+          p { color: #c5dfd0; }
+          .card { margin-top: 20px; padding: 25px; background: var(--glass-panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 12px 30px rgba(0,0,0,.18); }
+          .organic-vine-divider { display: block; width: 78%; max-width: 500px; height: auto; margin: 18px auto 24px; color: var(--brand); }
+        @media (max-width: 600px) { .navbar { flex-wrap: wrap; gap: 8px; padding: 12px 20px; } .nav-links { width: 100%; justify-content: flex-end; gap: 14px; } .nav-links a { font-size: 9.5pt; } .container { margin: 24px auto; padding: 26px 20px 34px; } }
     </style>
 </head>
 <body>
@@ -97,9 +40,9 @@
     <ul class="nav-links">
       <li><a href="index.html">Home (Tool)</a></li>
       <li class="dropdown">
-        <a href="#" class="dropbtn">Information & Guides ▾</a>
+        <a href="#" class="dropbtn">Resources <span class="chevron">▾</span></a>
         <div class="dropdown-content">
-          <a href="about.html">About Cognicopia</a>
+          <a href="about.html">About Platform</a>
           <a href="features.html">Feature Guide</a>
           <a href="faq.html">Caregiver FAQ</a>
         </div>
@@ -108,8 +51,13 @@
   </nav>
 
   <!-- Page Content -->
-  <div class="container">
+  <main class="container">
     <h1>About Cognicopia</h1>
+    <svg class="organic-vine-divider" viewBox="0 0 500 70" role="img" aria-label="Decorative flowing vine with leaves">
+      <path d="M28 39 C92 12 135 59 188 36 C225 20 249 19 271 34 C301 54 331 56 357 37 C393 11 431 21 472 39" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M112 30 C94 18 80 21 71 34 C87 37 101 36 112 30 Z M147 45 C130 43 119 50 116 62 C130 59 141 53 147 45 Z M194 34 C181 19 167 17 157 25 C168 34 181 37 194 34 Z M305 45 C318 58 332 58 343 50 C332 43 318 41 305 45 Z M354 37 C369 22 382 21 392 30 C380 38 367 40 354 37 Z M407 30 C424 18 438 22 445 35 C431 36 418 34 407 30 Z" fill="currentColor"/>
+      <path d="M72 34 C81 29 91 28 101 29 M117 60 C124 53 132 49 141 48 M158 26 C168 26 178 29 187 34 M313 47 C323 48 332 51 340 55 M360 35 C370 31 379 29 389 30 M414 28 C423 29 432 32 440 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".72"/>
+    </svg>
     <p>A true cornucopia of memories, designed to enrich the mind and bridge communication gaps.</p>
 
     <div class="card">
@@ -120,7 +68,9 @@
       <h2>Why Reminiscence Therapy?</h2>
       <p>Research shows that focusing on long-term, established memories helps individuals with Alzheimer's or dementia feel grounded and secure. By honoring a lifetime of personal history through adult-centric activities, Cognicopia reduces daily agitation and restores a sense of personal identity and dignity.</p>
     </div>
-  </div>
+  </main>
+
+  <footer class="site-footer">Cognicopia is made by BarronCrafts. Everything happens inside your browser.</footer>
 
 </body>
 </html>
