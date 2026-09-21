@@ -8,7 +8,7 @@
     <style>
       *, *::before, *::after { box-sizing: border-box; }
         :root { --glass-bg: rgba(10, 38, 27, 0.7); --glass-panel: rgba(20, 61, 43, 0.72); --brand: #52b788; --line: rgba(216, 243, 220, 0.18); }
-        body { margin: 0; line-height: 1.6; font-family: "Trebuchet MS", "Segoe UI", sans-serif; color: #e8f5e9; background: #081c15; background-image: radial-gradient(circle at 15% 10%, rgba(82,183,136,.16), transparent 34%), radial-gradient(circle at 90% 80%, rgba(45,106,79,.18), transparent 38%), linear-gradient(135deg,#081c15 0%,#1b4332 48%,#0b241a 100%); }
+        body { margin: 0; line-height: 1.6; font-family: "Trebuchet MS", "Segoe UI", sans-serif; color: #2d241d; background-color: #1b4332; background-image: repeating-linear-gradient(45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px), repeating-linear-gradient(-45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px), repeating-linear-gradient(45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px), repeating-linear-gradient(-45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px), linear-gradient(135deg,#163d2d 0%,#1b4332 48%,#102b20 100%); }
         .navbar { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 14px 40px; color: #fff; background: rgba(8,28,21,.82); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
         .nav-brand a, .nav-links a { font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
         .nav-brand a { color: #fff; font-size: 18pt; font-weight: 700; text-decoration: none; }
@@ -21,12 +21,13 @@
         .dropdown-content::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
         .dropdown-content a { display: block; padding: 10px 14px; color: #e8f5e9; font-size: 10pt; text-decoration: none; border-radius: 6px; }
         .dropdown-content a:hover { background: rgba(82,183,136,.2); color: #d8f3dc; }
-        .container { width: min(900px, calc(100% - 28px)); margin: 40px auto; padding: 34px 38px 48px; background: var(--glass-bg); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 70px rgba(0,0,0,.28); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+        .container { width: min(900px, calc(100% - 28px)); margin: 40px auto; padding: 34px 38px 48px; background: #92785E; border: 1px solid rgba(216,243,220,.24); border-radius: 18px; box-shadow: 0 24px 70px rgba(0,0,0,.3); }
           h1 { color: #d8f3dc; font-size: 24pt; margin: 0 0 8px; }
-          p { color: #c5dfd0; }
+          p { color: #3f332a; }
           .faq-item { margin-top: 20px; padding: 20px; background: var(--glass-panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 12px 30px rgba(0,0,0,.18); }
           .faq-question { color: #b7e4c7; } .faq-answer { color: #c5dfd0; }
           .organic-vine-divider { display: block; width: 78%; max-width: 500px; height: auto; margin: 18px auto 24px; color: var(--brand); }
+          .vine-subtitle { display: block; text-align: center; margin: 0 auto 24px; color: #3f332a; font-size: 18px; font-weight: 600; letter-spacing: .04em; }
         .site-footer { max-width: 900px; margin: 0 auto 32px; padding: 0 20px; color: #a9cdb8; text-align: center; font-size: .9rem; }
         @media (max-width: 600px) { .navbar { flex-wrap: wrap; gap: 8px; padding: 12px 20px; } .nav-links { width: 100%; justify-content: flex-end; gap: 14px; } .nav-links a { font-size: 9.5pt; } .container { margin: 24px auto; padding: 26px 20px 34px; } }
     </style>
@@ -59,6 +60,7 @@
       <path d="M112 30 C94 18 80 21 71 34 C87 37 101 36 112 30 Z M147 45 C130 43 119 50 116 62 C130 59 141 53 147 45 Z M194 34 C181 19 167 17 157 25 C168 34 181 37 194 34 Z M305 45 C318 58 332 58 343 50 C332 43 318 41 305 45 Z M354 37 C369 22 382 21 392 30 C380 38 367 40 354 37 Z M407 30 C424 18 438 22 445 35 C431 36 418 34 407 30 Z" fill="currentColor"/>
       <path d="M72 34 C81 29 91 28 101 29 M117 60 C124 53 132 49 141 48 M158 26 C168 26 178 29 187 34 M313 47 C323 48 332 51 340 55 M360 35 C370 31 379 29 389 30 M414 28 C423 29 432 32 440 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".72"/>
     </svg>
+    <p class="vine-subtitle">Activities built from a resident's own life</p>
     <p>Common questions from family caregivers, clinicians, and facility directors about using Cognicopia.</p>
 
     <div class="faq-item">

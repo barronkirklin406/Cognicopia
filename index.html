@@ -392,13 +392,13 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
 <style>
 :root{
   /* Quilt-cotton tones: the colors this generation actually pieced with. */
-  --ink:#20343A; --ink-soft:#526B72;
-  --paper:#F1F7F7; --field:#FFFFFF;
+  --ink:#2D241D; --ink-soft:#514439;
+  --paper:#1B4332; --field:#FFFDF7;
   /* Sampled from the logo so the page and the mark agree. */
   --garden:#286E75; --garden-dark:#1A5058;
   --gold:#A8802F; --berry:#8A4455; --sky:#476579;
-  --rule:#C9DCDD; --rule-soft:#DFEAEB;
-  --tint:#EAF4F4;
+  --rule:#CDBDA8; --rule-soft:#DCCDBA;
+  --tint:#E5EFE4;
   --warn:#9B3B23;
   --display:"Fraunces",Georgia,"Times New Roman",serif;
 }
@@ -453,6 +453,10 @@ body{
 .organic-vine-divider{
   display:block;width:78%;max-width:500px;height:auto;margin:25px auto;
   color:var(--garden);
+}
+.vine-subtitle{
+  display:block;text-align:center;margin:0 auto 24px;
+  color:#3F332A;font-size:18px;font-weight:600;letter-spacing:.04em;
 }
 
 header{padding:56px 0 0}
@@ -751,12 +755,14 @@ button,.addbtn,.tools button,.gate .buy{border-radius:12px}
 .high-contrast-mode .pick input:checked::after,
 .high-contrast-mode .accessibility-option input:checked::after{background:#fff}
 body{
-  background-color:#081c15;
+  background-color:#1B4332;
   background-image:
-    radial-gradient(circle at 15% 10%, rgba(82,183,136,.16), transparent 34%),
-    radial-gradient(circle at 90% 80%, rgba(45,106,79,.18), transparent 38%),
-    linear-gradient(135deg,#081c15 0%,#1b4332 48%,#0b241a 100%);
-  color:#e8f5e9;font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    repeating-linear-gradient(45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(-45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px),
+    repeating-linear-gradient(-45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px),
+    linear-gradient(135deg,#163d2d 0%,#1b4332 48%,#102b20 100%);
+  color:var(--ink);font-family:"Trebuchet MS","Segoe UI",sans-serif;
 }
 .navbar{
   position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;
@@ -785,11 +791,12 @@ body{
 .dropdown-content a{display:block;padding:10px 14px;color:#e8f5e9;font-size:10pt;text-decoration:none;border-radius:6px}
 .dropdown-content a:hover{background:rgba(82,183,136,.2);color:#d8f3dc}
 .wrap{
-  background:rgba(10,38,27,.7);border:1px solid rgba(216,243,220,.14);
-  box-shadow:0 24px 70px rgba(0,0,0,.28);color:#e8f5e9;
+  background:#92785E;border:1px solid rgba(216,243,220,.24);
+  box-shadow:0 24px 70px rgba(0,0,0,.3);color:var(--ink);
 }
-h1,h2,h3,.wordmark{color:#d8f3dc}
-.lede,.promise,.tagline,.brandtext > p{color:#c5dfd0}
+h1,h2,h3,.wordmark{color:#FFF4E5}
+.lede,.tagline,.brandtext > p{color:#3F332A}
+.promise{color:var(--ink)}
 .organic-vine-divider{color:#52b788}
 @media (max-width:600px){
   .navbar{flex-wrap:wrap;gap:8px;padding:12px 20px}.nav-links{width:100%;justify-content:flex-end;gap:14px}.nav-links > li > a{font-size:9.5pt}
@@ -855,6 +862,7 @@ h1,h2,h3,.wordmark{color:#d8f3dc}
       M360 35 C370 31 379 29 389 30 M414 28 C423 29 432 32 440 36"
       fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".72"/>
   </svg>
+  <p class="vine-subtitle">Activities built from a resident's own life</p>
   <p class="lede">Fill in what you know about them, pick the pages you want,
   and you'll get a printable large-print packet using their hometown, their
   family's names, their work, and the things they loved.</p>
