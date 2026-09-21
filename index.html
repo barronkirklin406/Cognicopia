@@ -454,11 +454,6 @@ body{
   display:block;width:78%;max-width:500px;height:auto;margin:25px auto;
   color:var(--garden);
 }
-.vine-subtitle{
-  display:block;text-align:center;margin:0 auto 24px;
-  color:#3F332A;font-size:18px;font-weight:600;letter-spacing:.04em;
-}
-
 header{padding:56px 0 0}
 .brand{text-align:center;margin:0 0 30px}
 /* Fixed width with a percentage cap rather than min(): if a browser
@@ -482,6 +477,10 @@ header{padding:56px 0 0}
 h1{font-family:var(--display);font-weight:600;
   font-size:clamp(30px,5vw,41px);line-height:1.16;
   margin:0 0 20px;max-width:17ch;letter-spacing:-.01em}
+.hero-title{
+  display:block;text-align:center;margin:0 auto 20px;max-width:none;
+  color:#FFF4E5;
+}
 .lede{font-size:19px;color:var(--ink-soft);max-width:56ch;margin:0 0 30px}
 .promise{background:var(--field);border:1px solid var(--rule);
   border-left:4px solid var(--garden);
@@ -771,7 +770,8 @@ body{
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
 }
 .nav-brand a,.nav-links > li > a{font-family:"Trebuchet MS","Segoe UI",sans-serif}
-.nav-brand a{display:flex;align-items:center;color:#fff;font-size:18pt;font-weight:700;text-decoration:none}
+.nav-brand a{display:flex;align-items:center;gap:8px;color:#fff;font-size:18pt;font-weight:700;text-decoration:none}
+.nav-logo{display:block;width:38px;height:30px;flex:none;object-fit:contain}
 .nav-links{display:flex;gap:30px;align-items:center;list-style:none;margin:0;padding:0}
 .nav-links > li > a{color:#e8f5e9;font-size:10.5pt;text-decoration:none}
 .nav-links > li > a:hover{color:#d8f3dc}
@@ -798,6 +798,53 @@ h1,h2,h3,.wordmark{color:#FFF4E5}
 .lede,.tagline,.brandtext > p{color:#3F332A}
 .promise{color:var(--ink)}
 .organic-vine-divider{color:#52b788}
+.accessibility-panel,
+.accessibility-panel h2,
+.accessibility-option,
+.accessibility-option span,
+.accessibility-option b{
+  color:#1F1B17;
+}
+.lede,.tagline,.brandtext > p,.hint,.sub,.level span,.pick span,
+.subhead,.note,.legal,.left,.unlock label,.crewrow label,.statusbar{
+  color:#ffffff;font-weight:600;line-height:1.45;
+}
+.level b,.level span,.pick b,.pick span,.subhead,
+.addbtn,.tools button{
+  font-size:17px;font-weight:700;
+}
+.level,.pick{
+  background:rgba(20,61,43,.88);border-color:rgba(216,243,220,.42);color:#ffffff;
+}
+.level b,.level span,.pick b,.pick span{color:#ffffff}
+.level:has(input:checked),.pick:has(input:checked){
+  background:linear-gradient(135deg,#2d6a4f,#40916c);border-color:#d8f3dc;
+  color:#ffffff;box-shadow:inset 0 0 0 2px rgba(216,243,220,.45),0 6px 16px rgba(20,61,43,.22);
+}
+.pick input{background:#355747;border-color:#d8f3dc}
+.pick input:checked{background:#52b788;border-color:#ffffff}
+.pick input:checked::after{background:#ffffff;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.level input:focus-visible,.pick input:focus-visible{outline-color:#ffffff}
+.preset-manager{
+  background:rgba(20,61,43,.9);border-color:rgba(216,243,220,.42);
+  color:#ffffff;box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+.preset-manager h3,.preset-manager .hint,.preset-manager label,
+.preset-manager .left{color:#ffffff}
+.preset-manager input[type=text],.preset-manager select{
+  background:#fffdf7;color:#1f1b17;border:2px solid rgba(216,243,220,.68);
+}
+.preset-manager input[type=text]:focus,.preset-manager select:focus{
+  outline:3px solid #d8f3dc;outline-offset:2px;border-color:#52b788;
+}
+.preset-actions button{
+  background:#2d6a4f;color:#ffffff;border:1px solid #d8f3dc;font-weight:700;
+}
+.preset-actions button:hover{background:#52b788;color:#ffffff;border-color:#ffffff}
+.preset-actions .delete-preset{
+  background:#7f3028;color:#ffffff;border-color:#ffd6d0;
+}
+.preset-actions .delete-preset:hover{background:#a94338;color:#ffffff;border-color:#ffffff}
 @media (max-width:600px){
   .navbar{flex-wrap:wrap;gap:8px;padding:12px 20px}.nav-links{width:100%;justify-content:flex-end;gap:14px}.nav-links > li > a{font-size:9.5pt}
 }
@@ -807,7 +854,7 @@ h1,h2,h3,.wordmark{color:#FFF4E5}
   <!-- Tech-Modern SaaS Navigation Bar -->
   <nav class="navbar">
     <div class="nav-brand">
-      <a href="index.html">Cognicopia</a>
+      <a href="index.html"><img src="assets/cognicopia-logo.jpg" alt="Cognicopia Logo" class="nav-logo"><span>Cognicopia</span></a>
     </div>
     <ul class="nav-links">
       <li><a href="index.html">Home (Tool)</a></li>
@@ -816,6 +863,7 @@ h1,h2,h3,.wordmark{color:#FFF4E5}
         <div class="dropdown-content">
           <a href="about.html">About Platform</a>
           <a href="features.html">Feature Guide</a>
+          <a href="therapy.html">Reminiscence Science</a>
           <a href="faq.html">Caregiver FAQ</a>
         </div>
       </li>
@@ -845,7 +893,7 @@ h1,h2,h3,.wordmark{color:#FFF4E5}
       <p>from BarronCrafts</p>
     </div>
   </div>
-  <h1>Activities built from one resident's own life.</h1>
+  <h1 class="hero-title">Activities built from one resident's own life.</h1>
   <svg class="organic-vine-divider" viewBox="0 0 500 70" role="img"
     aria-label="Decorative flowing vine with leaves">
     <path d="M28 39 C92 12 135 59 188 36 C225 20 249 19 271 34 C301 54 331 56 357 37 C393 11 431 21 472 39"
@@ -862,7 +910,6 @@ h1,h2,h3,.wordmark{color:#FFF4E5}
       M360 35 C370 31 379 29 389 30 M414 28 C423 29 432 32 440 36"
       fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".72"/>
   </svg>
-  <p class="vine-subtitle">Activities built from a resident's own life</p>
   <p class="lede">Fill in what you know about them, pick the pages you want,
   and you'll get a printable large-print packet using their hometown, their
   family's names, their work, and the things they loved.</p>

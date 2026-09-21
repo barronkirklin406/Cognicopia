@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reminiscence Science - Cognicopia</title>
+  <meta name="description" content="A practical guide to reminiscence therapy principles and how Cognicopia turns personal history into meaningful activities.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --glass-panel: rgba(20, 61, 43, .72);
+      --brand: #52b788;
+      --line: rgba(216, 243, 220, .18);
+      --ink: #2d241d;
+      --tan: #92785e;
+    }
+    body {
+      margin: 0;
+      line-height: 1.6;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: #ffffff;
+      background-color: #1b4332;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px),
+        repeating-linear-gradient(-45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px),
+        repeating-linear-gradient(45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px),
+        repeating-linear-gradient(-45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px),
+        linear-gradient(135deg,#163d2d 0%,#1b4332 48%,#102b20 100%);
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 14px 40px;
+      color: #fff;
+      background: rgba(8,28,21,.82);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-brand a, .nav-links a { font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
+    .nav-brand a { display: flex; align-items: center; gap: 8px; color: #fff; font-size: 18pt; font-weight: 700; text-decoration: none; }
+    .nav-logo { display: block; width: 38px; height: 30px; flex: none; object-fit: contain; }
+    .nav-links { display: flex; gap: 30px; align-items: center; list-style: none; margin: 0; padding: 0; }
+    .nav-links > li > a { color: #e8f5e9; font-size: 10.5pt; text-decoration: none; }
+    .nav-links a:hover { color: #d8f3dc; }
+    .dropdown { position: relative; }
+    .dropbtn { display: flex; align-items: center; gap: 4px; }
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      z-index: 100;
+      display: none;
+      min-width: 210px;
+      padding: 6px;
+      background: rgba(20,61,43,.96);
+      border: 1px solid rgba(216,243,220,.2);
+      border-radius: 8px;
+      box-shadow: 0 18px 36px rgba(0,0,0,.32);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
+    .dropdown-content a { display: block; padding: 10px 14px; color: #e8f5e9; font-size: 10pt; text-decoration: none; border-radius: 6px; }
+    .dropdown-content a:hover { background: rgba(82,183,136,.2); color: #d8f3dc; }
+    .container {
+      width: min(900px, calc(100% - 28px));
+      margin: 40px auto;
+      padding: 34px 38px 48px;
+      background: var(--tan);
+      border: 1px solid rgba(216,243,220,.24);
+      border-radius: 18px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.3);
+    }
+    h1, h2, h3, h4 { color: #ffffff; }
+    h1 { margin: 0 0 8px; font-size: 24pt; text-align: center; }
+    h2 { margin-top: 34px; padding-bottom: 6px; border-bottom: 2px solid rgba(82,183,136,.35); }
+    p, li { color: #ffffff; }
+    .organic-vine-divider { display: block; width: 78%; max-width: 500px; height: auto; margin: 18px auto 24px; color: var(--brand); }
+    .vine-subtitle { display: block; margin: 0 auto 24px; color: #ffffff; font-size: 18px; font-weight: 600; letter-spacing: .04em; text-align: center; }
+    .intro, .note, .framework, .activity { padding: 20px 22px; color: #ffffff; background: var(--glass-panel); border: 1px solid var(--line); border-radius: 8px; }
+    .framework, .activity { margin-top: 18px; }
+    .framework h3, .activity h3 { margin-top: 0; color: #ffffff; }
+    .note { margin-top: 22px; border-left: 4px solid var(--brand); }
+    .references {
+      margin-top: 28px;
+      padding: 24px 26px;
+      background: rgba(8,28,21,.9);
+      border: 1px solid rgba(216,243,220,.24);
+      border-radius: 10px;
+      box-shadow: 0 14px 30px rgba(0,0,0,.22);
+      color: #ffffff;
+    }
+    .references h2, .references h3, .references p,
+    .references li, .references strong, .references em {
+      color: #ffffff;
+    }
+    .references h2 { margin-top: 0; border-bottom-color: rgba(82,183,136,.45); }
+    .references ul { margin: 0; padding-left: 1.4rem; }
+    .references li { margin: 0 0 16px; padding-left: 6px; }
+    .references li:last-child { margin-bottom: 0; }
+    .site-footer { max-width: 900px; margin: 0 auto 32px; padding: 0 20px; color: #ffffff; text-align: center; font-size: .9rem; }
+    @media (max-width: 600px) {
+      .navbar { flex-wrap: wrap; gap: 8px; padding: 12px 20px; }
+      .nav-links { width: 100%; justify-content: flex-end; gap: 14px; }
+      .nav-links a { font-size: 9.5pt; }
+      .container { margin: 24px auto; padding: 26px 20px 34px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" aria-label="Primary navigation">
+    <div class="nav-brand"><a href="index.html"><img src="assets/cognicopia-logo.jpg" alt="Cognicopia Logo" class="nav-logo"><span>Cognicopia</span></a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home (Tool)</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Resources <span class="chevron">&#9662;</span></a>
+        <div class="dropdown-content">
+          <a href="about.html">About Platform</a>
+          <a href="features.html">Feature Guide</a>
+          <a href="therapy.html">Reminiscence Science</a>
+          <a href="faq.html">Caregiver FAQ</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <h1>Reminiscence Science</h1>
+    <svg class="organic-vine-divider" viewBox="0 0 500 70" role="img" aria-label="Decorative flowing vine with leaves">
+      <path d="M28 39 C92 12 135 59 188 36 C225 20 249 19 271 34 C301 54 331 56 357 37 C393 11 431 21 472 39" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M112 30 C94 18 80 21 71 34 C87 37 101 36 112 30 Z M147 45 C130 43 119 50 116 62 C130 59 141 53 147 45 Z M194 34 C181 19 167 17 157 25 C168 34 181 37 194 34 Z M305 45 C318 58 332 58 343 50 C332 43 318 41 305 45 Z M354 37 C369 22 382 21 392 30 C380 38 367 40 354 37 Z M407 30 C424 18 438 22 445 35 C431 36 418 34 407 30 Z" fill="currentColor"/>
+      <path d="M72 34 C81 29 91 28 101 29 M117 60 C124 53 132 49 141 48 M158 26 C168 26 178 29 187 34 M313 47 C323 48 332 51 340 55 M360 35 C370 31 379 29 389 30 M414 28 C423 29 432 32 440 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".72"/>
+    </svg>
+    <p class="vine-subtitle">Activities built from a resident's own life</p>
+
+    <section class="intro" aria-labelledby="why-title">
+      <h2 id="why-title">Why reminiscence matters</h2>
+      <p>Reminiscence work invites a person to revisit meaningful experiences, relationships, places, and routines. It is a conversation and engagement practice, not a test of memory. Familiar material can support confidence, orientation to identity, and connection with a caregiver, while respecting the person's pace and choice.</p>
+      <p>Foundational work by Robert Butler introduced life review as a purposeful way to revisit and integrate a lifetime of experience. Later reminiscence and life-review research has explored outcomes such as mood, communication, and quality of life. Results vary by person and setting, so these activities complement individualized care rather than replace clinical assessment or treatment.</p>
+    </section>
+
+    <h2>Core practices</h2>
+    <div class="framework">
+      <h3>Structured life review</h3>
+      <p>Move gently through life eras, such as childhood, school, first work, family life, and later interests. Use open prompts, allow pauses, and let the resident choose which memories deserve attention.</p>
+    </div>
+    <div class="framework">
+      <h3>Sensory-triggered recall</h3>
+      <p>Use safe, familiar cues such as music, textures, household objects, food memories, photographs, or regional landmarks. A sensory anchor should invite association, never force a response or expose a person to distressing material.</p>
+    </div>
+    <div class="framework">
+      <h3>Identity-affirming storytelling</h3>
+      <p>Center the resident as an expert on their own life. Reflect their roles, skills, relationships, values, and preferences with dignity, and accept memories as personal meaning rather than correcting every detail.</p>
+    </div>
+
+    <h2>How Cognicopia applies the framework</h2>
+    <p>The packet generator maps the information a caregiver chooses to share into a set of gentle activity signals. Life eras shape historical prompts; career histories inform work and skill references; regional landmarks guide place-based questions; and personal preferences influence sensory, music, food, hobby, and conversation prompts.</p>
+    <p>Those signals are combined with difficulty, vision, language, and topic preferences to produce varied pages. The algorithm is designed to create openings for conversation, not to diagnose, score, or determine what a resident remembers.</p>
+
+    <h2>Workbook activities</h2>
+    <div class="activity">
+      <h3>Sensory anchor logs</h3>
+      <p>Record a familiar sound, smell, texture, taste, or object and the story, feeling, or person it brings to mind.</p>
+    </div>
+    <div class="activity">
+      <h3>Nostalgic recipe prompts</h3>
+      <p>Revisit a favorite meal, kitchen routine, holiday dish, or person who taught a recipe, with room for ingredients and remembered steps.</p>
+    </div>
+    <div class="activity">
+      <h3>Historical timeline matching</h3>
+      <p>Match meaningful life events with broad eras, local changes, music, work traditions, or community landmarks without requiring exact dates.</p>
+    </div>
+    <div class="activity">
+      <h3>Family milestone reflections</h3>
+      <p>Invite stories about celebrations, moves, friendships, work achievements, traditions, and the small routines that made family life distinctive.</p>
+    </div>
+
+    <aside class="note"><strong>Care principle:</strong> Stop or change direction when an activity causes distress. Reminiscence should be voluntary, culturally respectful, and adapted to the resident's communication, sensory, and accessibility needs.</aside>
+
+    <section class="references" aria-labelledby="references-title">
+      <h2 id="references-title">Clinical Foundations &amp; References</h2>
+      <ul>
+        <li><strong>Woods, B., et al. (2018), Cochrane Database of Systematic Reviews: "Reminiscence therapy for dementia."</strong> This review evaluates reminiscence approaches across cognitive, mood, communication, and quality-of-life outcomes. For Cognicopia, it supports offering structured, flexible prompts while presenting generated pages as engagement tools rather than clinical treatment or guaranteed outcomes.</li>
+        <li><strong>Butler, R. N. (1963), "The Life Review: An Interpretation of Reminiscence."</strong> Butler's foundational life-review concept frames the purposeful, reflective recall of significant experiences. Cognicopia applies this principle by sequencing prompts around life eras, work histories, relationships, places, and personal milestones.</li>
+        <li><strong>Kitwood, T. (1997), <em>Dementia Reconsidered: The Person Comes First.</em></strong> Person-centered care preserves identity, agency, and dignity instead of reducing a person to symptoms. The packet generator therefore uses resident-led preferences and identity-affirming language, with activities designed to invite confidence and connection without testing memory.</li>
+        <li><strong>Spector, A., et al. (2003), Cognitive Stimulation Therapy research.</strong> CST emphasizes regular, meaningful, socially engaging activities that support communication and cognitive participation. Cognicopia adapts that principle into accessible pages that combine structured personal narrative exercises with localized memory mapping, while keeping reminiscence and CST conceptually distinct.</li>
+        <li><strong>Application to packet generation.</strong> These foundations inform the mapping of life eras, career histories, regional landmarks, sensory anchors, and personal preferences into optional prompts. Caregivers can review, adapt, or skip any generated activity so the resident's comfort and choices remain central.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">Cognicopia is made by BarronCrafts. Everything happens inside your browser.</footer>
+</body>
+</html>

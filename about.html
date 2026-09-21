@@ -11,7 +11,8 @@
         body { margin: 0; line-height: 1.6; font-family: "Trebuchet MS", "Segoe UI", sans-serif; color: #2d241d; background-color: #1b4332; background-image: repeating-linear-gradient(45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px), repeating-linear-gradient(-45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px), repeating-linear-gradient(45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px), repeating-linear-gradient(-45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px), linear-gradient(135deg,#163d2d 0%,#1b4332 48%,#102b20 100%); }
         .navbar { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 14px 40px; color: #fff; background: rgba(8,28,21,.82); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
         .nav-brand a, .nav-links a { font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
-        .nav-brand a { color: #fff; font-size: 18pt; font-weight: 700; text-decoration: none; }
+        .nav-brand a { display: flex; align-items: center; gap: 8px; color: #fff; font-size: 18pt; font-weight: 700; text-decoration: none; }
+        .nav-logo { display: block; width: 38px; height: 30px; flex: none; object-fit: contain; }
         .nav-links { display: flex; gap: 30px; align-items: center; list-style: none; margin: 0; padding: 0; }
         .nav-links > li > a { color: #e8f5e9; font-size: 10.5pt; text-decoration: none; }
         .nav-links a:hover { color: #d8f3dc; }
@@ -36,7 +37,7 @@
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-brand">
-      <a href="index.html">Cognicopia</a>
+      <a href="index.html"><img src="assets/cognicopia-logo.jpg" alt="Cognicopia Logo" class="nav-logo"><span>Cognicopia</span></a>
     </div>
     <ul class="nav-links">
       <li><a href="index.html">Home (Tool)</a></li>
@@ -45,6 +46,7 @@
         <div class="dropdown-content">
           <a href="about.html">About Platform</a>
           <a href="features.html">Feature Guide</a>
+          <a href="therapy.html">Reminiscence Science</a>
           <a href="faq.html">Caregiver FAQ</a>
         </div>
       </li>
