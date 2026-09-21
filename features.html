@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Features - Cognicopia</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #2d3748;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f4;
+        }
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1b4332;
+            padding: 15px 30px;
+            color: #ffffff;
+        }
+        .nav-brand a {
+            font-size: 18pt;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 11pt;
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: #d8f3dc; }
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+            z-index: 100;
+            border-radius: 6px;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+        }
+        .dropdown-content a {
+            color: #2d3748;
+            padding: 10px 16px;
+            display: block;
+            font-size: 10.5pt;
+        }
+        .dropdown-content a:hover {
+            background-color: #e9f5ed;
+            color: #1b4332;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Content Layout */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        h1 { color: #1b4332; font-size: 24pt; margin-bottom: 10px; }
+        p { margin-bottom: 15px; font-size: 11pt; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #1b4332;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) { background-color: #f9fbf9; }
+    </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <a href="index.html">Cognicopia</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home (Tool)</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Information & Guides ▾</a>
+        <div class="dropdown-content">
+          <a href="about.html">About Cognicopia</a>
+          <a href="features.html">Feature Guide</a>
+          <a href="faq.html">Caregiver FAQ</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1>Platform Features & Architecture</h1>
+    <p>Explore the modular capabilities built into Cognicopia to automate memory care workbook generation.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Feature Module</th>
+                <th>Core Function</th>
+                <th>Design & Technical Advantage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Thematic Prompt Engine</strong></td>
+                <td>Generates targeted life-review questions tailored to eras, vintage hobbies, and work backgrounds.</td>
+                <td>Sparks long-term memories and meaningful dialogue between participants and caregivers.</td>
+            </tr>
+            <tr>
+                <td><strong>High-Contrast Formatter</strong></td>
+                <td>Formats interior page layouts using optimized 3:4 aspect ratios with bold outlines and clean white space.</td>
+                <td>Ensures high visual accessibility for individuals experiencing declining eyesight or cognitive focus challenges.</td>
+            </tr>
+            <tr>
+                <td><strong>Activity & Logbook Generator</strong></td>
+                <td>Builds customized word search bundles, sensory checklists, and daily reflection logs.</td>
+                <td>Eliminates daily planning guesswork for family caregivers and care facility staff.</td>
+            </tr>
+            <tr>
+                <td><strong>Multi-Format Export Pipeline</strong></td>
+                <td>Produces print-ready paperback files and instant digital PDF packets.</td>
+                <td>Optimized seamlessly for Amazon Kindle Direct Publishing (KDP) and instant web access.</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

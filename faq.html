@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caregiver FAQ - Cognicopia</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #2d3748;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f4;
+        }
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1b4332;
+            padding: 15px 30px;
+            color: #ffffff;
+        }
+        .nav-brand a {
+            font-size: 18pt;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 11pt;
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: #d8f3dc; }
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+            z-index: 100;
+            border-radius: 6px;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+        }
+        .dropdown-content a {
+            color: #2d3748;
+            padding: 10px 16px;
+            display: block;
+            font-size: 10.5pt;
+        }
+        .dropdown-content a:hover {
+            background-color: #e9f5ed;
+            color: #1b4332;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Content Layout */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        h1 { color: #1b4332; font-size: 24pt; margin-bottom: 10px; }
+        .faq-item {
+            background-color: #ffffff;
+            border: 1px solid #c8d6ce;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+        .faq-question {
+            color: #1b4332;
+            font-size: 12pt;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .faq-answer {
+            color: #4a5568;
+            font-size: 10.5pt;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <a href="index.html">Cognicopia</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home (Tool)</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Information & Guides ▾</a>
+        <div class="dropdown-content">
+          <a href="about.html">About Cognicopia</a>
+          <a href="features.html">Feature Guide</a>
+          <a href="faq.html">Caregiver FAQ</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1>Frequently Asked Questions</h1>
+    <p>Common questions from family caregivers, clinicians, and facility directors about using Cognicopia.</p>
+
+    <div class="faq-item">
+      <div class="faq-question">What makes Cognicopia different from standard coloring books?</div>
+      <p class="faq-answer">Standard coloring and activity books are frequently designed for children or casual hobbyists. Cognicopia creates adult-centric, evidence-based reminiscence workbooks utilizing high-contrast lines, clean white spaces, and era-specific historical prompts that honor a senior's life experience.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How does Cognicopia help reduce caregiver stress?</div>
+      <p class="faq-answer">Planning daily activities for someone with cognitive decline can lead to burnout. Cognicopia removes the guesswork by instantly generating structured, ready-to-use worksheets and prompts that require zero preparation time.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can these workbooks be used in professional memory care facilities?</div>
+      <p class="faq-answer">Yes. The platform is built to support both individual family caregivers and professional memory care coordinators, speech therapists, and assisted living activity directors looking for standardized engagement tools.</p>
+    </div>
+  </div>
+
+</body>
+</html>
