@@ -850,6 +850,17 @@ h1,h2,h3,.wordmark{color:#FFF4E5}
 }
 .stripe-btn { background-color: #635bff; color: #ffffff; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; display: inline-block; margin-left: 10px; font-family: inherit; font-size: 14px; }
 .stripe-btn:hover { opacity: 0.9; }
+/* --- FIX: Resources Dropdown Alignment & Pure White Text --- */
+.dropdown-menu, .dropdown-content, .resources-dropdown {
+    left: 0 !important;
+    right: auto !important;
+    transform: none !important;
+    color: #ffffff !important;
+}
+
+.dropdown-menu a, .dropdown-content a, .resources-dropdown a {
+    color: #ffffff !important;
+}
 </style>
 </head>
 <body>
