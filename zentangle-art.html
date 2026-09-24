@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zentangle & Botanical Art Series - Cognicopia</title>
+  <meta name="description" content="Bold, high-contrast 2.5pt line art and meditative botanical coloring engineered for senior fine motor engagement, tremors, and memory care communities.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --glass-panel: rgba(20, 61, 43, 0.88);
+      --glass-dark: rgba(10, 38, 27, 0.94);
+      --brand: #52b788;
+      --brand-light: #74c69d;
+      --line: rgba(216, 243, 220, 0.22);
+      --tan: #92785e;
+    }
+    body {
+      margin: 0;
+      line-height: 1.6;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: #ffffff !important;
+      background-color: #1b4332;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px),
+        repeating-linear-gradient(-45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px),
+        repeating-linear-gradient(45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px),
+        repeating-linear-gradient(-45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px),
+        linear-gradient(135deg,#163d2d 0%,#1b4332 48%,#102b20 100%);
+    }
+
+    /* Universal pure white text enforcement */
+    body, p, h1, h2, h3, h4, li, span, a, label, strong, em, div {
+      color: #ffffff !important;
+    }
+
+    /* Tech-Modern SaaS Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 14px 40px;
+      color: #fff;
+      background: rgba(8, 28, 21, 0.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-brand a, .nav-links a { font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
+    .nav-brand a { display: flex; align-items: center; gap: 8px; color: #fff !important; font-size: 18pt; font-weight: 700; text-decoration: none; }
+    .nav-logo { display: block; width: 38px; height: 30px; flex: none; object-fit: contain; }
+    .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; margin: 0; padding: 0; }
+    .nav-links > li > a { color: #ffffff !important; font-size: 11pt; text-decoration: none; font-weight: 600; }
+    .nav-links a:hover { color: #d8f3dc !important; }
+    .dropdown { position: relative; }
+    .dropbtn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+      color: #ffffff !important;
+      font-weight: 600;
+      font-size: 11pt;
+      padding: 8px 10px;
+    }
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      left: auto;
+      z-index: 100;
+      display: none;
+      min-width: 240px;
+      padding: 8px;
+      background: rgba(14, 43, 30, 0.98);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 18px 36px rgba(0,0,0,.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content { display: block; }
+    .dropdown-content a {
+      display: block;
+      padding: 10px 14px;
+      color: #ffffff !important;
+      font-size: 10.5pt;
+      text-decoration: none;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: background 0.15s ease;
+    }
+    .dropdown-content a:hover,
+    .dropdown-content a:focus {
+      background: rgba(82, 183, 136, 0.28);
+      color: #ffffff !important;
+    }
+
+    /* Central Tan Container */
+    .container {
+      width: min(920px, calc(100% - 32px));
+      margin: 36px auto 50px;
+      padding: 40px 42px 54px;
+      background: var(--tan);
+      border: 1px solid rgba(216, 243, 220, 0.28);
+      border-radius: 18px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      box-sizing: border-box;
+    }
+
+    /* Back Link & Header Navigation */
+    .nav-breadcrumbs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(216, 243, 220, 0.22);
+    }
+    .back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      min-height: 48px;
+      background: #1b4332;
+      border: 1.5px solid #52b788;
+      border-radius: 8px;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    }
+    .back-home-btn:hover,
+    .back-home-btn:focus-visible {
+      background: #2d6a4f;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(82, 183, 136, 0.35);
+    }
+    .back-home-btn svg {
+      transition: transform 0.2s ease;
+    }
+    .back-home-btn:hover svg {
+      transform: translateX(-4px);
+    }
+    .breadcrumb-tag {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #d8f3dc !important;
+      background: rgba(14, 43, 30, 0.65);
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(216, 243, 220, 0.25);
+    }
+
+    /* Typography & Hierarchy */
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4.5vw, 36px);
+      text-align: center;
+      font-family: Georgia, serif;
+      line-height: 1.25;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+    }
+    h2 {
+      margin-top: 36px;
+      margin-bottom: 16px;
+      font-size: 24px;
+      font-family: Georgia, serif;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(82, 183, 136, 0.4);
+    }
+    h3 {
+      font-size: 20px;
+      font-family: Georgia, serif;
+      margin: 0 0 10px;
+    }
+    p, li {
+      font-size: 16.5px;
+      line-height: 1.65;
+    }
+
+    .organic-vine-divider {
+      display: block;
+      width: 78%;
+      max-width: 500px;
+      height: auto;
+      margin: 16px auto 22px;
+      color: var(--brand);
+    }
+    .vine-subtitle {
+      display: block;
+      margin: 0 auto 28px;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+
+    /* Content Cards & Panels */
+    .card-panel {
+      padding: 26px 28px;
+      margin-top: 22px;
+      background: var(--glass-panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .feature-box {
+      padding: 22px;
+      background: rgba(14, 43, 30, 0.9);
+      border: 1.5px solid rgba(82, 183, 136, 0.38);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .feature-icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: #2d6a4f;
+      border: 1px solid #74c69d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .feature-icon-badge svg {
+      color: #ffffff;
+      stroke: #ffffff;
+    }
+
+    /* Visual Artwork Preview Box */
+    .art-showcase-box {
+      background: #ffffff;
+      border: 2px solid #52b788;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 28px 0;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .art-showcase-box svg {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      display: block;
+    }
+    .art-caption {
+      margin-top: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1b4332 !important;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Key Spec Callout Pill */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: rgba(14, 43, 30, 0.85);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .specs-table th, .specs-table td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      font-size: 16px;
+    }
+    .specs-table th {
+      background: rgba(27, 67, 50, 0.95);
+      font-weight: 700;
+      color: #ffffff !important;
+      width: 38%;
+    }
+    .specs-table tr:last-child td,
+    .specs-table tr:last-child th {
+      border-bottom: none;
+    }
+
+    /* Highlight Banner */
+    .highlight-banner {
+      margin-top: 26px;
+      padding: 22px 24px;
+      background: rgba(27, 67, 50, 0.95);
+      border-left: 5px solid var(--brand-light);
+      border-radius: 0 10px 10px 0;
+    }
+
+    /* Action Footer Group */
+    .cta-action-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(216, 243, 220, 0.25);
+    }
+    .primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 14px 26px;
+      background: #2d6a4f;
+      border: 2px solid #52b788;
+      border-radius: 8px;
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #ffffff !important;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease-in-out;
+    }
+    .primary-btn:hover,
+    .primary-btn:focus-visible {
+      background: #40916c;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(82, 183, 136, 0.45);
+    }
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 14px 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff !important;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+    .secondary-btn:hover,
+    .secondary-btn:focus-visible {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .site-footer {
+      max-width: 920px;
+      margin: 0 auto 36px;
+      padding: 0 20px;
+      color: #ffffff !important;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 12px 20px; flex-wrap: wrap; gap: 8px; }
+      .nav-links { width: 100%; justify-content: flex-end; gap: 14px; }
+      .container { margin: 20px auto; padding: 26px 18px 36px; }
+      .cta-action-group { flex-direction: column; width: 100%; }
+      .primary-btn, .secondary-btn, .back-home-btn { width: 100%; text-align: center; justify-content: center; }
+      .specs-table th, .specs-table td { padding: 10px 12px; font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <div class="nav-brand">
+      <a href="index.html" aria-label="Cognicopia Home"><img src="assets/cognicopia-logo.jpg" alt="Cognicopia Logo" class="nav-logo"><span>Cognicopia</span></a>
+    </div>
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a href="index.html" role="menuitem">Home (Tool)</a></li>
+      <li class="dropdown" role="none">
+        <button type="button" class="dropbtn" id="resourcesDropdownBtn" aria-expanded="false" aria-haspopup="true" aria-controls="resources-dropdown-menu">Resources <span class="chevron" aria-hidden="true">▾</span></button>
+        <div class="dropdown-content" id="resources-dropdown-menu" role="menu" aria-labelledby="resourcesDropdownBtn">
+          <a href="about.html" role="menuitem">About Platform</a>
+          <a href="features.html" role="menuitem">Feature Guide</a>
+          <a href="therapy.html" role="menuitem">Reminiscence Science</a>
+          <a href="zentangle-art.html" role="menuitem">Zentangle Art Series</a>
+          <a href="cognitive-journals.html" role="menuitem">Cognitive Journals</a>
+          <a href="life-planners.html" role="menuitem">12-Month Planners</a>
+          <a href="faq.html" role="menuitem">Caregiver FAQ</a>
+          <a href="contact.html" role="menuitem">Contact</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="container" id="main-content">
+    <div class="nav-breadcrumbs">
+      <a href="index.html" class="back-home-btn" aria-label="Return to Cognicopia Homepage and Tool">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>Back to Home (Tool)</span>
+      </a>
+      <span class="breadcrumb-tag">Cognitive Resource Spotlight</span>
+    </div>
+
+    <h1>Zentangle &amp; Botanical Art Series</h1>
+    <svg class="organic-vine-divider" viewBox="0 0 500 70" role="img" aria-label="Decorative flowing vine with leaves">
+      <path d="M28 39 C92 12 135 59 188 36 C225 20 249 19 271 34 C301 54 331 56 357 37 C393 11 431 21 472 39" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M112 30 C94 18 80 21 71 34 C87 37 101 36 112 30 Z M147 45 C130 43 119 50 116 62 C130 59 141 53 147 45 Z M194 34 C181 19 167 17 157 25 C168 34 181 37 194 34 Z M305 45 C318 58 332 58 343 50 C332 43 318 41 305 45 Z M354 37 C369 22 382 21 392 30 C380 38 367 40 354 37 Z M407 30 C424 18 438 22 445 35 C431 36 418 34 407 30 Z" fill="currentColor"/>
+      <path d="M72 34 C81 29 91 28 101 29 M117 60 C124 53 132 49 141 48 M158 26 C168 26 178 29 187 34 M313 47 C323 48 332 51 340 55 M360 35 C370 31 379 29 389 30 M414 28 C423 29 432 32 440 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".72"/>
+    </svg>
+    <p class="vine-subtitle">Dignified Adult Art Therapy, Fine Motor Calibration &amp; Print Precision</p>
+
+    <!-- Overview Panel -->
+    <section class="card-panel">
+      <h2>Engineered for Dignity &amp; Sensory Calm</h2>
+      <p>The <strong>Zentangle and Botanical Art Series</strong> by Cognicopia was conceived to solve a critical void in eldercare activities: the prevalence of juvenile, simplistic, or infantilizing coloring books. Aging adults experiencing cognitive changes or motor decline retain mature aesthetics, refined artistic sensibilities, and a desire for creative accomplishment.</p>
+      <p>Our series combines mindful, repetitive geometric patterns (inspired by the meditative Zentangle methodology) with familiar botanical themes such as heritage prairie lilies, dogwood blossoms, and mountain ferns. Every illustration is calibrated to offer calming tactile feedback, focus attention during stressful sundowning periods, and restore creative autonomy.</p>
+    </section>
+
+    <!-- Visual Art Sample Frame -->
+    <div class="art-showcase-box">
+      <svg viewBox="0 0 340 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="High-contrast Zentangle botanical artwork preview">
+        <rect width="340" height="220" rx="8" fill="#fdfcf7" stroke="#1b4332" stroke-width="3"/>
+        <rect x="14" y="14" width="312" height="192" rx="4" fill="none" stroke="#2d6a4f" stroke-width="2" stroke-dasharray="5 3"/>
+        <!-- Central Mandala Structure -->
+        <circle cx="170" cy="106" r="62" fill="none" stroke="#1b4332" stroke-width="3.5"/>
+        <circle cx="170" cy="106" r="44" fill="none" stroke="#2d6a4f" stroke-width="3"/>
+        <circle cx="170" cy="106" r="24" fill="#d8f3dc" stroke="#1b4332" stroke-width="3"/>
+        <!-- Petals with 2.5pt bold outlines -->
+        <path d="M170 44 C158 68 158 82 170 106 C182 82 182 68 170 44Z" fill="#ffffff" stroke="#1b4332" stroke-width="3"/>
+        <path d="M170 168 C158 144 158 130 170 106 C182 130 182 144 170 168Z" fill="#ffffff" stroke="#1b4332" stroke-width="3"/>
+        <path d="M108 106 C132 94 146 94 170 106 C146 118 132 118 108 106Z" fill="#ffffff" stroke="#1b4332" stroke-width="3"/>
+        <path d="M232 106 C208 94 194 94 170 106 C194 118 208 118 232 106Z" fill="#ffffff" stroke="#1b4332" stroke-width="3"/>
+        <!-- Symmetrical Botanical Leaves -->
+        <path d="M42 50 Q68 32 86 60 Q58 70 42 50Z" fill="#ffffff" stroke="#1b4332" stroke-width="3"/>
+        <path d="M298 50 Q272 32 254 60 Q282 70 298 50Z" fill="#ffffff" stroke="#1b4332" stroke-width="3"/>
+        <path d="M42 160 Q68 178 86 150 Q58 140 42 160Z" fill="#ffffff" stroke="#1b4332" stroke-width="3"/>
+        <path d="M298 160 Q272 178 254 150 Q282 140 298 160Z" fill="#ffffff" stroke="#1b4332" stroke-width="3"/>
+        <!-- High-Contrast Calibration Label -->
+        <rect x="28" y="180" width="284" height="22" rx="4" fill="#1b4332"/>
+        <text x="170" y="195" fill="#ffffff" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">Zentangle Botanical Specimen &bull; 2.5pt High-Contrast Outlines</text>
+      </svg>
+      <div class="art-caption">Calibrated 2.5pt Boundary Barriers &bull; Anti-Spill Tactile Edge Architecture</div>
+    </div>
+
+    <!-- Clinical Alignment & Fine Motor Science -->
+    <section class="card-panel">
+      <h2>Fine Motor Skill Engagement &amp; Tremor Accommodation</h2>
+      <p>Age-related changes, Parkinsonian tremors, severe osteoarthritis, and visual accommodation decline often make traditional coloring books frustrating for seniors. When lines are thin and areas are minuscule, accidental marks outside the boundaries induce feelings of failure and discouragement.</p>
+      
+      <div class="feature-grid">
+        <div class="feature-box">
+          <div class="feature-icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </div>
+          <h3>2.5pt Heavy Stroke Barriers</h3>
+          <p>Reinforced black boundary lines create a visual and physical "gutter" that contains marker or pencil strokes, dramatically reducing accidental spillover and boosting user confidence.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+          </div>
+          <h3>Ergonomic Field Spacing</h3>
+          <p>Interior coloring segments are mathematically proportioned to accommodate broad-grip pencils, triangular wax pastels, and adaptive foam grips without cramped hand postures.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </div>
+          <h3>Repetitive Calm Tracing</h3>
+          <p>The rhythmic, predictable curves of Zentangle geometry activate neurological relaxation pathways, easing repetitive verbal questioning and sensory agitation during late afternoon sundowning.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publishing & Manufacturing Standards (Kirk Barron) -->
+    <section class="card-panel">
+      <h2>Publishing Standards by Publisher Kirk Barron (Minot, ND)</h2>
+      <p>Every edition within the Zentangle and Botanical Art Series is curated, audited, and formatted under the direct oversight of independent publisher <strong>Kirk Barron</strong> in Minot, North Dakota. Books and digital print modules adhere strictly to professional Amazon Kindle Direct Publishing (KDP) paperback standards and high-volume institutional copier testing.</p>
+
+      <table class="specs-table" aria-label="Publishing and printing technical specifications">
+        <tbody>
+          <tr>
+            <th scope="row">Publisher &amp; Editorial Oversight</th>
+            <td>Kirk Barron &bull; Minot, North Dakota &bull; Independent Care Publications</td>
+          </tr>
+          <tr>
+            <th scope="row">Page Format &amp; Margins</th>
+            <td>Standard 8.5&times;11 inch sheet-fed with 0.5" gutter margins for facility clipboards &amp; binders</td>
+          </tr>
+          <tr>
+            <th scope="row">Paper Weight &amp; Opacity</th>
+            <td>Optimized for 60#–70# premium white stock to prevent marker ghosting and bleed-through</td>
+          </tr>
+          <tr>
+            <th scope="row">Line Contrast Standards</th>
+            <td>2.5pt solid pure black (#000000) vector strokes calibrated for high-volume laser copiers</td>
+          </tr>
+          <tr>
+            <th scope="row">Page Architecture</th>
+            <td>Single-sided printing with protective backing buffers to preserve completed artwork</td>
+          </tr>
+          <tr>
+            <th scope="row">Regulatory Alignment</th>
+            <td>Directly satisfies CMS Tag F679 person-centered activity and meaningful engagement mandates</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-banner">
+        <strong>Facility Guarantee:</strong> If any printed page smears, fails to feed through your commercial copiers, or does not engage your residents, Kirk Barron provides direct, personalized assistance or an immediate institutional replacement. Contact Kirk directly at <a href="mailto:cognicopia@outlook.com" style="color:#ffffff !important; text-decoration:underline; font-weight:700;">cognicopia@outlook.com</a>.
+      </div>
+    </section>
+
+    <!-- Activity Director Implementation Guide -->
+    <section class="card-panel">
+      <h2>Activity Director &amp; Caregiver Best Practices</h2>
+      <ul style="padding-left: 20px; margin: 0 0 16px;">
+        <li style="margin-bottom: 12px;"><strong>Medium Selection:</strong> Pair pages with soft-core watercolor pencils or triangular adaptive markers (such as Faber-Castell or Crayola Ultra-Clean). Avoid dried fine-point ballpens that require excessive downward pressure.</li>
+        <li style="margin-bottom: 12px;"><strong>Sensory Music Pairing:</strong> Stage coloring sessions with soft big band, classical, or mid-century instrumental radio to cultivate a relaxed, conversational atmosphere.</li>
+        <li style="margin-bottom: 12px;"><strong>Non-Judgmental Completion:</strong> Celebrate partially colored pages as complete artistic statements. Never instruct or correct a resident on color realism (e.g., violet tree leaves are as valid as green).</li>
+        <li style="margin-bottom: 12px;"><strong>Care Plan Charting:</strong> Completed botanical pages serve as tangible evidence of fine motor stimulation and person-centered participation for quarterly state survey audits.</li>
+      </ul>
+    </section>
+
+    <!-- Call to Action Actions -->
+    <div class="cta-action-group">
+      <a href="index.html#f" class="primary-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        <span>Generate Custom Art Activity (Tool)</span>
+      </a>
+      <a href="contact.html?subject=Zentangle+Art+Series+Inquiry" class="secondary-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>Inquire for Facility Bulk Review</span>
+      </a>
+      <a href="index.html" class="back-home-btn" style="min-height: 48px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>Return to Homepage</span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Cognicopia is published by Kirk Barron in Minot, North Dakota. Everything runs securely inside your browser with zero cloud tracking.
+  </footer>
+
+</body>
+</html>

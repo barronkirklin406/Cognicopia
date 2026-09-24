@@ -13,11 +13,13 @@
         .nav-brand a, .nav-links a { font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
         .nav-brand a { display: flex; align-items: center; gap: 8px; color: #fff; font-size: 18pt; font-weight: 700; text-decoration: none; }
         .nav-logo { display: block; width: 38px; height: 30px; flex: none; object-fit: contain; }
-        .nav-links > li > a { color: #e8f5e9; }
+        .nav-links > li > a { color: #e8f5e9; font-size: 10.5pt; text-decoration: none; }
         .nav-links a:hover { color: #d8f3dc; }
-        .dropdown-content { top: calc(100% + 10px); background: rgba(20,61,43,.96); border: 1px solid var(--line); box-shadow: 0 18px 36px rgba(0,0,0,.32); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+        .dropdown { position: relative; }
+        .dropdown-content { position: absolute; top: calc(100% + 10px); right: 0; left: auto; z-index: 100; display: none; min-width: 220px; padding: 6px; background: rgba(20,61,43,.96); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 18px 36px rgba(0,0,0,.32); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+        .dropdown:hover .dropdown-content { display: block; }
         .dropdown-content::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
-        .dropdown-content a { color: #e8f5e9; }
+        .dropdown-content a { display: block; padding: 10px 14px; color: #e8f5e9; font-size: 10pt; text-decoration: none; border-radius: 6px; white-space: nowrap; }
         .dropdown-content a:hover { background: rgba(82,183,136,.2); color: #d8f3dc; }
         .container { width: min(900px, calc(100% - 28px)); margin: 40px auto; padding: 34px 38px 48px; background: #92785E; border: 1px solid rgba(216,243,220,.24); border-radius: 18px; box-shadow: 0 24px 70px rgba(0,0,0,.3); }
         h1 { color: #d8f3dc; font-size: 24pt; margin: 0 0 8px; }
@@ -51,7 +53,11 @@ body, p, h1, h2, h3, h4, li, span, th, td {
           <a href="about.html">About Platform</a>
           <a href="features.html">Feature Guide</a>
           <a href="therapy.html">Reminiscence Science</a>
+          <a href="zentangle-art.html">Zentangle Art Series</a>
+          <a href="cognitive-journals.html">Cognitive Journals</a>
+          <a href="life-planners.html">12-Month Planners</a>
           <a href="faq.html">Caregiver FAQ</a>
+          <a href="contact.html">Contact</a>
         </div>
       </li>
     </ul>
@@ -77,17 +83,17 @@ body, p, h1, h2, h3, h4, li, span, th, td {
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr id="prompt-engine">
                 <td><strong>Thematic Prompt Engine</strong></td>
                 <td>Generates targeted life-review questions tailored to eras, vintage hobbies, and work backgrounds.</td>
                 <td>Sparks long-term memories and meaningful dialogue between participants and caregivers.</td>
             </tr>
-            <tr>
+            <tr id="art-formatter">
                 <td><strong>High-Contrast Formatter</strong></td>
                 <td>Formats interior page layouts using optimized 3:4 aspect ratios with bold outlines and clean white space.</td>
                 <td>Ensures high visual accessibility for individuals experiencing declining eyesight or cognitive focus challenges.</td>
             </tr>
-            <tr>
+            <tr id="planner-organizer">
                 <td><strong>Activity & Logbook Generator</strong></td>
                 <td>Builds customized word search bundles, sensory checklists, and daily reflection logs.</td>
                 <td>Eliminates daily planning guesswork for family caregivers and care facility staff.</td>

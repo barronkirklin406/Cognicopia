@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12-Month Life Planners & Organizers - Cognicopia</title>
+  <meta name="description" content="Structured senior routine organizers, temporal orientation anchors, and daily life tracking tools engineered for memory care communities, activity directors, and caregivers.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --glass-panel: rgba(20, 61, 43, 0.88);
+      --glass-dark: rgba(10, 38, 27, 0.94);
+      --brand: #52b788;
+      --brand-light: #74c69d;
+      --line: rgba(216, 243, 220, 0.22);
+      --tan: #92785e;
+    }
+    body {
+      margin: 0;
+      line-height: 1.6;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: #ffffff !important;
+      background-color: #1b4332;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px),
+        repeating-linear-gradient(-45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px),
+        repeating-linear-gradient(45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px),
+        repeating-linear-gradient(-45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px),
+        linear-gradient(135deg,#163d2d 0%,#1b4332 48%,#102b20 100%);
+    }
+
+    /* Universal pure white text enforcement */
+    body, p, h1, h2, h3, h4, li, span, a, label, strong, em, div {
+      color: #ffffff !important;
+    }
+
+    /* Tech-Modern SaaS Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 14px 40px;
+      color: #fff;
+      background: rgba(8, 28, 21, 0.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-brand a, .nav-links a { font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
+    .nav-brand a { display: flex; align-items: center; gap: 8px; color: #fff !important; font-size: 18pt; font-weight: 700; text-decoration: none; }
+    .nav-logo { display: block; width: 38px; height: 30px; flex: none; object-fit: contain; }
+    .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; margin: 0; padding: 0; }
+    .nav-links > li > a { color: #ffffff !important; font-size: 11pt; text-decoration: none; font-weight: 600; }
+    .nav-links a:hover { color: #d8f3dc !important; }
+    .dropdown { position: relative; }
+    .dropbtn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+      color: #ffffff !important;
+      font-weight: 600;
+      font-size: 11pt;
+      padding: 8px 10px;
+    }
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      left: auto;
+      z-index: 100;
+      display: none;
+      min-width: 240px;
+      padding: 8px;
+      background: rgba(14, 43, 30, 0.98);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 18px 36px rgba(0,0,0,.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content { display: block; }
+    .dropdown-content a {
+      display: block;
+      padding: 10px 14px;
+      color: #ffffff !important;
+      font-size: 10.5pt;
+      text-decoration: none;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: background 0.15s ease;
+    }
+    .dropdown-content a:hover,
+    .dropdown-content a:focus {
+      background: rgba(82, 183, 136, 0.28);
+      color: #ffffff !important;
+    }
+
+    /* Central Tan Container */
+    .container {
+      width: min(920px, calc(100% - 32px));
+      margin: 36px auto 50px;
+      padding: 40px 42px 54px;
+      background: var(--tan);
+      border: 1px solid rgba(216, 243, 220, 0.28);
+      border-radius: 18px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      box-sizing: border-box;
+    }
+
+    /* Back Link & Header Navigation */
+    .nav-breadcrumbs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(216, 243, 220, 0.22);
+    }
+    .back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      min-height: 48px;
+      background: #1b4332;
+      border: 1.5px solid #52b788;
+      border-radius: 8px;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    }
+    .back-home-btn:hover,
+    .back-home-btn:focus-visible {
+      background: #2d6a4f;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(82, 183, 136, 0.35);
+    }
+    .back-home-btn svg {
+      transition: transform 0.2s ease;
+    }
+    .back-home-btn:hover svg {
+      transform: translateX(-4px);
+    }
+    .breadcrumb-tag {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #d8f3dc !important;
+      background: rgba(14, 43, 30, 0.65);
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(216, 243, 220, 0.25);
+    }
+
+    /* Typography & Hierarchy */
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4.5vw, 36px);
+      text-align: center;
+      font-family: Georgia, serif;
+      line-height: 1.25;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+    }
+    h2 {
+      margin-top: 36px;
+      margin-bottom: 16px;
+      font-size: 24px;
+      font-family: Georgia, serif;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(82, 183, 136, 0.4);
+    }
+    h3 {
+      font-size: 20px;
+      font-family: Georgia, serif;
+      margin: 0 0 10px;
+    }
+    p, li {
+      font-size: 16.5px;
+      line-height: 1.65;
+    }
+
+    .organic-vine-divider {
+      display: block;
+      width: 78%;
+      max-width: 500px;
+      height: auto;
+      margin: 16px auto 22px;
+      color: var(--brand);
+    }
+    .vine-subtitle {
+      display: block;
+      margin: 0 auto 28px;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+
+    /* Content Cards & Panels */
+    .card-panel {
+      padding: 26px 28px;
+      margin-top: 22px;
+      background: var(--glass-panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .feature-box {
+      padding: 22px;
+      background: rgba(14, 43, 30, 0.9);
+      border: 1.5px solid rgba(82, 183, 136, 0.38);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .feature-icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: #2d6a4f;
+      border: 1px solid #74c69d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .feature-icon-badge svg {
+      color: #ffffff;
+      stroke: #ffffff;
+    }
+
+    /* Visual Planner Preview Box */
+    .planner-sample-box {
+      background: #fdfcf7;
+      border: 2px solid #52b788;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 28px 0;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .planner-sample-box svg {
+      width: 100%;
+      max-width: 540px;
+      height: auto;
+      display: block;
+    }
+    .planner-caption {
+      margin-top: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1b4332 !important;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Module Grid */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin: 24px 0;
+    }
+    .module-card {
+      background: rgba(14, 43, 30, 0.88);
+      border: 1.5px solid rgba(216, 243, 220, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .module-tag {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #74c69d !important;
+      margin-bottom: 8px;
+    }
+
+    /* Specs Table */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: rgba(14, 43, 30, 0.85);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .specs-table th, .specs-table td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      font-size: 16px;
+    }
+    .specs-table th {
+      background: rgba(27, 67, 50, 0.95);
+      font-weight: 700;
+      color: #ffffff !important;
+      width: 38%;
+    }
+    .specs-table tr:last-child td,
+    .specs-table tr:last-child th {
+      border-bottom: none;
+    }
+
+    /* Highlight Banner */
+    .highlight-banner {
+      margin-top: 26px;
+      padding: 22px 24px;
+      background: rgba(27, 67, 50, 0.95);
+      border-left: 5px solid var(--brand-light);
+      border-radius: 0 10px 10px 0;
+    }
+
+    /* Action Footer Group */
+    .cta-action-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(216, 243, 220, 0.25);
+    }
+    .primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 14px 26px;
+      background: #2d6a4f;
+      border: 2px solid #52b788;
+      border-radius: 8px;
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #ffffff !important;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease-in-out;
+    }
+    .primary-btn:hover,
+    .primary-btn:focus-visible {
+      background: #40916c;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(82, 183, 136, 0.45);
+    }
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 14px 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff !important;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+    .secondary-btn:hover,
+    .secondary-btn:focus-visible {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .site-footer {
+      max-width: 920px;
+      margin: 0 auto 36px;
+      padding: 0 20px;
+      color: #ffffff !important;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 12px 20px; flex-wrap: wrap; gap: 8px; }
+      .nav-links { width: 100%; justify-content: flex-end; gap: 14px; }
+      .container { margin: 20px auto; padding: 26px 18px 36px; }
+      .cta-action-group { flex-direction: column; width: 100%; }
+      .primary-btn, .secondary-btn, .back-home-btn { width: 100%; text-align: center; justify-content: center; }
+      .specs-table th, .specs-table td { padding: 10px 12px; font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <div class="nav-brand">
+      <a href="index.html" aria-label="Cognicopia Home"><img src="assets/cognicopia-logo.jpg" alt="Cognicopia Logo" class="nav-logo"><span>Cognicopia</span></a>
+    </div>
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a href="index.html" role="menuitem">Home (Tool)</a></li>
+      <li class="dropdown" role="none">
+        <button type="button" class="dropbtn" id="resourcesDropdownBtn" aria-expanded="false" aria-haspopup="true" aria-controls="resources-dropdown-menu">Resources <span class="chevron" aria-hidden="true">▾</span></button>
+        <div class="dropdown-content" id="resources-dropdown-menu" role="menu" aria-labelledby="resourcesDropdownBtn">
+          <a href="about.html" role="menuitem">About Platform</a>
+          <a href="features.html" role="menuitem">Feature Guide</a>
+          <a href="therapy.html" role="menuitem">Reminiscence Science</a>
+          <a href="zentangle-art.html" role="menuitem">Zentangle Art Series</a>
+          <a href="cognitive-journals.html" role="menuitem">Cognitive Journals</a>
+          <a href="life-planners.html" role="menuitem">12-Month Planners</a>
+          <a href="faq.html" role="menuitem">Caregiver FAQ</a>
+          <a href="contact.html" role="menuitem">Contact</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="container" id="main-content">
+    <div class="nav-breadcrumbs">
+      <a href="index.html" class="back-home-btn" aria-label="Return to Cognicopia Homepage and Tool">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>Back to Home (Tool)</span>
+      </a>
+      <span class="breadcrumb-tag">Cognitive Resource Spotlight</span>
+    </div>
+
+    <h1>12-Month Life Planners &amp; Organizers</h1>
+    <svg class="organic-vine-divider" viewBox="0 0 500 70" role="img" aria-label="Decorative flowing vine with leaves">
+      <path d="M28 39 C92 12 135 59 188 36 C225 20 249 19 271 34 C301 54 331 56 357 37 C393 11 431 21 472 39" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M112 30 C94 18 80 21 71 34 C87 37 101 36 112 30 Z M147 45 C130 43 119 50 116 62 C130 59 141 53 147 45 Z M194 34 C181 19 167 17 157 25 C168 34 181 37 194 34 Z M305 45 C318 58 332 58 343 50 C332 43 318 41 305 45 Z M354 37 C369 22 382 21 392 30 C380 38 367 40 354 37 Z M407 30 C424 18 438 22 445 35 C431 36 418 34 407 30 Z" fill="currentColor"/>
+      <path d="M72 34 C81 29 91 28 101 29 M117 60 C124 53 132 49 141 48 M158 26 C168 26 178 29 187 34 M313 47 C323 48 332 51 340 55 M360 35 C370 31 379 29 389 30 M414 28 C423 29 432 32 440 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".72"/>
+    </svg>
+    <p class="vine-subtitle">Visual Routine Predictability, Temporal Orientation &amp; Calm Daily Structure</p>
+
+    <!-- Overview Panel -->
+    <section class="card-panel">
+      <h2>Restoring Orientation, Safety &amp; Temporal Peace</h2>
+      <p>Disorientation in time is one of the most unsettling experiences for seniors navigating dementia or cognitive decline. Losing track of what day it is, which season has arrived, or what happens next triggers repetitive questioning (&ldquo;Where are we going?&rdquo;, &ldquo;Is it time for lunch yet?&rdquo;, &ldquo;Who is coming today?&rdquo;) and profound anxiety.</p>
+      <p>Cognicopia&rsquo;s <strong>12-Month Life Planners and Routine Organizers</strong> provide an unshakeable visual anchor. Engineered for bedside clipboards, activity room boards, and caregiver stations, these sheets translate the chaos of shifting schedules into comforting, dignified predictability.</p>
+    </section>
+
+    <!-- Visual Sample Preview Frame -->
+    <div class="planner-sample-box">
+      <svg viewBox="0 0 340 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="12-Month Senior Life Planner sample preview">
+        <rect width="340" height="220" rx="8" fill="#fdfcf7" stroke="#1b4332" stroke-width="3"/>
+        <!-- Top Orientation Header -->
+        <rect x="14" y="14" width="312" height="32" rx="4" fill="#1b4332"/>
+        <text x="24" y="35" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="bold">TODAY IS WEDNESDAY</text>
+        <text x="314" y="35" fill="#d8f3dc" font-size="12" font-family="sans-serif" font-weight="bold" text-anchor="end">OCTOBER 14 &bull; AUTUMN</text>
+        
+        <!-- Weather & Menu Sub-Blocks -->
+        <rect x="14" y="52" width="150" height="38" rx="4" fill="#e8f5e9" stroke="#52b788" stroke-width="1.4"/>
+        <circle cx="36" cy="71" r="11" fill="#e9c46a"/>
+        <text x="56" y="68" fill="#1b4332" font-size="11" font-family="sans-serif" font-weight="bold">Clear &amp; Sunny</text>
+        <text x="56" y="81" fill="#2d6a4f" font-size="9.5" font-family="sans-serif">Crisp Fall Breeze &bull; 62&deg;</text>
+
+        <rect x="176" y="52" width="150" height="38" rx="4" fill="#e8f5e9" stroke="#52b788" stroke-width="1.4"/>
+        <text x="188" y="68" fill="#1b4332" font-size="11" font-family="sans-serif" font-weight="bold">Daily Menu Highlight</text>
+        <text x="188" y="81" fill="#2d6a4f" font-size="9.5" font-family="sans-serif">Roast Turkey &amp; Warm Apple Cider</text>
+
+        <!-- Scheduled Milestones -->
+        <rect x="14" y="96" width="312" height="27" rx="3" fill="#ffffff" stroke="#2d6a4f" stroke-width="1.5"/>
+        <rect x="18" y="100" width="50" height="19" rx="2" fill="#2d6a4f"/>
+        <text x="43" y="113" fill="#ffffff" font-size="9.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">10:00 AM</text>
+        <text x="76" y="113" fill="#1b4332" font-size="11" font-family="sans-serif" font-weight="bold">Gentle Seated Chair Yoga &amp; Big Band Tunes</text>
+
+        <rect x="14" y="128" width="312" height="27" rx="3" fill="#ffffff" stroke="#2d6a4f" stroke-width="1.5"/>
+        <rect x="18" y="132" width="50" height="19" rx="2" fill="#2d6a4f"/>
+        <text x="43" y="145" fill="#ffffff" font-size="9.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">2:00 PM</text>
+        <text x="76" y="145" fill="#1b4332" font-size="11" font-family="sans-serif" font-weight="bold">Reminiscence Circle &amp; Cider Doughnut Social</text>
+
+        <!-- Confidence Affirmation Bar -->
+        <rect x="14" y="162" width="312" height="44" rx="4" fill="#1b4332"/>
+        <text x="170" y="179" fill="#d8f3dc" font-size="10.5" font-family="Georgia, serif" font-style="italic" text-anchor="middle">&ldquo;Every day brings familiar faces, warm music, and joyful moments.&rdquo;</text>
+        <text x="170" y="196" fill="#74c69d" font-size="9.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">Orientation Anchor &bull; Predictable Daily Structure &bull; CMS Tag F679</text>
+      </svg>
+      <div class="planner-caption">Temporal Grounding Architecture &bull; Bold Date, Weather &amp; Milestone Blocks</div>
+    </div>
+
+    <!-- Core Clinical & Cognitive Pillars -->
+    <section class="card-panel">
+      <h2>Clinical Benefits of Visual Predictability</h2>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <div class="feature-icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          </div>
+          <h3>Curbs Transition Anxiety</h3>
+          <p>Uncertainty around daily transitions causes acute agitation. Clearly marked milestone slots assure residents that loved ones, meals, and comforting activities are arriving on schedule.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+          <h3>Seasonal &amp; Weather Grounding</h3>
+          <p>Featuring intuitive visual icons for sun, rain, and autumn leaves alongside bold month headings reinforces connection to the natural world and external environment.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-badge" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3>Unified Staff &amp; Family Handoff</h3>
+          <p>Activity Directors, CNAs, and visiting family members share a standardized visual communication tool, eliminating confusion and ensuring individualized care continuity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modular Planner Components -->
+    <section class="card-panel">
+      <h2>The 4 Core Organizational Modules</h2>
+      <div class="module-grid">
+        <div class="module-card">
+          <span class="module-tag">Module 01</span>
+          <h3>Daily Routine Boards</h3>
+          <p>Single-day display schedules with high-visibility hourly slots (10:00 AM, 2:00 PM) and comforting affirmation quotes.</p>
+        </div>
+
+        <div class="module-card">
+          <span class="module-tag">Module 02</span>
+          <h3>12-Month Calendar Grids</h3>
+          <p>Full-page monthly overviews with extra-wide date squares for recording family visits, facility socials, and birthdays.</p>
+        </div>
+
+        <div class="module-card">
+          <span class="module-tag">Module 03</span>
+          <h3>Caregiver Logbooks</h3>
+          <p>Rapid shift-handoff trackers recording fluid intake, preferred sensory music, and behavioral calming cues.</p>
+        </div>
+
+        <div class="module-card">
+          <span class="module-tag">Module 04</span>
+          <h3>Milestone Keepsake Trackers</h3>
+          <p>Archival memory logs for residents and families to document stories, anniversary dates, and joyful moments together.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facility Implementation & Publishing Standards (Kirk Barron) -->
+    <section class="card-panel">
+      <h2>Publishing Excellence &amp; Quality Oversight (Kirk Barron, Minot, ND)</h2>
+      <p>Created, reviewed, and published under the personal direction of independent care publisher <strong>Kirk Barron</strong> in Minot, North Dakota. Every layout is calibrated for commercial copier paper trays, durable facility binders, and daily clipboard handling.</p>
+
+      <table class="specs-table" aria-label="Technical planner specifications">
+        <tbody>
+          <tr>
+            <th scope="row">Publisher &amp; Editorial Lead</th>
+            <td>Kirk Barron &bull; Minot, North Dakota &bull; Independent Publisher</td>
+          </tr>
+          <tr>
+            <th scope="row">Dimensions &amp; Binding</th>
+            <td>Standard 8.5&times;11 inch sheets with 0.5" left-side binding gutter margin</td>
+          </tr>
+          <tr>
+            <th scope="row">Visual Hierarchy</th>
+            <td>Ultra-bold 24pt date banners, 18pt time indicators, 16pt descriptive text</td>
+          </tr>
+          <tr>
+            <th scope="row">Print Compatibility</th>
+            <td>Monochrome and high-volume copier optimized &bull; Clean crisp toner lines</td>
+          </tr>
+          <tr>
+            <th scope="row">Institutional Survey Ready</th>
+            <td>Documents compliance with CMS Tag F679 personalized daily activity routines</td>
+          </tr>
+          <tr>
+            <th scope="row">Data Privacy Standard</th>
+            <td>100% in-browser generation &bull; No patient health information (PHI) ever uploaded</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-banner">
+        <strong>Direct Care Guarantee:</strong> We stand behind our organizational resources with direct publisher support. If any planner template fails to simplify your facility&rsquo;s daily workflow or meet your staff&rsquo;s scheduling needs, contact Kirk Barron directly at <a href="mailto:cognicopia@outlook.com" style="color:#ffffff !important; text-decoration:underline; font-weight:700;">cognicopia@outlook.com</a>.
+      </div>
+    </section>
+
+    <!-- Call to Action Group -->
+    <div class="cta-action-group">
+      <a href="index.html#f" class="primary-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        <span>Build Your 12-Month Planner (Tool)</span>
+      </a>
+      <a href="contact.html?subject=12-Month+Planner+Facility+Inquiry" class="secondary-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>Request Facility Planning Consultation</span>
+      </a>
+      <a href="index.html" class="back-home-btn" style="min-height: 48px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>Return to Homepage</span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Cognicopia is published by Kirk Barron in Minot, North Dakota. Everything runs securely inside your browser with zero cloud tracking.
+  </footer>
+
+</body>
+</html>

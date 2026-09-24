@@ -1,0 +1,7 @@
+{
+  "name": "Cognicopia",
+  "description": "Create personalized, print-ready reminiscence activity packets for meaningful memory care conversations.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

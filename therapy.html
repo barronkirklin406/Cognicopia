@@ -53,10 +53,11 @@
     .dropdown-content {
       position: absolute;
       top: calc(100% + 10px);
-      left: 0;
+      right: 0;
+      left: auto;
       z-index: 100;
       display: none;
-      min-width: 210px;
+      min-width: 220px;
       padding: 6px;
       background: rgba(20,61,43,.96);
       border: 1px solid rgba(216,243,220,.2);
@@ -67,7 +68,7 @@
     }
     .dropdown:hover .dropdown-content { display: block; }
     .dropdown-content::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
-    .dropdown-content a { display: block; padding: 10px 14px; color: #e8f5e9; font-size: 10pt; text-decoration: none; border-radius: 6px; }
+    .dropdown-content a { display: block; padding: 10px 14px; color: #e8f5e9; font-size: 10pt; text-decoration: none; border-radius: 6px; white-space: nowrap; }
     .dropdown-content a:hover { background: rgba(82,183,136,.2); color: #d8f3dc; }
     .container {
       width: min(900px, calc(100% - 28px));
@@ -125,7 +126,11 @@
           <a href="about.html">About Platform</a>
           <a href="features.html">Feature Guide</a>
           <a href="therapy.html">Reminiscence Science</a>
+          <a href="zentangle-art.html">Zentangle Art Series</a>
+          <a href="cognitive-journals.html">Cognitive Journals</a>
+          <a href="life-planners.html">12-Month Planners</a>
           <a href="faq.html">Caregiver FAQ</a>
+          <a href="contact.html">Contact</a>
         </div>
       </li>
     </ul>
@@ -151,9 +156,9 @@
       <h3>Structured life review</h3>
       <p>Move gently through life eras, such as childhood, school, first work, family life, and later interests. Use open prompts, allow pauses, and let the resident choose which memories deserve attention.</p>
     </div>
-    <div class="framework">
-      <h3>Sensory-triggered recall</h3>
-      <p>Use safe, familiar cues such as music, textures, household objects, food memories, photographs, or regional landmarks. A sensory anchor should invite association, never force a response or expose a person to distressing material.</p>
+    <div class="framework" id="art-therapy">
+      <h3 id="sensory-recall">Sensory-triggered recall &amp; Meditative Art Therapy</h3>
+      <p>Use safe, familiar cues such as music, textures, botanical line art, household objects, food memories, photographs, or regional landmarks. A sensory and meditative art anchor invites tactile focus and spontaneous reminiscence, never forcing a response or exposing a person to distressing material.</p>
     </div>
     <div class="framework">
       <h3>Identity-affirming storytelling</h3>
