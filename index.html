@@ -441,7 +441,7 @@ body{
    so the cross-hatch carries through it softened instead of stopping
    dead at the edge. Bare cloth in the margins, paper laid over cloth
    where the words are. One pattern, one layer, always in register. */
-.wrap{max-width:760px;margin:0 auto;padding:0 44px 96px;
+.wrap{box-sizing:border-box;width:100%;max-width:760px;margin:0 auto;padding:0 44px 96px;
   background:rgba(235,224,205,.78);
   box-shadow:0 0 0 1px rgba(226,220,208,.9)}
 @media (max-width:560px){ .wrap{padding:0 20px 72px} .wordmark{font-size:38px} }
@@ -992,6 +992,10 @@ select:focus-visible {
 
 /* --- Container Wrap & Pure White High Contrast --- */
 .wrap {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
   background: #92785E;
   border: 1px solid rgba(216, 243, 220, 0.28);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
@@ -1034,6 +1038,9 @@ h1, h2, h3, h4,
 .standards-card-kicker,
 .standards-feature-item span,
 .standards-card-footer span,
+.standards-card-action,
+.standards-card-action span,
+.standards-action-text,
 .standards-guarantee-content h3,
 .standards-guarantee-content p,
 .standards-seal-caption,
@@ -1604,7 +1611,7 @@ button#go:hover {
   width: 100%;
   max-width: 100%;
   margin: 36px 0 44px 0;
-  padding: 34px 20px;
+  padding: 32px 18px;
   background: rgba(20, 61, 43, 0.94);
   border: 2px solid rgba(216, 243, 220, 0.45);
   border-radius: 16px;
@@ -1615,44 +1622,47 @@ button#go:hover {
 
 .gallery-header {
   text-align: center;
-  max-width: 820px;
-  margin: 0 auto 32px;
+  max-width: 100%;
+  margin: 0 auto 30px;
   box-sizing: border-box;
   width: 100%;
 }
 
 .gallery-title {
   font-family: var(--display), Georgia, serif;
-  font-size: clamp(24px, 4vw, 34px);
+  font-size: clamp(23px, 3.8vw, 32px);
   font-weight: 700;
   color: #ffffff !important;
   line-height: 1.28;
   margin: 0 0 14px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .gallery-subtitle {
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.55;
   color: #ffffff !important;
   font-weight: 500;
   margin: 0 0 18px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .gallery-trust-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 10px 14px;
   flex-wrap: wrap;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 600;
   color: #ffffff !important;
   box-sizing: border-box;
   width: 100%;
+  max-width: 100%;
 }
 
 .gallery-trust-item {
@@ -1660,6 +1670,7 @@ button#go:hover {
   align-items: center;
   gap: 6px;
   color: #ffffff !important;
+  word-wrap: break-word;
 }
 
 .gallery-trust-item svg {
@@ -1692,11 +1703,11 @@ button#go:hover {
   background: rgba(27, 67, 50, 0.95);
   border: 2px solid rgba(82, 183, 136, 0.45);
   border-radius: 14px;
-  padding: 18px 14px;
+  padding: 18px 12px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
   text-decoration: none;
   cursor: pointer;
   color: #ffffff !important;
@@ -1706,9 +1717,9 @@ button#go:hover {
 
 .gallery-card:hover {
   transform: translateY(-5px);
-  background: rgba(33, 79, 59, 0.98);
-  border-color: #74c69d;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(116, 198, 157, 0.35);
+  background: rgba(38, 88, 66, 0.98);
+  border-color: #95d5b2;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42), 0 0 0 2px rgba(149, 213, 178, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .gallery-card:focus-visible {
@@ -1730,12 +1741,12 @@ button#go:hover {
   min-width: 0;
   background: #ffffff;
   border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 8px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 160px;
+  min-height: 125px;
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.18);
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -1754,13 +1765,27 @@ button#go:hover {
 }
 
 .gallery-card-kicker {
-  font-size: 13px !important;
+  font-size: 11.5px !important;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: #74c69d !important;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.gallery-card-kicker {
+  font-size: 14.5px !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff !important;
+  margin-bottom: 6px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .gallery-card-title {
@@ -1769,19 +1794,21 @@ button#go:hover {
   font-weight: 700;
   color: #ffffff !important;
   margin: 0 0 10px;
-  line-height: 1.3;
+  line-height: 1.35;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .gallery-card-description {
-  font-size: 14.5px !important;
-  line-height: 1.5 !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
   color: #ffffff !important;
   margin: 0 0 14px;
   flex-grow: 1;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .gallery-card-benefits {
@@ -1793,24 +1820,28 @@ button#go:hover {
   gap: 8px;
   box-sizing: border-box;
   width: 100%;
+  max-width: 100%;
 }
 
 .gallery-benefit-item {
   display: flex;
   align-items: flex-start;
-  gap: 7px;
-  font-size: 14px !important;
-  line-height: 1.45 !important;
+  gap: 8px;
+  font-size: 15.5px !important;
+  line-height: 1.6 !important;
   color: #ffffff !important;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .gallery-benefit-item svg {
   color: #74c69d;
   stroke: #74c69d;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
 }
 
 .gallery-benefit-item span {
@@ -1818,9 +1849,12 @@ button#go:hover {
 }
 
 .gallery-card-footer {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
   border-top: 1px solid rgba(216, 243, 220, 0.25);
-  padding-top: 12px;
-  font-size: 13px !important;
+  padding-top: 10px;
+  font-size: 14px !important;
   color: #ffffff !important;
   font-weight: 600;
   display: flex;
@@ -1828,8 +1862,6 @@ button#go:hover {
   align-items: center;
   justify-content: space-between;
   gap: 6px;
-  box-sizing: border-box;
-  width: 100%;
 }
 
 .gallery-card-footer span {
@@ -1837,26 +1869,27 @@ button#go:hover {
 }
 
 .gallery-card-action {
-  margin-top: 14px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   min-height: 48px;
-  padding: 11px 12px;
+  min-width: 48px;
+  padding: 12px 18px;
   background: #2d6a4f;
   border: 1.5px solid #52b788;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   color: #ffffff !important;
   letter-spacing: 0.02em;
   white-space: normal;
   text-align: center;
   word-break: break-word;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
   transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -1873,8 +1906,8 @@ button#go:hover {
 }
 
 .gallery-card:hover .gallery-card-action {
-  background: #1e4a37;
-  border-color: #74c69d;
+  background: #40916c;
+  border-color: #ffffff;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.38);
   transform: translateY(-1px);
 }
@@ -1887,48 +1920,63 @@ button#go:hover {
   .gallery-card,
   .gallery-preview-frame,
   .gallery-card-action,
-  .gallery-action-arrow svg {
+  .gallery-action-arrow svg,
+  .standards-card,
+  .standards-card-action,
+  .standards-action-arrow {
     transition: none !important;
     transform: none !important;
   }
 }
 
 .gallery-field-proof {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 28px;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
   align-items: center;
   background: rgba(14, 43, 30, 0.85);
   border: 1px solid rgba(216, 243, 220, 0.35);
   border-radius: 12px;
-  padding: 22px;
-  margin-bottom: 32px;
+  padding: 20px;
+  margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .gallery-field-proof figure {
   margin: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
+.gallery-field-proof svg,
 .gallery-field-proof img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;
+  max-height: 200px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
   display: block;
+}
+
+.gallery-proof-content {
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .gallery-proof-content h3 {
   font-family: var(--display), Georgia, serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
   color: #ffffff !important;
   margin: 0 0 10px;
+  line-height: 1.3;
 }
 
 .gallery-proof-content p {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.55;
   color: #ffffff !important;
   margin: 0 0 14px;
 }
@@ -1937,9 +1985,10 @@ button#go:hover {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 16px;
+  font-size: 14.5px;
   font-weight: 600;
   color: #ffffff !important;
+  flex-wrap: wrap;
 }
 
 .gallery-proof-meta svg {
@@ -1953,10 +2002,13 @@ button#go:hover {
 }
 
 .gallery-cta-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
   background: rgba(14, 43, 30, 0.9);
   border: 2px solid #52b788;
   border-radius: 14px;
-  padding: 32px 28px;
+  padding: 28px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1964,18 +2016,20 @@ button#go:hover {
   justify-content: center;
   gap: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
 }
 
 .gallery-cta-title {
   font-family: var(--display), Georgia, serif;
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 700;
   color: #ffffff !important;
   margin: 0;
+  line-height: 1.3;
 }
 
 .gallery-cta-desc {
-  font-size: 16px;
+  font-size: 15.5px;
   line-height: 1.55;
   color: #ffffff !important;
   max-width: 62ch;
@@ -1986,9 +2040,10 @@ button#go:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .gallery-cta-btn {
@@ -1998,13 +2053,14 @@ button#go:hover {
   gap: 10px;
   font-family: inherit;
   font-weight: 700;
-  font-size: 16.5px;
-  padding: 15px 28px;
+  font-size: 15.5px;
+  padding: 13px 24px;
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.18s ease-in-out;
   line-height: 1.3;
+  box-sizing: border-box;
 }
 
 .gallery-btn-primary {
@@ -2038,7 +2094,7 @@ button#go:hover {
 }
 
 .gallery-sample-status {
-  font-size: 16px;
+  font-size: 15.5px;
   font-weight: 600;
   color: #ffffff !important;
   min-height: 24px;
@@ -2046,108 +2102,75 @@ button#go:hover {
   transition: opacity 0.2s ease;
 }
 
-@media (max-width: 760px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .gallery-card {
-    padding: 22px 18px;
-  }
-  .gallery-card-action {
-    font-size: 16px;
-    padding: 12px 18px;
-  }
-  .gallery-field-proof {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .gallery-field-proof img {
-    height: 180px;
-  }
-}
-
-@media (max-width: 640px) {
-  .sample-gallery-section {
-    padding: 28px 18px 24px;
-    margin: 24px 0 32px 0;
-  }
-  .gallery-title {
-    font-size: 26px;
-  }
-  .gallery-subtitle {
-    font-size: 16px;
-  }
-  .gallery-cta-container {
-    padding: 24px 16px;
-  }
-  .gallery-cta-actions {
-    flex-direction: column;
-  }
-  .gallery-cta-btn {
-    width: 100%;
-    text-align: center;
-    padding: 14px 18px;
-    font-size: 16px;
-    min-height: 48px;
-  }
-}
-
 /* --- Institutional Standards & Professional Trust Section --- */
 .institutional-standards-section {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
   margin: 36px 0 44px 0;
-  padding: 48px 36px;
+  padding: 32px 18px;
   background: rgba(14, 43, 30, 0.94);
   border: 2px solid rgba(216, 243, 220, 0.45);
   border-radius: 16px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
-  width: 100%;
+  overflow: hidden;
 }
 
 .standards-header {
   text-align: center;
-  max-width: 860px;
-  margin: 0 auto 38px;
+  max-width: 100%;
+  margin: 0 auto 30px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .standards-kicker {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: #74c69d !important;
   margin-bottom: 8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .standards-title {
   font-family: var(--display), Georgia, serif;
-  font-size: clamp(26px, 4vw, 36px);
+  font-size: clamp(23px, 3.8vw, 32px);
   font-weight: 700;
   color: #ffffff !important;
   line-height: 1.28;
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .standards-subtitle {
-  font-size: 18px;
-  line-height: 1.62;
+  font-size: 16px;
+  line-height: 1.55;
   color: #ffffff !important;
   font-weight: 500;
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .standards-trust-bar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 10px 14px;
   flex-wrap: wrap;
-  font-size: 16px;
+  font-size: 14.5px;
   font-weight: 600;
   color: #ffffff !important;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 .standards-trust-pill {
@@ -2155,11 +2178,13 @@ button#go:hover {
   align-items: center;
   gap: 6px;
   color: #ffffff !important;
+  word-wrap: break-word;
 }
 
 .standards-trust-pill svg {
   color: #74c69d;
   stroke: #74c69d;
+  flex-shrink: 0;
 }
 
 .standards-trust-separator {
@@ -2169,91 +2194,142 @@ button#go:hover {
 
 .standards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-  margin-bottom: 38px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 34px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 .standards-card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
   background: rgba(27, 67, 50, 0.95);
   border: 2px solid rgba(82, 183, 136, 0.45);
   border-radius: 14px;
-  padding: 28px 24px;
+  padding: 18px 12px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff !important;
+  position: relative;
+  outline: none;
 }
 
 .standards-card:hover {
-  transform: translateY(-4px);
-  border-color: #52b788;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.38);
+  transform: translateY(-5px);
+  background: rgba(38, 88, 66, 0.98);
+  border-color: #95d5b2;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42), 0 0 0 2px rgba(149, 213, 178, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.standards-card:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+  border-color: #74c69d;
+  box-shadow: 0 0 0 4px rgba(82, 183, 136, 0.6), 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.standards-card:active {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 .standards-card-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
   background: rgba(14, 43, 30, 0.85);
   border: 1.5px solid #52b788;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   color: #74c69d;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.standards-card:hover .standards-card-icon {
+  transform: scale(1.06);
+  background: rgba(20, 61, 43, 0.95);
+  border-color: #74c69d;
 }
 
 .standards-card-kicker {
-  font-size: 16px;
+  font-size: 14.5px !important;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #74c69d !important;
-  margin-bottom: 8px;
+  color: #ffffff !important;
+  margin-bottom: 6px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .standards-card-title {
   font-family: var(--display), Georgia, serif;
-  font-size: 22px;
+  font-size: 19px !important;
   font-weight: 700;
   color: #ffffff !important;
-  margin: 0 0 14px;
-  line-height: 1.3;
+  margin: 0 0 10px;
+  line-height: 1.35;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .standards-card-desc {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
   color: #ffffff !important;
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   flex-grow: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .standards-feature-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 .standards-feature-item {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 16px;
-  line-height: 1.55;
+  font-size: 15.5px !important;
+  line-height: 1.6 !important;
   color: #ffffff !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .standards-feature-item svg {
   color: #74c69d;
   stroke: #74c69d;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
 }
 
 .standards-feature-item span {
@@ -2261,30 +2337,88 @@ button#go:hover {
 }
 
 .standards-card-footer {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
   border-top: 1px solid rgba(216, 243, 220, 0.25);
-  padding-top: 14px;
-  font-size: 16px;
+  padding-top: 10px;
+  font-size: 14px !important;
   color: #ffffff !important;
   font-weight: 600;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 6px;
 }
 
 .standards-card-footer span {
   color: #ffffff !important;
 }
 
+.standards-card-action {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 12px 18px;
+  background: #2d6a4f;
+  border: 1.5px solid #52b788;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff !important;
+  letter-spacing: 0.02em;
+  white-space: normal;
+  text-align: center;
+  word-break: break-word;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.standards-card:hover .standards-card-action {
+  background: #40916c;
+  border-color: #ffffff;
+  color: #ffffff !important;
+}
+
+.standards-card-action .standards-action-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.standards-card:hover .standards-action-arrow {
+  transform: translateX(4px);
+}
+
+.standards-action-text {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
 .standards-guarantee-box {
   background: rgba(20, 61, 43, 0.95);
   border: 2px solid #52b788;
   border-radius: 14px;
-  padding: 34px 30px;
+  padding: 28px 24px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 30px;
+  grid-template-columns: 110px 1fr;
+  gap: 22px;
   align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .standards-guarantee-seal-wrap {
@@ -2296,14 +2430,14 @@ button#go:hover {
 }
 
 .standards-seal-icon {
-  width: 96px;
-  height: 96px;
+  width: 84px;
+  height: 84px;
   color: #74c69d;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
 }
 
 .standards-seal-caption {
-  font-size: 16px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2312,36 +2446,48 @@ button#go:hover {
   line-height: 1.4;
 }
 
+.standards-guarantee-content {
+  box-sizing: border-box;
+  width: 100%;
+}
+
 .standards-guarantee-content h3 {
   font-family: var(--display), Georgia, serif;
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 700;
   color: #ffffff !important;
   margin: 0 0 12px;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .standards-guarantee-content p {
-  font-size: 16px;
-  line-height: 1.62;
+  font-size: 16.5px;
+  line-height: 1.65;
   color: #ffffff !important;
-  margin: 0 0 18px;
+  margin: 0 0 16px;
 }
 
 .standards-guarantee-points {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px 20px;
-  margin-bottom: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 .standards-point-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 16px;
+  gap: 10px;
+  font-size: 15.5px;
+  line-height: 1.5;
   font-weight: 600;
   color: #ffffff !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .standards-point-item svg {
@@ -2357,8 +2503,11 @@ button#go:hover {
 .standards-cta-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 18px;
 }
 
 .standards-btn {
@@ -2371,12 +2520,13 @@ button#go:hover {
   font-size: 16px;
   min-height: 48px;
   min-width: 48px;
-  padding: 13px 24px;
+  padding: 14px 24px;
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.18s ease-in-out;
-  line-height: 1.3;
+  line-height: 1.35;
+  box-sizing: border-box;
 }
 
 .standards-btn-primary {
@@ -2409,10 +2559,30 @@ button#go:hover {
   color: #ffffff !important;
 }
 
-@media (max-width: 980px) {
+/* --- Shared Responsive Breakpoints for Grid Sections --- */
+@media (max-width: 768px) {
+  .gallery-grid,
   .standards-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+  .gallery-card,
+  .standards-card {
+    padding: 22px 18px;
+  }
+  .gallery-card-title,
+  .standards-card-title {
+    font-size: 19px !important;
+  }
+  .gallery-card-action,
+  .standards-card-action {
+    font-size: 15.5px;
+    padding: 12px 18px;
+    min-height: 48px;
+  }
+  .gallery-field-proof {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
   .standards-guarantee-box {
     grid-template-columns: 1fr;
@@ -2432,22 +2602,29 @@ button#go:hover {
 }
 
 @media (max-width: 640px) {
+  .sample-gallery-section,
   .institutional-standards-section {
-    padding: 28px 18px 24px;
-    margin: 24px 0 32px 0;
+    padding: 24px 14px 20px;
+    margin: 22px 0 30px 0;
+    border-radius: 14px;
   }
+  .gallery-title,
   .standards-title {
-    font-size: 26px;
+    font-size: 24px;
   }
+  .gallery-subtitle,
   .standards-subtitle {
-    font-size: 16px;
+    font-size: 15px;
   }
+  .gallery-cta-container,
   .standards-guarantee-box {
-    padding: 24px 16px;
+    padding: 20px 14px;
   }
+  .gallery-cta-actions,
   .standards-cta-actions {
     flex-direction: column;
   }
+  .gallery-cta-btn,
   .standards-btn {
     width: 100%;
     text-align: center;
@@ -2473,9 +2650,14 @@ button#go:hover {
       <li class="dropdown" role="none">
         <button type="button" class="dropbtn" id="resourcesDropdownBtn" aria-expanded="false" aria-haspopup="true" aria-controls="resources-dropdown-menu">Resources <span class="chevron" aria-hidden="true">▾</span></button>
         <div class="dropdown-content" id="resources-dropdown-menu" role="menu" aria-labelledby="resourcesDropdownBtn">
+          <a href="institutional-standards.html" role="menuitem">Institutional Standards</a>
+          <a href="resources.html" role="menuitem">Resource Catalog</a>
           <a href="about.html" role="menuitem">About Platform</a>
           <a href="features.html" role="menuitem">Feature Guide</a>
           <a href="therapy.html" role="menuitem">Reminiscence Science</a>
+          <a href="clinical-alignment.html" role="menuitem">Clinical Alignment</a>
+          <a href="high-volume-facilities.html" role="menuitem">High-Volume Facilities</a>
+          <a href="publishing-excellence.html" role="menuitem">Publishing Excellence</a>
           <a href="zentangle-art.html" role="menuitem">Zentangle Art Series</a>
           <a href="cognitive-journals.html" role="menuitem">Cognitive Journals</a>
           <a href="life-planners.html" role="menuitem">12-Month Planners</a>
@@ -2616,7 +2798,7 @@ button#go:hover {
 
   <div class="gallery-grid">
     <!-- Card 1: Zentangle-Style Coloring Series -->
-    <a href="zentangle-art.html" class="gallery-card" aria-label="Explore Zentangle and Botanical Art Series dedicated landing page">
+    <a href="resources.html" class="gallery-card" aria-label="Explore Zentangle and Botanical Art Series in the Resource Catalog">
       <div class="gallery-preview-frame" aria-label="Visual preview of Zentangle-style coloring page">
         <svg width="100%" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zentangle botanical line art sample">
           <rect width="300" height="200" rx="8" fill="#fdfcf7" stroke="#1b4332" stroke-width="2.5"/>
@@ -2667,7 +2849,7 @@ button#go:hover {
         <span>Standard 8.5&times;11 Print</span>
       </div>
       <div class="gallery-card-action">
-        <span class="gallery-action-text">Explore Art Series</span>
+        <span class="gallery-action-text">Explore Art in Catalog</span>
         <span class="gallery-action-arrow" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </span>
@@ -2675,7 +2857,7 @@ button#go:hover {
     </a>
 
     <!-- Card 2: Cognitive Prompt Journals -->
-    <a href="cognitive-journals.html" class="gallery-card" aria-label="Explore Cognitive Prompt and Memory Journals dedicated landing page">
+    <a href="resources.html" class="gallery-card" aria-label="Explore Cognitive Prompt and Memory Journals in the Resource Catalog">
       <div class="gallery-preview-frame" aria-label="Visual preview of cognitive reminiscence prompt journal">
         <svg width="100%" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cognitive Prompt Journal page sample">
           <rect width="300" height="200" rx="8" fill="#fdfcf7" stroke="#1b4332" stroke-width="2.5"/>
@@ -2727,7 +2909,7 @@ button#go:hover {
         <span>Daily &bull; Weekly Group Formats</span>
       </div>
       <div class="gallery-card-action">
-        <span class="gallery-action-text">Explore Journal Prompts</span>
+        <span class="gallery-action-text">Explore Journals in Catalog</span>
         <span class="gallery-action-arrow" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </span>
@@ -2735,7 +2917,7 @@ button#go:hover {
     </a>
 
     <!-- Card 3: 12-Month Life Planners -->
-    <a href="life-planners.html" class="gallery-card" aria-label="Explore 12-Month Life Planners and Organizers dedicated landing page">
+    <a href="resources.html" class="gallery-card" aria-label="Explore 12-Month Life Planners and Organizers in the Resource Catalog">
       <div class="gallery-preview-frame" aria-label="Visual preview of 12-month senior life planner and routine organizer">
         <svg width="100%" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="12-Month Senior Life Planner sample">
           <rect width="300" height="200" rx="8" fill="#fdfcf7" stroke="#1b4332" stroke-width="2.5"/>
@@ -2789,7 +2971,7 @@ button#go:hover {
         <span>12-Month Reusable Template</span>
       </div>
       <div class="gallery-card-action">
-        <span class="gallery-action-text">Explore Planner Tools</span>
+        <span class="gallery-action-text">Explore Planners in Catalog</span>
         <span class="gallery-action-arrow" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </span>
@@ -2889,7 +3071,7 @@ button#go:hover {
 
   <div class="standards-grid">
     <!-- Pillar 1: Clinical & Caregiver Alignment -->
-    <article class="standards-card">
+    <a href="institutional-standards.html" class="standards-card" aria-label="Explore Clinical and Caregiver Alignment in Institutional Standards Hub">
       <div class="standards-card-icon" aria-hidden="true">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
       </div>
@@ -2918,10 +3100,16 @@ button#go:hover {
         <span>Early to Late Stage Support</span>
         <span>MDS 3.0 / Survey Ready</span>
       </div>
-    </article>
+      <div class="standards-card-action">
+        <span class="standards-action-text">Explore Clinical Standards</span>
+        <span class="standards-action-arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </div>
+    </a>
 
     <!-- Pillar 2: Designed for High-Volume Facilities -->
-    <article class="standards-card">
+    <a href="institutional-standards.html" class="standards-card" aria-label="Explore Designed for High-Volume Facilities in Institutional Standards Hub">
       <div class="standards-card-icon" aria-hidden="true">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
       </div>
@@ -2950,10 +3138,16 @@ button#go:hover {
         <span>Standard 8.5&times;11 Sheet-Feed</span>
         <span>Commercial Copier Tested</span>
       </div>
-    </article>
+      <div class="standards-card-action">
+        <span class="standards-action-text">Explore Facility Standards</span>
+        <span class="standards-action-arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </div>
+    </a>
 
     <!-- Pillar 3: Independent Publishing Excellence -->
-    <article class="standards-card">
+    <a href="institutional-standards.html" class="standards-card" aria-label="Explore Independent Publishing Excellence in Institutional Standards Hub">
       <div class="standards-card-icon" aria-hidden="true">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
       </div>
@@ -2982,7 +3176,13 @@ button#go:hover {
         <span>Kirk Barron &bull; Minot, ND</span>
         <span>Institutional Licensing</span>
       </div>
-    </article>
+      <div class="standards-card-action">
+        <span class="standards-action-text">Explore Publishing Standards</span>
+        <span class="standards-action-arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </div>
+    </a>
   </div>
 
   <!-- Trust Badges & Institutional Statement Callout -->
@@ -2995,7 +3195,7 @@ button#go:hover {
         <circle cx="50" cy="46" r="16" fill="#1b4332" stroke="#52b788" stroke-width="1.5"/>
         <path d="M43 46 L48 51 L58 40" stroke="#74c69d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         <text x="50" y="79" fill="#ffffff" font-size="7.5" font-family="sans-serif" font-weight="bold" text-anchor="middle" letter-spacing="0.1em">INSTITUTIONAL</text>
-        <text x="50" y="87" fill="#d8f3dc" font-size="6.5" font-family="sans-serif" font-weight="bold" text-anchor="middle" letter-spacing="0.1em">STANDARDS</text>
+        <text x="50" y="87" fill="#ffffff" font-size="6.5" font-family="sans-serif" font-weight="bold" text-anchor="middle" letter-spacing="0.1em">STANDARDS</text>
       </svg>
       <div class="standards-seal-caption">Publisher Quality Guarantee</div>
     </div>

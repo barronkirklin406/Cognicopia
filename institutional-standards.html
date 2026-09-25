@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Institutional Standards &amp; Clinical Alignment - Cognicopia</title>
+  <meta name="description" content="Consolidated institutional standards, clinical validation, high-volume copier optimization, and publishing governance by Kirk Barron for senior living communities.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --glass-panel: rgba(20, 61, 43, 0.92);
+      --glass-dark: rgba(10, 38, 27, 0.96);
+      --brand: #52b788;
+      --brand-light: #74c69d;
+      --brand-dark: #1b4332;
+      --line: rgba(216, 243, 220, 0.24);
+      --tan: #92785e;
+      --gold: #e9c46a;
+    }
+    body {
+      margin: 0;
+      line-height: 1.6;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: #ffffff !important;
+      background-color: #1b4332;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px),
+        repeating-linear-gradient(-45deg, rgba(216,243,220,.13) 0 1px, transparent 1px 72px),
+        repeating-linear-gradient(45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px),
+        repeating-linear-gradient(-45deg, rgba(82,183,136,.09) 0 1px, transparent 1px 18px),
+        linear-gradient(135deg,#163d2d 0%,#1b4332 48%,#102b20 100%);
+      min-height: 100vh;
+    }
+
+    /* Universal Pure White High Contrast Rule */
+    body, p, h1, h2, h3, h4, li, span, a, label, strong, em, div, th, td, caption, button {
+      color: #ffffff !important;
+    }
+
+    /* WCAG Focus Visible System */
+    :focus { outline: none; }
+    :focus-visible,
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #ffffff !important;
+      outline-offset: 3px !important;
+      box-shadow: 0 0 0 5px #1b4332, 0 0 14px rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      background: #081c15;
+      color: #ffffff !important;
+      padding: 12px 24px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 700;
+      border: 2px solid #52b788;
+      border-radius: 6px;
+      z-index: 9999;
+      transition: top 0.2s ease;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* Tech-Modern SaaS Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 12px 36px;
+      box-sizing: border-box;
+      color: #ffffff !important;
+      background: rgba(8, 28, 21, 0.94);
+      border-bottom: 2px solid rgba(216, 243, 220, 0.25);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-brand a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff !important;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      min-height: 48px;
+      min-width: 48px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+    .nav-logo {
+      display: block;
+      width: 38px;
+      height: 30px;
+      flex: none;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links > li > a {
+      color: #ffffff !important;
+      font-size: 16px !important;
+      font-weight: 600;
+      text-decoration: none;
+      min-height: 48px;
+      min-width: 48px;
+      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .nav-links > li > a:hover {
+      background: rgba(82, 183, 136, 0.22);
+      color: #ffffff !important;
+    }
+    .dropdown { position: relative; }
+    .dropbtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      color: #ffffff !important;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 16px !important;
+      min-height: 48px;
+      min-width: 48px;
+      padding: 12px 18px;
+      border-radius: 6px;
+      transition: background 0.15s ease;
+    }
+    .dropbtn:hover {
+      background: rgba(82, 183, 136, 0.22);
+    }
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      left: auto;
+      z-index: 1000;
+      display: none;
+      min-width: 250px;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 8px;
+      background: rgba(14, 43, 30, 0.98);
+      border: 2px solid rgba(216, 243, 220, 0.45);
+      border-radius: 10px;
+      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content { display: block; }
+    .dropdown-content a {
+      display: flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 13px 18px;
+      color: #ffffff !important;
+      font-size: 16px !important;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      white-space: nowrap;
+      line-height: 1.4;
+      transition: background 0.15s ease;
+    }
+    .dropdown-content a:hover,
+    .dropdown-content a:focus {
+      background: rgba(82, 183, 136, 0.32);
+      color: #ffffff !important;
+    }
+
+    /* Central Tan Container Architecture */
+    .container {
+      width: min(940px, calc(100% - 32px));
+      margin: 36px auto 60px;
+      padding: 42px 44px 58px;
+      background: var(--tan);
+      border: 1px solid rgba(216, 243, 220, 0.28);
+      border-radius: 18px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    /* Back Link & Navigation Breadcrumbs */
+    .nav-breadcrumbs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(216, 243, 220, 0.22);
+    }
+    .back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      min-height: 48px;
+      min-width: 48px;
+      background: #1b4332;
+      border: 1.5px solid #52b788;
+      border-radius: 8px;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .back-home-btn:hover,
+    .back-home-btn:focus-visible {
+      background: #2d6a4f;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(82, 183, 136, 0.35);
+    }
+    .back-home-btn svg {
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .back-home-btn:hover svg {
+      transform: translateX(-4px);
+    }
+    .breadcrumb-tag {
+      font-size: 14.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffffff !important;
+      background: rgba(14, 43, 30, 0.85);
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1.5px solid rgba(216, 243, 220, 0.38);
+    }
+
+    /* Typography & Hierarchy */
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4.5vw, 40px);
+      text-align: center;
+      font-family: Georgia, serif;
+      line-height: 1.3;
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+    h2 {
+      margin-top: 36px;
+      margin-bottom: 16px;
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-family: Georgia, serif;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(82, 183, 136, 0.45);
+      line-height: 1.35;
+      color: #ffffff !important;
+    }
+    h3 {
+      font-size: 22px;
+      font-family: Georgia, serif;
+      margin: 0 0 10px;
+      line-height: 1.35;
+      color: #ffffff !important;
+    }
+    p, li {
+      font-size: 16.5px;
+      line-height: 1.65;
+      color: #ffffff !important;
+    }
+
+    .organic-vine-divider {
+      display: block;
+      width: 78%;
+      max-width: 500px;
+      height: auto;
+      margin: 16px auto 22px;
+      color: var(--brand);
+    }
+    .vine-subtitle {
+      display: block;
+      margin: 0 auto 28px;
+      font-size: 18.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-align: center;
+      max-width: 68ch;
+      line-height: 1.6;
+      color: #ffffff !important;
+    }
+
+    /* Executive Highlights Bar */
+    .executive-summary-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 28px 0 34px;
+    }
+    .summary-metric-card {
+      background: rgba(14, 43, 30, 0.92);
+      border: 1.5px solid rgba(82, 183, 136, 0.45);
+      border-radius: 12px;
+      padding: 22px 20px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+    }
+    .metric-number {
+      display: block;
+      font-size: 28px;
+      font-weight: 700;
+      font-family: Georgia, serif;
+      color: #ffffff !important;
+      margin-bottom: 4px;
+    }
+    .metric-label {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #ffffff !important;
+    }
+    .metric-detail {
+      font-size: 16px;
+      margin-top: 8px;
+      line-height: 1.6;
+      color: #ffffff !important;
+    }
+
+    /* Institutional Pillar Sections */
+    .pillar-section {
+      background: var(--glass-panel);
+      border: 1.5px solid var(--line);
+      border-radius: 16px;
+      padding: 34px 30px;
+      margin-bottom: 38px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+      position: relative;
+    }
+    .pillar-header-wrap {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .pillar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2d6a4f;
+      border: 1.5px solid #74c69d;
+      border-radius: 20px;
+      padding: 6px 16px;
+      min-height: 36px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffffff !important;
+      margin-bottom: 8px;
+    }
+    .pillar-title {
+      font-size: 26px;
+      font-family: Georgia, serif;
+      margin: 0 0 8px;
+      line-height: 1.35;
+      color: #ffffff !important;
+    }
+    .pillar-kicker {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #ffffff !important;
+      margin-bottom: 12px;
+    }
+    .pillar-preview-grid {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 24px;
+      align-items: center;
+      margin: 22px 0;
+    }
+    .pillar-visual-box {
+      background: rgba(14, 43, 30, 0.95);
+      border-radius: 12px;
+      padding: 16px;
+      border: 2px solid #52b788;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .pillar-visual-box svg {
+      width: 100%;
+      height: auto;
+      max-height: 190px;
+      display: block;
+    }
+    .pillar-visual-caption {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #ffffff !important;
+      line-height: 1.5;
+    }
+
+    /* Core Bullet Items */
+    .standards-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .standards-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(14, 43, 30, 0.85);
+      border: 1px solid rgba(82, 183, 136, 0.35);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .standards-item svg {
+      flex-shrink: 0;
+      stroke: #74c69d;
+      margin-top: 3px;
+    }
+    .standards-item strong {
+      display: block;
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #ffffff !important;
+      margin-bottom: 3px;
+    }
+    .standards-item span {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #ffffff !important;
+    }
+
+    /* Action Links within Category Cards */
+    .pillar-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(216, 243, 220, 0.22);
+    }
+    .btn-pillar-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      min-height: 48px;
+      min-width: 48px;
+      background: #2d6a4f;
+      border: 1.5px solid #52b788;
+      border-radius: 8px;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.22);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-pillar-primary:hover,
+    .btn-pillar-primary:focus-visible {
+      background: #40916c;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(82, 183, 136, 0.35);
+    }
+    .btn-pillar-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      min-height: 48px;
+      min-width: 48px;
+      background: rgba(14, 43, 30, 0.85);
+      border: 1.5px solid rgba(216, 243, 220, 0.4);
+      border-radius: 8px;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-pillar-secondary:hover,
+    .btn-pillar-secondary:focus-visible {
+      background: #1b4332;
+      border-color: #74c69d;
+    }
+
+    /* Comparison Matrix Table */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(14, 43, 30, 0.95);
+      border: 1px solid var(--line);
+      font-size: 16px;
+      text-align: left;
+    }
+    .specs-table th,
+    .specs-table td {
+      padding: 16px 18px;
+      border: 1px solid rgba(216, 243, 220, 0.22);
+      vertical-align: top;
+      line-height: 1.6;
+      color: #ffffff !important;
+    }
+    .specs-table th {
+      background: rgba(27, 67, 50, 0.98);
+      font-weight: 700;
+      color: #ffffff !important;
+    }
+    .specs-table tr:nth-child(even) td {
+      background: rgba(20, 61, 43, 0.65);
+    }
+
+    /* Administrative Readiness Callout Banner */
+    .admin-callout-banner {
+      background: rgba(20, 61, 43, 0.95);
+      border-left: 5px solid #74c69d;
+      border-radius: 0 12px 12px 0;
+      padding: 24px;
+      margin: 28px 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+    .admin-callout-banner p,
+    .admin-callout-banner li {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #ffffff !important;
+    }
+
+    /* Formal Verification & Institutional Quality Assurance Box */
+    .standards-guarantee-box {
+      background: rgba(20, 61, 43, 0.95);
+      border: 2px solid #52b788;
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin: 32px 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 22px;
+      align-items: center;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .standards-guarantee-seal-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .standards-seal-icon {
+      width: 84px;
+      height: 84px;
+      color: #74c69d;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+    }
+    .standards-seal-caption {
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #ffffff !important;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+    .standards-guarantee-content {
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .standards-guarantee-content h3 {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff !important;
+      margin: 0 0 12px;
+      line-height: 1.35;
+    }
+    .standards-guarantee-content p {
+      font-size: 16.5px;
+      line-height: 1.65;
+      color: #ffffff !important;
+      margin: 0 0 16px;
+    }
+    .standards-guarantee-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 16px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .standards-point-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15.5px;
+      line-height: 1.5;
+      font-weight: 600;
+      color: #ffffff !important;
+      word-wrap: break-word;
+    }
+    .standards-point-item svg {
+      color: #74c69d;
+      stroke: #74c69d;
+      flex-shrink: 0;
+    }
+    .standards-point-item span {
+      color: #ffffff !important;
+    }
+    .standards-point-item a {
+      color: #ffffff !important;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+    .standards-cta-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      width: 100%;
+      margin-top: 18px;
+    }
+
+    /* Bottom Action Group */
+    .standards-bottom-cta {
+      background: rgba(14, 43, 30, 0.94);
+      border: 2px solid #52b788;
+      border-radius: 14px;
+      padding: 34px 28px;
+      text-align: center;
+      margin-top: 36px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+    .standards-bottom-cta h2 {
+      margin-top: 0;
+      border: none;
+      padding: 0;
+      font-size: 26px;
+      color: #ffffff !important;
+    }
+    .cta-button-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .btn-cta-main {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 26px;
+      min-height: 48px;
+      min-width: 48px;
+      background: #2d6a4f;
+      border: 2px solid #52b788;
+      border-radius: 8px;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-cta-main:hover,
+    .btn-cta-main:focus-visible {
+      background: #40916c;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(82, 183, 136, 0.4);
+    }
+    .btn-cta-alt {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 24px;
+      min-height: 48px;
+      min-width: 48px;
+      background: rgba(20, 61, 43, 0.85);
+      border: 1.5px solid rgba(216, 243, 220, 0.4);
+      border-radius: 8px;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-cta-alt:hover,
+    .btn-cta-alt:focus-visible {
+      background: #1b4332;
+      border-color: #74c69d;
+    }
+
+    /* Site Footer */
+    .site-footer {
+      text-align: center;
+      padding: 24px 20px 48px;
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: #ffffff !important;
+      opacity: 0.95;
+      border-top: 1px solid var(--line);
+      background: rgba(8, 28, 21, 0.85);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 820px) {
+      .executive-summary-bar {
+        grid-template-columns: 1fr;
+      }
+      .pillar-preview-grid {
+        grid-template-columns: 1fr;
+      }
+      .pillar-visual-box {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .standards-guarantee-box {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 24px 18px;
+      }
+      .standards-guarantee-points {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+    }
+    @media (max-width: 640px) {
+      .navbar {
+        padding: 12px 18px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      .container {
+        margin: 20px auto;
+        padding: 26px 18px 36px;
+      }
+      .pillar-section {
+        padding: 24px 16px;
+      }
+      .cta-button-group,
+      .standards-cta-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn-cta-main,
+      .btn-cta-alt,
+      .back-home-btn,
+      .btn-pillar-primary,
+      .btn-pillar-secondary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      .specs-table th,
+      .specs-table td {
+        padding: 12px 14px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WCAG 2.4.1 Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Tech-Modern SaaS Navigation Bar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <div class="nav-brand">
+      <a href="index.html" aria-label="Cognicopia Home">
+        <img src="assets/cognicopia-logo.jpg" alt="Cognicopia Logo" class="nav-logo">
+        <span>Cognicopia</span>
+      </a>
+    </div>
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a href="index.html" role="menuitem">Home (Tool)</a></li>
+      <li class="dropdown" role="none">
+        <button type="button" class="dropbtn" id="resourcesDropdownBtn" aria-expanded="false" aria-haspopup="true" aria-controls="resources-dropdown-menu">Resources <span class="chevron" aria-hidden="true">▾</span></button>
+        <div class="dropdown-content" id="resources-dropdown-menu" role="menu" aria-labelledby="resourcesDropdownBtn">
+          <a href="institutional-standards.html" role="menuitem" style="font-weight:700; background:rgba(82,183,136,0.22);">Institutional Standards Hub</a>
+          <a href="resources.html" role="menuitem">Master Resource Catalog</a>
+          <a href="about.html" role="menuitem">About Platform</a>
+          <a href="features.html" role="menuitem">Feature Guide</a>
+          <a href="therapy.html" role="menuitem">Reminiscence Science</a>
+          <a href="clinical-alignment.html" role="menuitem">Clinical Alignment</a>
+          <a href="high-volume-facilities.html" role="menuitem">High-Volume Facilities</a>
+          <a href="publishing-excellence.html" role="menuitem">Publishing Excellence</a>
+          <a href="zentangle-art.html" role="menuitem">Zentangle Art Series</a>
+          <a href="cognitive-journals.html" role="menuitem">Cognitive Journals</a>
+          <a href="life-planners.html" role="menuitem">12-Month Planners</a>
+          <a href="faq.html" role="menuitem">Caregiver FAQ</a>
+          <a href="contact.html" role="menuitem">Contact</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="container" id="main-content">
+    
+    <!-- Top Navigation Breadcrumbs with prominent Back to Home link -->
+    <div class="nav-breadcrumbs">
+      <a href="index.html" class="back-home-btn" aria-label="Return to Cognicopia Homepage and Tool">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>Back to Home (Tool)</span>
+      </a>
+      <span class="breadcrumb-tag">B2B Institutional Governance Hub</span>
+    </div>
+
+    <header>
+      <h1>Institutional Standards &amp; Clinical Governance</h1>
+      <svg class="organic-vine-divider" viewBox="0 0 500 70" role="img" aria-label="Decorative flowing vine with leaves">
+        <path d="M28 39 C92 12 135 59 188 36 C225 20 249 19 271 34 C301 54 331 56 357 37 C393 11 431 21 472 39" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path d="M112 30 C94 18 80 21 71 34 C87 37 101 36 112 30 Z M147 45 C130 43 119 50 116 62 C130 59 141 53 147 45 Z M194 34 C181 19 167 17 157 25 C168 34 181 37 194 34 Z M305 45 C318 58 332 58 343 50 C332 43 318 41 305 45 Z M354 37 C369 22 382 21 392 30 C380 38 367 40 354 37 Z M407 30 C424 18 438 22 445 35 C431 36 418 34 407 30 Z" fill="currentColor"/>
+        <path d="M72 34 C81 29 91 28 101 29 M117 60 C124 53 132 49 141 48 M158 26 C168 26 178 29 187 34 M313 47 C323 48 332 51 340 55 M360 35 C370 31 379 29 389 30 M414 28 C423 29 432 32 440 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".72"/>
+      </svg>
+      <p class="vine-subtitle">The three institutional pillars underpinning Cognicopia: Evidence-informed clinical engagement, commercial copier-tested operational efficiency, and independent publishing oversight by Kirk Barron in Minot, North Dakota.</p>
+    </header>
+
+    <!-- Executive Summary Triad Bar -->
+    <section class="executive-summary-bar" aria-label="Institutional Trust Pillars">
+      <div class="summary-metric-card">
+        <span class="metric-number">CMS Tag F679</span>
+        <span class="metric-label">Clinical Alignment</span>
+        <p class="metric-detail">Person-centered care documentation, non-infantilizing adult themes &amp; MDS 3.0 Section Q compliance.</p>
+      </div>
+      <div class="summary-metric-card">
+        <span class="metric-number">8.5 &times; 11 Sheet</span>
+        <span class="metric-label">High-Volume Copier Proof</span>
+        <p class="metric-detail">Ricoh, Xerox, Canon, and HP copier calibration; zero prep cutting, zero toner smear or ghosting.</p>
+      </div>
+      <div class="summary-metric-card">
+        <span class="metric-number">100% Client-Side</span>
+        <span class="metric-label">Zero-PHI HIPAA Privacy</span>
+        <p class="metric-detail">No cloud uploads of resident data, Net-30 invoice support, and W-9 institutional vendor billing.</p>
+      </div>
+    </section>
+
+    <!-- Executive Introduction for Administrators -->
+    <section class="pillar-section">
+      <h2>Professional Framework for Senior Living Administrators</h2>
+      <p>Long-term care facilities, specialized memory care communities, and assisted living residences operate under strict regulatory, staffing, and clinical scrutiny. Program directors and Directors of Nursing (DON) must deliver meaningful, therapeutic engagement that satisfies state survey requirements while managing tight labor budgets and multi-resident group logistics.</p>
+      <p>Cognicopia was engineered to serve as an enterprise-grade standard for geriatric cognitive stimulation. Every activity template, coloring plate, and memory journal module reflects our tripartite institutional covenant: <strong>clinical validation</strong> that respects resident cognitive reserves, <strong>high-volume print durability</strong> that requires zero staff prep time, and <strong>independent editorial accountability</strong> backed by publisher Kirk Barron.</p>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PILLAR 1: CLINICAL & CAREGIVER ALIGNMENT   -->
+    <!-- ========================================== -->
+    <section class="pillar-section" id="pillar-clinical" aria-labelledby="pillar-clinical-title">
+      <div class="pillar-header-wrap">
+        <div>
+          <span class="pillar-badge">Pillar 01 &bull; Clinical Science</span>
+          <h2 class="pillar-title" id="pillar-clinical-title">Clinical &amp; Caregiver Alignment</h2>
+          <div class="pillar-kicker">Reminiscence Therapy &bull; Cognitive Retention &bull; Fine Motor Adaptation</div>
+        </div>
+      </div>
+
+      <p>Clinical efficacy begins with understanding the neurological architecture of aging. Dementia and related neurocognitive disorders disproportionately impact short-term working memory while leaving deeply consolidated long-term episodic memories accessible. When caregivers present generic children&rsquo;s activities or demand factual recall, residents experience profound testing anxiety and emotional withdrawal.</p>
+
+      <div class="pillar-preview-grid">
+        <div class="pillar-visual-box">
+          <svg viewBox="0 0 340 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Clinical cognitive pathways diagram">
+            <rect width="340" height="210" rx="8" fill="#143d2b" stroke="#52b788" stroke-width="2"/>
+            <!-- Box 1 -->
+            <rect x="15" y="24" width="94" height="64" rx="6" fill="#1b4332" stroke="#74c69d" stroke-width="1.5"/>
+            <circle cx="62" cy="46" r="13" fill="#2d6a4f"/>
+            <path d="M58 46 L61 49 L67 43" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            <text x="62" y="72" fill="#ffffff" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">Episodic Recall</text>
+            <text x="62" y="82" fill="#d8f3dc" font-size="8" font-family="sans-serif" text-anchor="middle">Mid-Century Cues</text>
+
+            <!-- Box 2 -->
+            <rect x="123" y="24" width="94" height="64" rx="6" fill="#1b4332" stroke="#74c69d" stroke-width="1.5"/>
+            <circle cx="170" cy="46" r="13" fill="#2d6a4f"/>
+            <path d="M165 51 C165 42 175 42 175 51" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            <text x="170" y="72" fill="#ffffff" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">Motor Control</text>
+            <text x="170" y="82" fill="#d8f3dc" font-size="8" font-family="sans-serif" text-anchor="middle">2.5pt Boundary Lines</text>
+
+            <!-- Box 3 -->
+            <rect x="231" y="24" width="94" height="64" rx="6" fill="#1b4332" stroke="#74c69d" stroke-width="1.5"/>
+            <circle cx="278" cy="46" r="13" fill="#2d6a4f"/>
+            <path d="M278 42 C276 39 272 39 272 42 C272 46 278 51 278 51 C278 51 284 46 284 42 C284 39 280 39 278 42 Z" fill="#e63946"/>
+            <text x="278" y="72" fill="#ffffff" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">Affective Calm</text>
+            <text x="278" y="82" fill="#d8f3dc" font-size="8" font-family="sans-serif" text-anchor="middle">Reduces Sundowning</text>
+
+            <!-- Bottom Convergence -->
+            <path d="M62 88 L62 108 L170 108" stroke="#52b788" stroke-width="2" stroke-dasharray="3 3"/>
+            <path d="M170 88 L170 108" stroke="#52b788" stroke-width="2"/>
+            <path d="M278 88 L278 108 L170 108" stroke="#52b788" stroke-width="2" stroke-dasharray="3 3"/>
+            <polygon points="170,120 165,110 175,110" fill="#52b788"/>
+
+            <rect x="30" y="126" width="280" height="66" rx="6" fill="#0e2b1e" stroke="#52b788" stroke-width="1.8"/>
+            <text x="170" y="146" fill="#74c69d" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">&#9733; CMS TAG F679 &bull; PERSON-CENTERED CARE</text>
+            <text x="170" y="163" fill="#ffffff" font-size="9.5" font-family="sans-serif" text-anchor="middle">Individualized Preference Alignment &bull; Non-Pharmacological Calming</text>
+            <text x="170" y="177" fill="#d8f3dc" font-size="8.5" font-family="sans-serif" text-anchor="middle">MDS 3.0 Section Q Compliance &bull; Tangible Audit Documentation</text>
+          </svg>
+          <div class="pillar-visual-caption">Evidence-Informed Clinical Engagement Architecture</div>
+        </div>
+
+        <div>
+          <h3>Core Clinical Standards</h3>
+          <ul class="standards-list">
+            <li class="standards-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <div>
+                <strong>CMS Tag F679 Regulatory Compliance:</strong>
+                <span>Directly satisfies §483.24(c) mandates requiring ongoing programs of activities designed to appeal to individual resident interests and physical/mental capacities.</span>
+              </div>
+            </li>
+            <li class="standards-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              <div>
+                <strong>Non-Pharmacological Behavioral Support:</strong>
+                <span>Structured evening coloring and prompt routines reduce late-day pacing, catastrophic reactions, and sundowning agitation without chemical restraint.</span>
+              </div>
+            </li>
+            <li class="standards-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              <div>
+                <strong>MDS 3.0 Section Q Compatibility:</strong>
+                <span>Generates physical, dated artifacts that document resident voice, participation, and individual cognitive interventions for care plan team reviews.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar-actions-row">
+        <a href="clinical-alignment.html" class="btn-pillar-primary">
+          <span>Read Full Clinical Alignment Deep Dive</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="therapy.html" class="btn-pillar-secondary">
+          <span>Explore Reminiscence Therapy Research</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PILLAR 2: DESIGNED FOR HIGH-VOLUME CARE    -->
+    <!-- ========================================== -->
+    <section class="pillar-section" id="pillar-facilities" aria-labelledby="pillar-facilities-title">
+      <div class="pillar-header-wrap">
+        <div>
+          <span class="pillar-badge">Pillar 02 &bull; Operational Durability</span>
+          <h2 class="pillar-title" id="pillar-facilities-title">Designed for High-Volume Facilities</h2>
+          <div class="pillar-kicker">Copier Calibration &bull; Standard Sheet-Feed &bull; Zero Prep Overhead</div>
+        </div>
+      </div>
+
+      <p>Care facility activity departments do not have the luxury of delicate craft assembly or costly specialty printing. In communities with 40 to 120 residents, materials must be printed rapidly in batches on high-cycle copy machines (Ricoh, Xerox, Canon, HP) without jamming, smearing, or bleeding through standard 20# facility bond paper.</p>
+
+      <div class="pillar-preview-grid">
+        <div class="pillar-visual-box">
+          <svg viewBox="0 0 340 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Commercial copier print layout diagram">
+            <rect width="340" height="210" rx="8" fill="#143d2b" stroke="#52b788" stroke-width="2"/>
+            <!-- Copier -->
+            <rect x="25" y="55" width="125" height="115" rx="6" fill="#1b4332" stroke="#74c69d" stroke-width="1.8"/>
+            <rect x="35" y="65" width="55" height="12" rx="2" fill="#0e2b1e" stroke="#52b788" stroke-width="1"/>
+            <circle cx="110" cy="71" r="5" fill="#52b788"/>
+            <circle cx="125" cy="71" r="4" fill="#e9c46a"/>
+            <rect x="38" y="95" width="98" height="60" rx="4" fill="#0e2b1e" stroke="#2d6a4f" stroke-width="1.2"/>
+            <text x="87" y="125" fill="#74c69d" font-size="10.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">500 SHEETS / HR</text>
+            <text x="87" y="140" fill="#ffffff" font-size="9" font-family="sans-serif" text-anchor="middle">Laser Copier Tested</text>
+
+            <!-- Sheet output -->
+            <path d="M150 105 L205 105 L195 135 L150 135 Z" fill="#2d6a4f" stroke="#74c69d" stroke-width="1.5"/>
+            <rect x="175" y="65" width="85" height="110" rx="4" fill="#ffffff" stroke="#1b4332" stroke-width="1.8"/>
+            <rect x="185" y="75" width="65" height="14" rx="2" fill="#1b4332"/>
+            <text x="217" y="85" fill="#ffffff" font-size="7" font-family="sans-serif" font-weight="bold" text-anchor="middle">8.5x11 STANDARD</text>
+            <line x1="185" y1="97" x2="250" y2="97" stroke="#52b788" stroke-width="1.5"/>
+            <line x1="185" y1="105" x2="250" y2="105" stroke="#52b788" stroke-width="1.5"/>
+            <line x1="185" y1="113" x2="250" y2="113" stroke="#52b788" stroke-width="1.5"/>
+            <circle cx="217" cy="140" r="16" fill="none" stroke="#1b4332" stroke-width="2"/>
+            <path d="M217 124 L217 156 M201 140 L233 140" stroke="#1b4332" stroke-width="2"/>
+
+            <!-- Top Quality Badge -->
+            <rect x="225" y="16" width="105" height="24" rx="4" fill="#0e2b1e" stroke="#74c69d" stroke-width="1.2"/>
+            <text x="277" y="32" fill="#ffffff" font-size="9.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">&#10003; ZERO BLEED / SMEAR</text>
+          </svg>
+          <div class="pillar-visual-caption">High-Contrast Vector Geometry &bull; Copier Optimized</div>
+        </div>
+
+        <div>
+          <h3>Facility Operational Benchmarks</h3>
+          <ul class="standards-list">
+            <li class="standards-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              <div>
+                <strong>Monochrome Laser Vector Contrast:</strong>
+                <span>Calibrated in pure 100% black vector strokes (#000000). Avoids washed-out grays or dithering that degrade across repeated multi-generation photocopies.</span>
+              </div>
+            </li>
+            <li class="standards-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+              <div>
+                <strong>Clipboard &amp; Binder Gutter Margins:</strong>
+                <span>Pre-formatted with 0.65" margin buffers along the binding edge, ensuring resident activity sheets clip into standard facility clipboards without obscuring content.</span>
+              </div>
+            </li>
+            <li class="standards-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              <div>
+                <strong>Zero Prep Overhead for Staff:</strong>
+                <span>Requires no cutting, folding, glue, or assembly. Staff members simply select the session topic, press print, and immediately distribute packets to residents.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar-actions-row">
+        <a href="high-volume-facilities.html" class="btn-pillar-primary">
+          <span>Read Facility Printing Standards</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="resources.html" class="btn-pillar-secondary">
+          <span>Explore Complete Resource Catalog</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PILLAR 3: PUBLISHING EXCELLENCE (MINOT, ND)-->
+    <!-- ========================================== -->
+    <section class="pillar-section" id="pillar-publishing" aria-labelledby="pillar-publishing-title">
+      <div class="pillar-header-wrap">
+        <div>
+          <span class="pillar-badge">Pillar 03 &bull; Editorial Provenance</span>
+          <h2 class="pillar-title" id="pillar-publishing-title">Independent Publishing Excellence</h2>
+          <div class="pillar-kicker">Publisher Kirk Barron &bull; Minot, North Dakota &bull; Zero-PHI Privacy</div>
+        </div>
+      </div>
+
+      <p>Cognicopia rejects the mass automated output of faceless stock mills. Our catalog is curated, published, and overseen directly by independent publisher <strong>Kirk Barron</strong> based in Minot, North Dakota. Every design undergoes personal editorial scrutiny, tactile print testing, and strict compliance validation before release.</p>
+
+      <div class="pillar-preview-grid">
+        <div class="pillar-visual-box">
+          <svg viewBox="0 0 340 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Official Kirk Barron publishing seal">
+            <rect width="340" height="210" rx="8" fill="#143d2b" stroke="#52b788" stroke-width="2"/>
+            <!-- Outer Gold Seal -->
+            <circle cx="170" cy="95" r="54" fill="#1b4332" stroke="#74c69d" stroke-width="2.5"/>
+            <circle cx="170" cy="95" r="46" fill="none" stroke="#52b788" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <!-- North Dakota Star Motif -->
+            <path d="M170 58 L173 68 L183 68 L175 74 L178 84 L170 78 L162 84 L165 74 L157 68 L167 68 Z" fill="#e9c46a"/>
+            <text x="170" y="103" fill="#ffffff" font-size="12" font-family="Georgia, serif" font-weight="bold" text-anchor="middle">KIRK BARRON</text>
+            <text x="170" y="116" fill="#d8f3dc" font-size="8.5" font-family="sans-serif" font-weight="bold" letter-spacing="0.08em" text-anchor="middle">MINOT &bull; NORTH DAKOTA</text>
+            <text x="170" y="129" fill="#74c69d" font-size="7.5" font-family="sans-serif" text-anchor="middle">EST. INDEPENDENT IMPRINT</text>
+            <!-- Bottom Guarantee Bar -->
+            <rect x="25" y="162" width="290" height="32" rx="4" fill="#0e2b1e" stroke="#52b788" stroke-width="1.2"/>
+            <text x="170" y="182" fill="#ffffff" font-size="9.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">100% CLIENT-SIDE &bull; ZERO PHI &bull; DIRECT EDITORIAL DESK</text>
+          </svg>
+          <div class="pillar-visual-caption">Personal Editorial Accountability &bull; Minot, ND</div>
+        </div>
+
+        <div>
+          <h3>Governance &amp; Business Standards</h3>
+          <ul class="standards-list">
+            <li class="standards-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <div>
+                <strong>Zero-PHI Client-Side Architecture (HIPAA Compliance):</strong>
+                <span>The generator functions 100% in your local web browser. No resident names, medical diagnoses, or facility identifiers are ever transmitted to cloud servers.</span>
+              </div>
+            </li>
+            <li class="standards-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              <div>
+                <strong>Commercial Amazon KDP Print Standards:</strong>
+                <span>Formatted to precise 8.5&times;11 paperback parameters, 60#–70# opaque white stock, and durable binding gutters to prevent accidental page tears.</span>
+              </div>
+            </li>
+            <li class="standards-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <div>
+                <strong>Institutional Net-30 Invoicing &amp; W-9 Support:</strong>
+                <span>Direct enterprise billing for hospital networks, non-profit hospice organizations, and county eldercare facilities with federal W-9 records on file.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar-actions-row">
+        <a href="publishing-excellence.html" class="btn-pillar-primary">
+          <span>Read Full Publishing Standards</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="contact.html?subject=Vendor+W-9+Inquiry" class="btn-pillar-secondary">
+          <span>Request Institutional Vendor Packet</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- COMPREHENSIVE INSTITUTIONAL AUDIT MATRIX   -->
+    <!-- ========================================== -->
+    <section class="pillar-section" aria-labelledby="matrix-title">
+      <h2 id="matrix-title">B2B Institutional Governance &amp; Compliance Matrix</h2>
+      <p>A side-by-side synthesis of Cognicopia's three operational pillars:</p>
+
+      <div class="table-container">
+        <table class="specs-table" aria-label="Synthesis matrix of Cognicopia institutional pillars">
+          <thead>
+            <tr>
+              <th scope="col">Institutional Dimension</th>
+              <th scope="col">Clinical Alignment</th>
+              <th scope="col">High-Volume Facilities</th>
+              <th scope="col">Publishing Excellence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Target Domain</th>
+              <td>Neurocognitive retention, motor tremor calibration, and sundowning agitation relief</td>
+              <td>Laser copier mechanical feed, toner cost economy, and staff prep efficiency</td>
+              <td>Editorial authenticity, KDP physical durability, and HIPAA data confidentiality</td>
+            </tr>
+            <tr>
+              <th scope="row">Regulatory Anchor</th>
+              <td>CMS Tag F679 (§483.24(c)), MDS 3.0 Section Q, Joint Commission Senior Standards</td>
+              <td>Standard US Letter 8.5&times;11 feed specifications and OSHA ergonomic guidelines</td>
+              <td>US Health Insurance Portability and Accountability Act (HIPAA) &amp; Federal W-9 compliance</td>
+            </tr>
+            <tr>
+              <th scope="row">Physical Geometry</th>
+              <td>2.5pt bold vector line boundaries, 20pt–24pt high-contrast sans-serif type</td>
+              <td>0.65" clipboard/binder safe gutters, zero bleed, high toner density contrast</td>
+              <td>60#–70# non-ghosting paper stock, single-sided sheets, durable binding gutters</td>
+            </tr>
+            <tr>
+              <th scope="row">Caregiver Benefit</th>
+              <td>Eliminates testing anxiety; unlocks spontaneous speech in non-verbal residents</td>
+              <td>Zero prep time; Activity Directors print full group sets in under 60 seconds</td>
+              <td>Direct personal access to publisher Kirk Barron at cognicopia@outlook.com</td>
+            </tr>
+            <tr>
+              <th scope="row">Procurement Model</th>
+              <td>Facility-wide unlimited printing license included with active membership</td>
+              <td>Direct multi-station facility deployment across all community memory units</td>
+              <td>Corporate Net-30 purchase orders, electronic funds transfer (EFT), W-9 on file</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Administrative Readiness Callout Banner -->
+    <div class="admin-callout-banner">
+      <h3 style="margin-top:0; font-size:20px;">State Survey Preparation Checklist for Activity Directors</h3>
+      <p style="margin-bottom:12px;">When state health department surveyors conduct unannounced facility inspections, memory care programming is closely evaluated. Cognicopia ensures immediate audit readiness:</p>
+      <ul style="padding-left: 20px; margin: 0;">
+        <li style="margin-bottom: 6px;"><strong>Person-Centered Evidence:</strong> Completed activity sheets show individualized prompts matching admission life histories.</li>
+        <li style="margin-bottom: 6px;"><strong>Non-Infantilizing Verification:</strong> Adult botanical motifs confirm compliance with dignity preservation standards.</li>
+        <li style="margin-bottom: 6px;"><strong>Charted Intervention Records:</strong> Dated sheets fit directly into resident activity charting binders.</li>
+      </ul>
+    </div>
+
+    <!-- Formal Verification & Quality Assurance Statement -->
+    <section class="standards-guarantee-box" aria-label="Formal Verification & Quality Assurance Statement">
+      <div class="standards-guarantee-seal-wrap">
+        <svg class="standards-seal-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cognicopia Institutional Quality Seal">
+          <circle cx="50" cy="50" r="46" stroke="#52b788" stroke-width="2" stroke-dasharray="4 2"/>
+          <circle cx="50" cy="50" r="41" fill="#143d2b" stroke="#74c69d" stroke-width="2.5"/>
+          <path d="M50 18 L58 34 L76 36 L62 48 L66 66 L50 56 L34 66 L38 48 L24 36 L42 34 Z" fill="#2d6a4f" stroke="#e9c46a" stroke-width="1.8"/>
+          <circle cx="50" cy="46" r="16" fill="#1b4332" stroke="#52b788" stroke-width="1.5"/>
+          <path d="M43 46 L48 51 L58 40" stroke="#74c69d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="50" y="79" fill="#ffffff" font-size="7.5" font-family="sans-serif" font-weight="bold" text-anchor="middle" letter-spacing="0.1em">INSTITUTIONAL</text>
+          <text x="50" y="87" fill="#ffffff" font-size="6.5" font-family="sans-serif" font-weight="bold" text-anchor="middle" letter-spacing="0.1em">STANDARDS</text>
+        </svg>
+        <div class="standards-seal-caption">Publisher Quality Guarantee</div>
+      </div>
+      <div class="standards-guarantee-content">
+        <h3>The Cognicopia Professional Quality Guarantee &amp; Publishing Integrity Statement</h3>
+        <p>Every Cognicopia resource is backed by our direct publisher commitment to clinical dignity, print precision, and responsive facility support. Curated, tested, and published under independent publisher <strong>Kirk Barron</strong> in Minot, North Dakota, all materials adhere to strict Amazon KDP physical durability standards and high-volume commercial copier feed specifications. If any activity packet fails to engage your residents or meet your facility&rsquo;s clinical requirements, we provide immediate custom adaptations or a full institutional refund. Activity Directors and care administrators can reach Kirk Barron directly at <a href="mailto:cognicopia@outlook.com" style="color:#ffffff; text-decoration:underline; font-weight:700;">cognicopia@outlook.com</a>.</p>
+        
+        <div class="standards-guarantee-points">
+          <div class="standards-point-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Clinical Usability &bull; Adult Dignity Assured</span>
+          </div>
+          <div class="standards-point-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>High-Speed Copier &bull; 0.65" Gutter Certified</span>
+          </div>
+          <div class="standards-point-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>100% Client-Side Privacy &bull; Zero PHI Retention</span>
+          </div>
+          <div class="standards-point-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Direct Support: <a href="mailto:cognicopia@outlook.com">cognicopia@outlook.com</a></span>
+          </div>
+        </div>
+
+        <div class="standards-cta-actions">
+          <a href="mailto:cognicopia@outlook.com?subject=Institutional+Standards+Inquiry" class="btn-pillar-primary" style="min-height: 48px; padding: 14px 24px; font-size: 16px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Email Publisher Kirk Barron (cognicopia@outlook.com)</span>
+          </a>
+          <a href="resources.html" class="btn-pillar-secondary" style="min-height: 48px; padding: 14px 22px; font-size: 16px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span>Explore Master Resource Catalog</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions & Return to Home -->
+    <section class="standards-bottom-cta">
+      <h2>Implement Institutional Standards in Your Facility</h2>
+      <p style="max-width: 62ch; margin: 0 auto; font-size: 16.5px;">Generate tailored, copier-ready activity packets right inside your browser, or connect directly with our publishing desk.</p>
+      
+      <div class="cta-button-group">
+        <a href="index.html#f" class="btn-cta-main">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          <span>Launch In-Browser Generator (Home)</span>
+        </a>
+        <a href="resources.html" class="btn-cta-alt">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>View Master Resource Catalog</span>
+        </a>
+        <a href="contact.html?subject=Institutional+Standards+Inquiry" class="btn-cta-alt">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>Contact Publisher Kirk Barron</span>
+        </a>
+        <a href="index.html" class="back-home-btn" style="min-height: 48px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Return to Homepage</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    Cognicopia is published by Kirk Barron in Minot, North Dakota. Everything runs securely inside your browser with zero cloud tracking.
+  </footer>
+
+</body>
+</html>
