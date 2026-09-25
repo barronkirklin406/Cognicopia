@@ -46,7 +46,9 @@ const pageRoutes = [
   'life-planners',
   'clinical-alignment',
   'high-volume-facilities',
-  'publishing-excellence'
+  'publishing-excellence',
+  'institutional-standards',
+  'resources'
 ];
 pageRoutes.forEach(route => {
   app.get(`/${route}`, (req, res) => {
