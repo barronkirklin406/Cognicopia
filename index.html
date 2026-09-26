@@ -658,10 +658,11 @@ footer{border-top:1px solid var(--rule-soft);margin-top:80px;padding-top:24px;
 .accessibility-panel{margin:22px 0 0;padding:18px 20px;
   border:2px solid var(--rule);background:var(--field)}
 .accessibility-panel h2{font-family:var(--display);font-size:21px;margin:0 0 12px}
-.accessibility-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.accessibility-option{display:flex;align-items:flex-start;gap:10px;margin:0;
-  padding:14px 16px;border:1px solid var(--rule);background:var(--field);cursor:pointer;min-height:48px}
-.accessibility-option input{width:20px;height:20px;flex:none;margin:2px 0 0;accent-color:var(--garden)}
+.accessibility-options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.accessibility-option{display:flex;align-items:flex-start;gap:14px;margin:0;
+  padding:16px 18px;border:1px solid var(--rule);background:var(--field);cursor:pointer;min-height:52px}
+.accessibility-content{flex:1;min-width:0;display:flex;flex-direction:column}
+.accessibility-label{display:block;cursor:pointer;margin:0;user-select:none}
 .accessibility-option span{font-size:16px;line-height:1.55;color:#ffffff !important}
 .accessibility-option b{display:block;font-size:17.5px;color:#ffffff !important}
 body.extra-large-print{font-size:20px}
@@ -720,39 +721,105 @@ body.simplified-layout fieldset{margin-bottom:30px}
 .level,.pick,.accessibility-option{border-radius:16px}
 input[type=text],input[type=number],select,.unlock input{border-radius:12px}
 button,.addbtn,.tools button,.gate .buy{border-radius:12px}
-.pick input,.accessibility-option input{
-  appearance:none;width:48px;height:28px;flex:none;margin:2px 0 0;
-  border:2px solid #9BB5B8;border-radius:999px;background:#D9E5E6;
-  position:relative;cursor:pointer;transition:background .15s,border-color .15s;
+/* ---- Standardized Encapsulated Switch Component ---- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  flex: none;
+  flex-shrink: 0;
+  margin: 2px 0 0 0;
+  cursor: pointer;
+  box-sizing: border-box;
 }
-.pick input::after,.accessibility-option input::after{
-  content:"";position:absolute;width:20px;height:20px;top:2px;left:2px;
-  border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(32,52,58,.25);
-  transition:transform .15s;
+
+/* Hide native checkbox input while keeping it accessible and focusable */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
 }
-.pick input:checked,.accessibility-option input:checked{
-  background:var(--garden);border-color:var(--garden-dark)
+
+/* Styled visual pill-shaped track */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 52px;
+  height: 28px;
+  background-color: #264e3c;
+  border: 2px solid rgba(216, 243, 220, 0.45);
+  border-radius: 34px;
+  transition: 0.4s ease;
+  box-sizing: border-box;
 }
-.pick input:checked::after,.accessibility-option input:checked::after{
-  transform:translateX(20px)
+
+/* Encapsulated inner thumb circle */
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
 }
-.pick input:focus-visible,.accessibility-option input:focus-visible{
-  outline:3px solid var(--gold);outline-offset:3px
+
+/* Checked state: pill track switches to vibrant high-contrast accent green */
+.switch input:checked + .slider {
+  background-color: #40916c;
+  border-color: #ffffff;
+  box-shadow: 0 0 8px rgba(82, 183, 136, 0.45);
 }
+
+/* Checked state: thumb slides precisely to the opposite end, fully contained */
+.switch input:checked + .slider::before {
+  transform: translateX(24px);
+  background-color: #ffffff;
+}
+
+/* Accessible focus ring */
+.switch input:focus-visible + .slider {
+  outline: 3px solid var(--gold, #ffb703);
+  outline-offset: 3px;
+}
+
+.switch:hover .slider {
+  border-color: #52b788;
+}
+
 .pick:has(input:checked),.accessibility-option:has(input:checked){
   border-color:var(--garden);background:var(--tint)
 }
-.high-contrast-mode .pick input,.high-contrast-mode .accessibility-option input{
-  background:#fff;border-color:#000
+
+/* High Contrast Mode overrides */
+.high-contrast-mode .switch .slider {
+  background-color: #ffffff !important;
+  border: 2px solid #000000 !important;
 }
-.high-contrast-mode .pick input:checked,.high-contrast-mode .accessibility-option input:checked{
-  background:#000;border-color:#000
+.high-contrast-mode .switch input:checked + .slider {
+  background-color: #000000 !important;
+  border: 2px solid #000000 !important;
 }
-.high-contrast-mode .pick input::after,.high-contrast-mode .accessibility-option input::after{
-  background:#000;box-shadow:none
+.high-contrast-mode .switch .slider::before {
+  background-color: #000000 !important;
+  box-shadow: none !important;
 }
-.high-contrast-mode .pick input:checked::after,
-.high-contrast-mode .accessibility-option input:checked::after{background:#fff}
+.high-contrast-mode .switch input:checked + .slider::before {
+  background-color: #ffffff !important;
+}
 body{
   background-color:#1B4332;
   background-image:
@@ -848,38 +915,57 @@ select:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(8, 28, 21, 0.94);
-  border-bottom: 2px solid rgba(216, 243, 220, 0.25);
-  padding: 12px 36px;
+  background-color: #e6f4f1;
+  background: rgba(230, 244, 241, 0.98);
+  border-bottom: 2px solid rgba(26, 46, 34, 0.16);
+  box-shadow: 0 2px 12px rgba(14, 43, 30, 0.07);
+  padding: 10px 36px;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
 
+.nav-brand {
+  display: flex;
+  align-items: center;
+}
+
 .nav-brand a,
+.nav-brand-logo,
 .nav-links > li > a {
   font-family: inherit;
 }
 
-.nav-brand a {
+.nav-brand a,
+.nav-brand-logo {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #ffffff !important;
+  color: #1a2e22 !important;
   font-size: 20px;
   font-weight: 700;
   text-decoration: none;
   min-height: 48px;
   min-width: 48px;
-  padding: 4px 8px;
-  border-radius: 6px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
+.nav-brand a:hover,
+.nav-brand-logo:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.nav-brand img,
+.nav-brand-logo img,
 .nav-logo {
   display: block;
-  width: 40px;
-  height: 32px;
-  flex: none;
+  height: 40px;
+  max-height: 45px;
+  width: auto;
   object-fit: contain;
+  border-radius: 4px;
 }
 
 .nav-links {
@@ -892,23 +978,23 @@ select:focus-visible {
 }
 
 .nav-links > li > a {
-  color: #ffffff !important;
+  color: #1a2e22 !important;
   font-size: 16px !important;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   min-height: 48px;
   min-width: 48px;
-  padding: 12px 18px;
+  padding: 10px 18px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  transition: background 0.15s ease, color 0.15s ease;
+  border-radius: 8px;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease;
 }
 
 .nav-links > li > a:hover {
-  background: rgba(82, 183, 136, 0.22);
-  color: #ffffff !important;
+  background: rgba(26, 46, 34, 0.1);
+  color: #081c15 !important;
 }
 
 .dropdown {
@@ -935,24 +1021,24 @@ select:focus-visible {
   gap: 8px;
   background: transparent;
   border: 1.5px solid transparent;
-  color: #ffffff !important;
+  color: #1a2e22 !important;
   font-family: inherit;
   font-size: 16px !important;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   min-height: 48px;
   min-width: 48px;
-  padding: 12px 18px;
+  padding: 10px 18px;
   border-radius: 8px;
-  transition: background 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.15s ease;
 }
 
 .dropbtn:hover,
 .dropdown:hover .dropbtn,
 .dropdown.is-open .dropbtn {
-  background: rgba(82, 183, 136, 0.25);
-  border-color: rgba(216, 243, 220, 0.35);
-  color: #ffffff !important;
+  background: rgba(26, 46, 34, 0.1);
+  border-color: rgba(26, 46, 34, 0.22);
+  color: #081c15 !important;
 }
 
 .chevron {
@@ -960,13 +1046,14 @@ select:focus-visible {
   font-size: 13px;
   line-height: 1;
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  color: #74c69d !important;
+  color: #1a2e22 !important;
 }
 
 .dropdown:hover .chevron,
 .dropdown:focus-within .chevron,
 .dropdown.is-open .chevron {
   transform: rotate(180deg);
+  color: #081c15 !important;
 }
 
 .dropdown-content,
@@ -3160,7 +3247,7 @@ button#go:hover {
   <!-- Tech-Modern SaaS Navigation Bar -->
   <nav class="navbar" aria-label="Main Navigation">
     <div class="nav-brand">
-      <a href="index.html" aria-label="Cognicopia Home"><img src="assets/cognicopia-logo.jpg" alt="Cognicopia Logo" class="nav-logo"><span>Cognicopia</span></a>
+      <a href="index.html" class="nav-brand-logo" aria-label="Cognicopia Home"><img src="Cognicopia Logo.jpg" alt="Cognicopia Logo" class="nav-logo" onerror="this.onerror=null;this.src='assets/cognicopia-logo.jpg';"></a>
     </div>
     <ul class="nav-links" role="menubar">
       <li role="none"><a href="index.html" role="menuitem">Home (Tool)</a></li>
@@ -4263,18 +4350,42 @@ button#go:hover {
     <section class="accessibility-panel" aria-labelledby="accessibilityTitle">
       <h2 id="accessibilityTitle">Visual accessibility</h2>
       <div class="accessibility-options">
-        <label class="accessibility-option" for="highContrastMode">
-          <input type="checkbox" id="highContrastMode" role="switch" aria-label="High Contrast Mode: Pure black and white">
-          <span><b>High Contrast Mode</b>Pure black and white.</span>
-        </label>
-        <label class="accessibility-option" for="extraLargePrint">
-          <input type="checkbox" id="extraLargePrint" role="switch" aria-label="Extra-Large Print: Boosted text and controls">
-          <span><b>Extra-Large Print</b>Boosted text and controls.</span>
-        </label>
-        <label class="accessibility-option" for="simplifiedLayout">
-          <input type="checkbox" id="simplifiedLayout" role="switch" aria-label="Simplified Layout: Reduced visual clutter">
-          <span><b>Simplified Layout</b>Reduced visual clutter.</span>
-        </label>
+        <div class="accessibility-option">
+          <label class="switch" for="highContrastMode">
+            <input type="checkbox" id="highContrastMode" role="switch" aria-label="High Contrast Mode: Pure black and white">
+            <span class="slider"></span>
+          </label>
+          <div class="accessibility-content">
+            <label for="highContrastMode" class="accessibility-label">
+              <b>High Contrast Mode</b>
+              <span>Pure black and white.</span>
+            </label>
+          </div>
+        </div>
+        <div class="accessibility-option">
+          <label class="switch" for="extraLargePrint">
+            <input type="checkbox" id="extraLargePrint" role="switch" aria-label="Extra-Large Print: Boosted text and controls">
+            <span class="slider"></span>
+          </label>
+          <div class="accessibility-content">
+            <label for="extraLargePrint" class="accessibility-label">
+              <b>Extra-Large Print</b>
+              <span>Boosted text and controls.</span>
+            </label>
+          </div>
+        </div>
+        <div class="accessibility-option">
+          <label class="switch" for="simplifiedLayout">
+            <input type="checkbox" id="simplifiedLayout" role="switch" aria-label="Simplified Layout: Reduced visual clutter">
+            <span class="slider"></span>
+          </label>
+          <div class="accessibility-content">
+            <label for="simplifiedLayout" class="accessibility-label">
+              <b>Simplified Layout</b>
+              <span>Reduced visual clutter.</span>
+            </label>
+          </div>
+        </div>
       </div>
     </section>
   </fieldset>
@@ -4383,24 +4494,6 @@ button#go:hover {
       <button type="button" id="noneAct">Clear all</button>
     </div>
     <div class="picks" id="acts"></div>
-    <div class="field" style="max-width:280px;margin-top:20px">
-      <label for="targetPages">Target workbook pages
-        <span class="sub">Includes the cover page</span></label>
-      <input type="number" id="targetPages" min="2" max="30" value="4"
-             aria-describedby="targetPagesHint">
-      <p class="hint" id="targetPagesHint">This sets the core modules and sections.
-        Each one expands into the full printable layout; for example, 4 can produce
-        a comprehensive workbook of about 26 printed pages.</p>
-    </div>
-    <p class="subhead">Workbook export activities</p>
-    <div class="picks" id="workbookActivities">
-      <label class="pick" for="wb-word-search"><input type="checkbox" id="wb-word-search" class="workbook-activity"
-        value="word_search" checked aria-label="Workbook activity Word Search: Names, places, and favorite words"><span><b>Word Search</b><span>Names, places, and favorite words.</span></span></label>
-      <label class="pick" for="wb-number-match"><input type="checkbox" id="wb-number-match" class="workbook-activity"
-        value="number_match" checked aria-label="Workbook activity Number Match: Simple number and quantity matching"><span><b>Number Match</b><span>Simple number and quantity matching.</span></span></label>
-      <label class="pick" for="wb-reminiscence"><input type="checkbox" id="wb-reminiscence" class="workbook-activity"
-        value="reminiscence_prompts" checked aria-label="Workbook activity Reminiscence Prompts: Conversation prompts drawn from their life"><span><b>Reminiscence Prompts</b><span>Conversation prompts drawn from their life.</span></span></label>
-    </div>
   </fieldset>
 
   <fieldset>
@@ -8987,9 +9080,11 @@ function buildPacket(r){
   staffPage(D,r,sel);
   keyPage(D,key,theme);
 
-  const targetPages=Math.max(2,Math.min(30,parseInt(r.targetPages,10)||4));
-  while(D.d.getNumberOfPages()>targetPages)
-    D.d.deletePage(D.d.getNumberOfPages());
+  if(r.targetPages){
+    const targetPages=Math.max(2,Math.min(30,parseInt(r.targetPages,10)||30));
+    while(D.d.getNumberOfPages()>targetPages)
+      D.d.deletePage(D.d.getNumberOfPages());
+  }
 
   const stamp=new Date().toISOString().slice(0,10);
   const slug=(r.first+"_"+r.last).replace(/[^A-Za-z0-9_]/g,"")||"Resident";
@@ -9267,11 +9362,7 @@ function collectProfile(){
   const st=document.querySelector('input[name="stage"]:checked');
   out.stage = st ? st.value : "early";
   out.crew=collectCrew();
-  out.packetPreferences={
-    targetPages:Math.max(2,Math.min(30,parseInt($("targetPages").value,10)||4)),
-    selectedActivities:[...document.querySelectorAll(".workbook-activity:checked")]
-      .map(input=>input.value)
-  };
+  out.packetPreferences={};
   out.accessibility={
     highContrast:$("highContrastMode").checked,
     extraLargePrint:$("extraLargePrint").checked,
@@ -9281,9 +9372,6 @@ function collectProfile(){
 }
 
 function exportPayload(){
-  const selectedActivities=[...document.querySelectorAll(".workbook-activity:checked")]
-    .map(input=>input.value);
-  const requestedPages=Math.max(2,Math.min(30,parseInt($("targetPages").value,10)||4));
   const accessibility={
     highContrast:$("highContrastMode").checked,
     extraLargePrint:$("extraLargePrint").checked,
@@ -9297,11 +9385,7 @@ function exportPayload(){
     exportedAt:new Date().toISOString(),
     profile:collectProfile(),
     accessibility,
-    institutional,
-    packetPreferences:{
-      targetPages:requestedPages,
-      selectedActivities
-    }
+    institutional
   };
   const json=JSON.stringify(payload,null,2);
   const blob=new Blob([json],{type:"application/json"});
@@ -9325,6 +9409,17 @@ function applyAccessibilityPreset(){
   $(id).addEventListener("change",applyAccessibilityPreset);
 });
 
+document.querySelectorAll(".accessibility-option").forEach(card=>{
+  card.addEventListener("click", e=>{
+    if(e.target.closest("label, input")) return;
+    const input=card.querySelector("input[type=checkbox]");
+    if(input){
+      input.checked=!input.checked;
+      input.dispatchEvent(new Event("change"));
+    }
+  });
+});
+
 function applyProfile(p){
   if(!p || typeof p!=="object" || !p.fields || typeof p.fields!=="object" || Array.isArray(p.fields))
     throw new Error("not a resident file");
@@ -9343,13 +9438,6 @@ function applyProfile(p){
   }
   const packetPreferences=p.packetPreferences&&typeof p.packetPreferences==="object"
     ? p.packetPreferences : {};
-  if(packetPreferences.targetPages!=null) $("targetPages").value=
-    Math.max(2,Math.min(30,parseInt(packetPreferences.targetPages,10)||4));
-  if(Array.isArray(packetPreferences.selectedActivities)){
-    document.querySelectorAll(".workbook-activity").forEach(input=>{
-      input.checked=packetPreferences.selectedActivities.includes(input.value);
-    });
-  }
   const accessibility=p.accessibility&&typeof p.accessibility==="object"
     ? p.accessibility : {};
   if(typeof accessibility.highContrast==="boolean") $("highContrastMode").checked=accessibility.highContrast;
@@ -9711,8 +9799,10 @@ function runsUsed(){ return genCount(); }
 
 function estimatePages(){
   const el=$("pageEst"); if(!el) return;
-  const targetPages=Math.max(2,Math.min(30,parseInt($("targetPages").value,10)||4));
-  el.textContent="Workbook: "+targetPages+" pages when you print it.";
+  const actsCount=document.querySelectorAll(".act:checked").length;
+  const holsCount=document.querySelectorAll(".hol:checked").length;
+  const total=1 + actsCount + holsCount + 2;
+  el.textContent="Packet: "+total+" pages when you print it.";
 }
 /* Late stage: the crossword and the halves-matching page are where the
    evidence is thinnest and comprehension most likely to fail, so they
@@ -9868,7 +9958,6 @@ $("f").addEventListener("submit", e=>{
   const born=parseInt($("born").value,10);
   const acts=collectActs();
   const holidays=collectHolidays();
-  const workbookActivities=document.querySelectorAll(".workbook-activity:checked");
 
   if(!first){
     err.textContent="Add a first name so the packet knows who it's for.";
@@ -9883,8 +9972,8 @@ $("f").addEventListener("submit", e=>{
     err.textContent="Add a year of birth between 1900 and "+maxBorn+". It sets the era on the memories page.";
     err.style.display="block"; $("born").focus(); return;
   }
-  if(!Object.keys(acts).length && !holidays.length && !workbookActivities.length){
-    err.textContent="Pick at least one page in section 5, or tick a holiday in section 6.";
+  if(!Object.keys(acts).length && !holidays.length){
+    err.textContent="Pick at least one page in section 6, or tick a holiday in section 7.";
     err.style.display="block"; $("acts").scrollIntoView({block:"center"}); return;
   }
 
@@ -9905,7 +9994,6 @@ $("f").addEventListener("submit", e=>{
     firstcar:$("firstcar").value.trim(), firstjob:$("firstjob").value.trim(),
     sibs:splitList($("sibs").value),
     crew:collectCrew(), acts, holidays,
-    targetPages:Math.max(2,Math.min(30,parseInt($("targetPages").value,10)||4)),
     fac:$("fac").value.trim(),
     month:$("month").value.trim()||monthNow()
   };
