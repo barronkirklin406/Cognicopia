@@ -48,28 +48,196 @@
     .nav-links { display: flex; gap: 30px; align-items: center; list-style: none; margin: 0; padding: 0; }
     .nav-links > li > a { color: #e8f5e9; font-size: 10.5pt; text-decoration: none; }
     .nav-links a:hover { color: #d8f3dc; }
+    /* --- Categorized Resources Dropdown --- */
     .dropdown { position: relative; }
-    .dropbtn { display: flex; align-items: center; gap: 4px; }
+    .dropbtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      color: #ffffff !important;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 16px !important;
+      min-height: 48px;
+      min-width: 48px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .dropbtn:hover,
+    .dropdown:hover .dropbtn,
+    .dropdown.is-open .dropbtn {
+      background: rgba(82, 183, 136, 0.25);
+      border-color: rgba(216, 243, 220, 0.35);
+      color: #ffffff !important;
+    }
+    .chevron {
+      display: inline-block;
+      font-size: 13px;
+      line-height: 1;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      color: #74c69d !important;
+    }
+    .dropdown:hover .chevron,
+    .dropdown:focus-within .chevron,
+    .dropdown.is-open .chevron {
+      transform: rotate(180deg);
+    }
     .dropdown-content {
       position: absolute;
-      top: calc(100% + 10px);
+      top: calc(100% + 8px);
       right: 0;
       left: auto;
-      z-index: 100;
+      z-index: 1000;
       display: none;
-      min-width: 220px;
-      padding: 6px;
-      background: rgba(20,61,43,.96);
-      border: 1px solid rgba(216,243,220,.2);
-      border-radius: 8px;
-      box-shadow: 0 18px 36px rgba(0,0,0,.32);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      width: 760px;
+      max-width: calc(100vw - 28px);
+      max-height: calc(100vh - 84px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 20px 22px 16px;
+      background: rgba(10, 36, 25, 0.98);
+      border: 2px solid rgba(216, 243, 220, 0.45);
+      border-radius: 14px;
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(82, 183, 136, 0.28);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
-    .dropdown:hover .dropdown-content { display: block; }
-    .dropdown-content::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
-    .dropdown-content a { display: block; padding: 10px 14px; color: #e8f5e9; font-size: 10pt; text-decoration: none; border-radius: 6px; white-space: nowrap; }
-    .dropdown-content a:hover { background: rgba(82,183,136,.2); color: #d8f3dc; }
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content,
+    .dropdown.is-open .dropdown-content { display: block !important; }
+    .dropdown-content::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -12px;
+      height: 12px;
+    }
+    .dropdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px 20px;
+    }
+    .dropdown-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .dropdown-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 8px 10px;
+      margin-bottom: 8px;
+      border-bottom: 1.5px solid rgba(116, 198, 157, 0.35);
+      color: #95d5b2 !important;
+      font-size: 13px !important;
+      font-weight: 800 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      user-select: none;
+      cursor: default;
+      line-height: 1.3;
+    }
+    .dropdown-header svg {
+      flex-shrink: 0;
+      stroke: #74c69d;
+      color: #74c69d;
+    }
+    .dropdown-header span {
+      color: #95d5b2 !important;
+    }
+    .dropdown-links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .dropdown-content a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 10px 12px;
+      color: #ffffff !important;
+      font-size: 15px !important;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      line-height: 1.35;
+      white-space: normal;
+      border: 1.5px solid transparent;
+      background: transparent;
+      transition: background 0.16s ease, border-color 0.16s ease, transform 0.14s ease, color 0.16s ease;
+      box-sizing: border-box;
+    }
+    .dropdown-content a:hover,
+    .dropdown-content a:focus {
+      background: rgba(82, 183, 136, 0.3) !important;
+      border-color: rgba(216, 243, 220, 0.45) !important;
+      color: #ffffff !important;
+      transform: translateX(3px);
+    }
+    .dropdown-content a:focus-visible {
+      outline: 2px solid #ffffff !important;
+      outline-offset: 1px !important;
+    }
+    .dropdown-link-bullet {
+      color: #74c69d !important;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1;
+      opacity: 0.85;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      flex-shrink: 0;
+    }
+    .dropdown-content a:hover .dropdown-link-bullet,
+    .dropdown-content a:focus .dropdown-link-bullet {
+      transform: translateX(2px);
+      opacity: 1;
+      color: #ffffff !important;
+    }
+    .dropdown-footer {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(216, 243, 220, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .dropdown-footer-label {
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #b7e4c7 !important;
+      margin-right: auto;
+    }
+    .dropdown-footer a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 42px;
+      padding: 8px 16px;
+      font-size: 14.5px !important;
+      font-weight: 600;
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(216, 243, 220, 0.35);
+      border-radius: 8px;
+      transform: none !important;
+    }
+    .dropdown-footer a:hover,
+    .dropdown-footer a:focus {
+      background: rgba(82, 183, 136, 0.35) !important;
+      border-color: #ffffff !important;
+      color: #ffffff !important;
+      transform: translateY(-1px) !important;
+    }
     .container {
       width: min(900px, calc(100% - 28px));
       margin: 40px auto;
@@ -107,33 +275,130 @@
     .references li { margin: 0 0 16px; padding-left: 6px; }
     .references li:last-child { margin-bottom: 0; }
     .site-footer { max-width: 900px; margin: 0 auto 32px; padding: 0 20px; color: #ffffff; text-align: center; font-size: .9rem; }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .navbar { flex-wrap: wrap; gap: 8px; padding: 12px 20px; }
       .nav-links { width: 100%; justify-content: flex-end; gap: 14px; }
       .nav-links a { font-size: 9.5pt; }
       .container { margin: 24px auto; padding: 26px 20px 34px; }
+      .dropdown-content {
+        position: fixed;
+        top: 64px;
+        left: 14px;
+        right: 14px;
+        width: auto;
+        max-width: none;
+        max-height: calc(100vh - 80px);
+      }
+      .dropdown-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .dropdown-footer {
+        justify-content: stretch;
+      }
+      .dropdown-footer a {
+        flex: 1;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar" aria-label="Primary navigation">
-    <div class="nav-brand"><a href="index.html"><img src="assets/cognicopia-logo.jpg" alt="Cognicopia Logo" class="nav-logo"><span>Cognicopia</span></a></div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home (Tool)</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropbtn">Resources <span class="chevron">&#9662;</span></a>
-        <div class="dropdown-content">
-          <a href="about.html">About Platform</a>
-          <a href="features.html">Feature Guide</a>
-          <a href="therapy.html">Reminiscence Science</a>
-          <a href="clinical-alignment.html">Clinical Alignment</a>
-          <a href="high-volume-facilities.html">High-Volume Facilities</a>
-          <a href="publishing-excellence.html">Publishing Excellence</a>
-          <a href="zentangle-art.html">Zentangle Art Series</a>
-          <a href="cognitive-journals.html">Cognitive Journals</a>
-          <a href="life-planners.html">12-Month Planners</a>
-          <a href="faq.html">Caregiver FAQ</a>
-          <a href="contact.html">Contact</a>
+  <nav class="navbar" aria-label="Main Navigation">
+    <div class="nav-brand"><a href="index.html" aria-label="Cognicopia Home"><img src="assets/cognicopia-logo.jpg" alt="Cognicopia Logo" class="nav-logo"><span>Cognicopia</span></a></div>
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a href="index.html" role="menuitem">Home (Tool)</a></li>
+      <li class="dropdown" role="none">
+        <button type="button" class="dropbtn" id="resourcesDropdownBtn" aria-expanded="false" aria-haspopup="true" aria-controls="resources-dropdown-menu">Resources <span class="chevron" aria-hidden="true">▾</span></button>
+        <div class="dropdown-content" id="resources-dropdown-menu" role="menu" aria-labelledby="resourcesDropdownBtn">
+          <div class="dropdown-grid">
+            <!-- Category 1: Creative & Cognitive Tools -->
+            <div class="dropdown-group" role="group" aria-labelledby="cat-creative">
+              <div class="dropdown-header" id="cat-creative">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                <span>Creative &amp; Cognitive Tools</span>
+              </div>
+              <div class="dropdown-links-list">
+                <a href="resources.html" role="menuitem">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>Master Resource Catalog</span>
+                </a>
+                <a href="zentangle-art.html" role="menuitem">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>Zentangle Botanical Art</span>
+                </a>
+                <a href="therapy.html" role="menuitem" style="font-weight:700; background:rgba(82,183,136,0.24);">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>Reminiscence Science</span>
+                </a>
+                <a href="features.html" role="menuitem">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>Activity Feature Guide</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Category 2: Journals & Organizers -->
+            <div class="dropdown-group" role="group" aria-labelledby="cat-journals">
+              <div class="dropdown-header" id="cat-journals">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <span>Journals &amp; Organizers</span>
+              </div>
+              <div class="dropdown-links-list">
+                <a href="cognitive-journals.html" role="menuitem">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>Cognitive Life Journals</span>
+                </a>
+                <a href="life-planners.html" role="menuitem">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>12-Month Life Planners</span>
+                </a>
+                <a href="about.html" role="menuitem">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>Platform &amp; Mission Overview</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Category 3: Institutional Standards -->
+            <div class="dropdown-group" role="group" aria-labelledby="cat-standards">
+              <div class="dropdown-header" id="cat-standards">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>Institutional Standards</span>
+              </div>
+              <div class="dropdown-links-list">
+                <a href="institutional-standards.html" role="menuitem">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>Quality Standards Hub</span>
+                </a>
+                <a href="clinical-alignment.html" role="menuitem">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>Clinical Alignment</span>
+                </a>
+                <a href="high-volume-facilities.html" role="menuitem">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>High-Volume Facilities</span>
+                </a>
+                <a href="publishing-excellence.html" role="menuitem">
+                  <span class="dropdown-link-bullet" aria-hidden="true">›</span>
+                  <span>Publishing Excellence</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Utility Row for Support & Inquiries -->
+          <div class="dropdown-footer" role="group" aria-label="Support and Quick Links">
+            <span class="dropdown-footer-label">Facility Support:</span>
+            <a href="faq.html" role="menuitem">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              <span>Caregiver FAQ</span>
+            </a>
+            <a href="contact.html" role="menuitem">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>Contact Kirk Barron</span>
+            </a>
+          </div>
         </div>
       </li>
     </ul>
